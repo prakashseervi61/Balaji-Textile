@@ -201,9 +201,10 @@ button:focus-visible,
   cursor: pointer;
   font-family: var(--font-body);
   border-radius: var(--radius);
-  transition: transform 0.3s ease, border-color 0.2s ease;
-  min-width: 44px;
-  min-height: 44px;
+  transition: border-color 0.2s ease;
+  min-width: 48px;
+  min-height: 48px;
+  z-index: 210;
 }
 
 .nav-toggle:hover {
@@ -215,13 +216,14 @@ button:focus-visible,
 }
 
 .nav-toggle.is-open {
-  transform: rotate(90deg);
+  border-color: var(--color-maroon-dark);
 }
 
 .nav-toggle.is-open::before {
   content: "\00D7"; /* Close symbol (×) */
-  font-size: 24px;
+  font-size: 28px;
   line-height: 1;
+  font-weight: bold;
 }
 
 .nav-toggle::before {
@@ -242,10 +244,30 @@ button:focus-visible,
   transition: transform 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   z-index: 200;
   box-shadow: -2px 0 12px rgba(0,0,0,0.15);
+  padding-top: 16px;
 }
 
 .main-nav.is-open {
   transform: translateX(0);
+}
+
+.nav-close {
+  position: absolute;
+  top: 10px;
+  right: 14px;
+  background: none;
+  border: none;
+  color: var(--color-white);
+  font-size: 28px;
+  font-weight: bold;
+  line-height: 1;
+  cursor: pointer;
+  padding: 4px;
+  z-index: 210;
+}
+
+.nav-close:hover {
+  color: var(--color-tint);
 }
 
 .main-nav ul {

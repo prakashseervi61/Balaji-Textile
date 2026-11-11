@@ -55,6 +55,12 @@
       });
     });
 
+    // Close menu via close button inside nav
+    var closeBtn = nav.querySelector(".nav-close");
+    if (closeBtn) {
+      closeBtn.addEventListener("click", closeMenu);
+    }
+
     // Escape key closes menu
     document.addEventListener("keydown", function (e) {
       if (e.key === "Escape" && nav.classList.contains("is-open")) {
