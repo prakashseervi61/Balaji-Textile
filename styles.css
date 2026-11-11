@@ -357,6 +357,24 @@ button:focus-visible,
   color: var(--color-white);
   padding: var(--spacing-xl) var(--spacing-md);
   max-width: 720px;
+  animation: heroFadeIn 0.8s ease-out;
+}
+
+@keyframes heroFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-content {
+    animation: none;
+  }
 }
 
 .hero-tagline {
