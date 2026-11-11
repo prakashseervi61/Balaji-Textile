@@ -192,43 +192,47 @@ button:focus-visible,
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  background: none;
+  background: var(--color-cream);
   border: 2px solid var(--color-maroon);
   color: var(--color-maroon);
   padding: 10px;
-  font-size: 24px;
+  font-size: 26px;
   line-height: 1;
   cursor: pointer;
   font-family: var(--font-body);
   border-radius: var(--radius);
-  transition: border-color 0.2s ease;
-  min-width: 48px;
-  min-height: 48px;
+  transition: all 0.2s ease;
+  min-width: 52px;
+  min-height: 52px;
   z-index: 210;
+  position: relative;
 }
 
 .nav-toggle:hover {
   border-color: var(--color-maroon-dark);
+  background: var(--color-tint);
 }
 
 .nav-toggle:focus {
-  outline: 2px solid var(--color-gold);
+  outline: 3px solid var(--color-gold);
 }
 
 .nav-toggle.is-open {
-  border-color: var(--color-maroon-dark);
+  border-color: var(--color-gold);
+  background: var(--color-gold);
+  color: var(--color-white);
 }
 
 .nav-toggle.is-open::before {
   content: "\00D7"; /* Close symbol (×) */
-  font-size: 28px;
+  font-size: 30px;
   line-height: 1;
   font-weight: bold;
 }
 
 .nav-toggle::before {
   content: "\2630"; /* Hamburger icon */
-  font-size: 24px;
+  font-size: 26px;
   line-height: 1;
 }
 
@@ -253,29 +257,29 @@ button:focus-visible,
 
 .nav-close {
   position: absolute;
-  top: 14px;
-  right: 14px;
-  background: var(--color-maroon-dark);
-  border: 2px solid var(--color-white);
-  color: var(--color-white);
-  font-size: 32px;
+  top: 16px;
+  right: 16px;
+  background: var(--color-gold);
+  border: 2px solid var(--color-maroon-dark);
+  color: var(--color-maroon-dark);
+  font-size: 30px;
   font-weight: bold;
   line-height: 1;
   cursor: pointer;
-  width: 48px;
-  height: 48px;
+  width: 52px;
+  height: 52px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   z-index: 210;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+  box-shadow: 0 3px 10px rgba(0,0,0,0.3);
 }
 
 .nav-close:hover {
-  background: var(--color-gold);
+  background: var(--color-maroon-dark);
   color: var(--color-white);
-  border-color: var(--color-white);
+  border-color: var(--color-gold);
 }
 
 .main-nav ul {
