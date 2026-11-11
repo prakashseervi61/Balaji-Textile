@@ -5,3 +5,10 @@ node_modules/
 *.log
 dist/
 build/
+# QA / testing artifacts (not part of the website)
+package.json
+package-lock.json
+qa-*.js
+qa-*.json
+qa-screenshots/
+server.log
