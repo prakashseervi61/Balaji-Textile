@@ -189,17 +189,25 @@ button:focus-visible,
 
 /* ---------- Navigation ---------- */
 .nav-toggle {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   background: none;
-  border: 1px solid var(--color-maroon);
+  border: 2px solid var(--color-maroon);
   color: var(--color-maroon);
-  padding: 6px 10px;
-  font-size: 20px;
+  padding: 10px;
+  font-size: 24px;
   line-height: 1;
   cursor: pointer;
   font-family: var(--font-body);
   border-radius: var(--radius);
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, border-color 0.2s ease;
+  min-width: 44px;
+  min-height: 44px;
+}
+
+.nav-toggle:hover {
+  border-color: var(--color-maroon-dark);
 }
 
 .nav-toggle:focus {
@@ -1388,8 +1396,8 @@ footer a:hover,
   }
 }
 
-/* ---------- Mobile sticky bar (767px and below) ---------- */
-@media (max-width: 767.98px) {
+/* ---------- Mobile (up to 1023px) ---------- */
+@media (max-width: 1023px) {
   .mobile-bar {
     display: flex;
     position: fixed;
