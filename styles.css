@@ -206,10 +206,27 @@ button:focus-visible,
   cursor: pointer;
   font-family: var(--font-body);
   border-radius: var(--radius);
+  transition: transform 0.3s ease;
 }
 
 .nav-toggle:focus {
   outline: 2px solid var(--color-gold);
+}
+
+.nav-toggle.is-open {
+  transform: rotate(90deg);
+}
+
+.nav-toggle.is-open::before {
+  content: "\2715"; /* Close symbol (X) */
+  font-size: 20px;
+  line-height: 1;
+}
+
+.nav-toggle::before {
+  content: "\2630"; /* Hamburger icon */
+  font-size: 20px;
+  line-height: 1;
 }
 
 .main-nav {
@@ -1233,11 +1250,7 @@ footer a:hover,
     padding: 0;
     height: auto;
     overflow-y: visible;
-    gap: 0;
-  }
-
-  .main-nav li {
-    padding: 0 2px;
+    gap: var(--spacing-md);
   }
 
   .main-nav li {
@@ -1245,6 +1258,15 @@ footer a:hover,
     border-right: 1px solid var(--color-maroon);
     flex: 1 1 0;
     min-width: 0;
+  }
+
+  .main-nav li:last-child {
+    border-right: none;
+    padding-right: 0;
+  }
+
+  .main-nav li:not(:last-child) {
+    padding-right: var(--spacing-xs);
   }
 
   .main-nav li:last-child {

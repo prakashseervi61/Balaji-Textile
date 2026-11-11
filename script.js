@@ -33,6 +33,7 @@
 
     function openMenu() {
       nav.classList.add("is-open");
+      toggle.classList.add("is-open");
       toggle.setAttribute("aria-expanded", "true");
       overlay.classList.add("is-open");
       document.body.style.overflow = "hidden";
@@ -40,6 +41,7 @@
 
     function closeMenu() {
       nav.classList.remove("is-open");
+      toggle.classList.remove("is-open");
       toggle.setAttribute("aria-expanded", "false");
       overlay.classList.remove("is-open");
       document.body.style.overflow = "";
