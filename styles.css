@@ -253,21 +253,29 @@ button:focus-visible,
 
 .nav-close {
   position: absolute;
-  top: 10px;
+  top: 14px;
   right: 14px;
-  background: none;
-  border: none;
+  background: var(--color-maroon-dark);
+  border: 2px solid var(--color-white);
   color: var(--color-white);
-  font-size: 28px;
+  font-size: 32px;
   font-weight: bold;
   line-height: 1;
   cursor: pointer;
-  padding: 4px;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   z-index: 210;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
 }
 
 .nav-close:hover {
-  color: var(--color-tint);
+  background: var(--color-gold);
+  color: var(--color-white);
+  border-color: var(--color-white);
 }
 
 .main-nav ul {
