@@ -162,7 +162,7 @@ button:focus-visible,
   align-items: center;
   justify-content: space-between;
   min-height: var(--header-height);
-  gap: var(--spacing-sm);
+  gap: var(--spacing-md);
 }
 
 .logo {
@@ -170,8 +170,11 @@ button:focus-visible,
   font-size: 24px;
   font-weight: 700;
   color: var(--color-maroon);
-  line-height: 1.2;
+  line-height: 1.1;
   text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .logo span {
@@ -1162,14 +1165,16 @@ footer a:hover,
   }
 
   .main-nav {
-    display: block;
+    display: flex;
+    align-items: center;
     width: auto;
     background: transparent;
   }
 
   .main-nav ul {
     flex-direction: row;
-    align-items: stretch;
+    align-items: center;
+    margin: 0;
   }
 
   .main-nav li {
