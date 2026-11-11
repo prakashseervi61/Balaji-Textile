@@ -211,12 +211,13 @@
   });
 
     // Click outside image to close
-    lightbox.addEventListener("click", function (e) {
-      if (e.target === lightbox) {
-        closeLightbox();
-      }
-    });
-  }
+    if (lightbox) {
+      lightbox.addEventListener("click", function (e) {
+        if (e.target === lightbox) {
+          closeLightbox();
+        }
+      });
+    }
 
   // ---------- Image error fallback ----------
   document.querySelectorAll(".product-img-wrap img").forEach(function (img) {
