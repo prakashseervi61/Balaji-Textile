@@ -126,12 +126,17 @@ img {
   display: flex;
   margin: 0;
   padding: 0;
+  align-items: stretch;
 }
 
 .main-nav li {
-  flex: 1;
+  flex: 1 1 0;
   text-align: center;
   border-right: 1px solid #A52A2A;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
 }
 
 .main-nav li:last-child {
@@ -139,19 +144,33 @@ img {
 }
 
 .main-nav a {
-  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   color: #FFFFFF;
   text-decoration: none;
-  padding: 13px 0;
+  padding: 13px 8px;
   font-size: 15px;
   font-weight: bold;
   font-family: "Lato", "Arial", sans-serif;
+  white-space: nowrap;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  transition: background 0.2s ease, color 0.2s ease;
 }
 
 .main-nav a:hover,
 .main-nav a:focus {
   background: #A52A2A;
   color: #FFFFFF;
+}
+
+/* Active navigation item */
+.main-nav a.active {
+  background: #5A262C;
+  color: #D9C29A;
+  border-bottom: 3px solid #B8862B;
 }
 
 /* ---------- Banner ---------- */
@@ -699,8 +718,16 @@ footer a:hover {
     border-bottom: none;
   }
   .main-nav a {
-    padding: 12px 0;
+    padding: 14px 16px;
     font-size: 16px;
+    min-height: 44px;
+  }
+
+  .main-nav a.active {
+    background: #5A262C;
+    color: #D9C29A;
+    border-left: 4px solid #B8862B;
+    border-bottom: none;
   }
   .banner-image {
     min-height: 200px;
@@ -819,8 +846,16 @@ footer a:hover {
     border-bottom: none;
   }
   .main-nav a {
-    padding: 12px 0;
+    padding: 14px 16px;
     font-size: 15px;
+    min-height: 44px;
+  }
+
+  .main-nav a.active {
+    background: #5A262C;
+    color: #D9C29A;
+    border-left: 4px solid #B8862B;
+    border-bottom: none;
   }
   .banner-image {
     min-height: 170px;
@@ -979,8 +1014,16 @@ footer a:hover {
     border-bottom: none;
   }
   .main-nav a {
-    padding: 12px 0;
+    padding: 14px 16px;
     font-size: 15px;
+    min-height: 44px;
+  }
+
+  .main-nav a.active {
+    background: #5A262C;
+    color: #D9C29A;
+    border-left: 4px solid #B8862B;
+    border-bottom: none;
   }
   .banner-image {
     min-height: 150px;
