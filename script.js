@@ -146,6 +146,27 @@
     if (lightboxClose) lightboxClose.focus();
   }
 
+  // Focus trap for lightbox
+  if (lightbox) {
+    lightbox.addEventListener("keydown", function (e) {
+      if (e.key !== "Tab") return;
+      var focusable = lightbox.querySelectorAll("button, img");
+      var first = focusable[0];
+      var last = focusable[focusable.length - 1];
+      if (e.shiftKey) {
+        if (document.activeElement === first) {
+          e.preventDefault();
+          last.focus();
+        }
+      } else {
+        if (document.activeElement === last) {
+          e.preventDefault();
+          first.focus();
+        }
+      }
+    });
+  }
+
   function closeLightbox() {
     if (!lightbox) return;
     lightbox.setAttribute("hidden", "");
@@ -177,17 +198,17 @@
     lightboxNext.addEventListener("click", showNextImage);
   }
 
-  // Lightbox keyboard navigation
-  if (lightbox) {
-    lightbox.addEventListener("keydown", function (e) {
-      if (e.key === "Escape") {
-        closeLightbox();
-      } else if (e.key === "ArrowLeft") {
-        showPrevImage();
-      } else if (e.key === "ArrowRight") {
-        showNextImage();
-      }
-    });
+  // Lightbox keyboard navigation (document-level for reliability)
+  document.addEventListener("keydown", function (e) {
+    if (!lightbox || lightbox.hasAttribute("hidden")) return;
+    if (e.key === "Escape") {
+      closeLightbox();
+    } else if (e.key === "ArrowLeft") {
+      showPrevImage();
+    } else if (e.key === "ArrowRight") {
+      showNextImage();
+    }
+  });
 
     // Click outside image to close
     lightbox.addEventListener("click", function (e) {
