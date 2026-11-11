@@ -35,7 +35,7 @@ Balaji Textile/
 - **Header** — Logo with Tamil name, sticky with shadow on scroll
 - **Navigation** — Home | About Us | Products | Gallery | Reviews | Contact Us
 - **Hero** — Full-width with maroon overlay, h1, Tamil tagline, intro, two CTA buttons
-- **Why Choose Us** — 4 icon boxes (Family Collections, Best Prices, Perfect Lining & Fall, Open 10 AM–9 PM)
+- **Why Choose Us** — 4 icon boxes (Family Collections, Best Prices, Perfect Lining & Fall, Open 8 AM–9 PM)
 - **About Us** — Two-column layout (image left, text right)
 - **Our Products** — 4 product cards with image, title, description, WhatsApp enquiry link
 - **Photo Gallery** — Responsive grid with hover overlay and lightbox
@@ -52,7 +52,7 @@ Balaji Textile/
 - Category: Clothing store
 - Address: 2c, Pillaiyar Kovil Street, Thiruvannamail Nagar, Saravanampatti, Coimbatore, Tamil Nadu 641035
 - Phone: +91 98945 35066
-- Hours: 10:00 AM – 9:00 PM daily
+- Hours: 8:00 AM – 9:00 PM daily
 - Rating: 5.0 stars (20 Google reviews)
 - Google Maps: https://maps.app.goo.gl/wDFzEVDRk7n2RnBJ7
 - Coordinates: 11.0756263, 77.0023874

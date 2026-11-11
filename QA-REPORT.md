@@ -77,7 +77,7 @@
 | Address | 2c, Pillaiyar Kovil Street, Thiruvannamail Nagar, Saravanampatti, Coimbatore, Tamil Nadu 641035 |
 | Phone | +91 98945 35066 |
 | WhatsApp | +91 98945 35066 |
-| Hours | 10:00 AM – 9:00 PM daily |
+| Hours | 8:00 AM – 9:00 PM daily |
 | Rating | 5.0 stars (20 Google reviews) |
 | Google Maps | https://maps.app.goo.gl/wDFzEVDRk7n2RnBJ7 |
 
