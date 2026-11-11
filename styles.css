@@ -77,6 +77,17 @@ button:focus-visible,
   outline-offset: -2px;
 }
 
+/* ---------- Link distinguishability (accessibility) ---------- */
+.contact-info a,
+.reviews-link a {
+  text-decoration: underline;
+}
+
+.contact-info a:hover,
+.reviews-link a:hover {
+  text-decoration: none;
+}
+
 /* ---------- Header ---------- */
 .site-header {
   background: #FFFFFF;
@@ -581,11 +592,11 @@ footer p {
 
 footer a {
   color: #D9C29A;
-  text-decoration: none;
+  text-decoration: underline;
 }
 
 footer a:hover {
-  text-decoration: underline;
+  text-decoration: none;
 }
 
 .footer-divider {
