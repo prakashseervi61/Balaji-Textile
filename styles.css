@@ -474,8 +474,8 @@ footer a:hover {
    RESPONSIVE BREAKPOINTS
    ========================================================================== */
 
-/* Large desktops: 1441px and up — keep desktop layout, wider gutters */
-@media (min-width: 1441px) {
+/* Large desktops: 1440.99px and up — keep desktop layout, wider gutters */
+@media (min-width: 1440.99px) {
   .container {
     max-width: 1180px;
   }
@@ -487,8 +487,8 @@ footer a:hover {
   }
 }
 
-/* Laptops: 1025px–1440px — standard desktop layout */
-@media (min-width: 1025px) and (max-width: 1440px) {
+/* Laptops: 1024.99px–1440.98px — standard desktop layout */
+@media (min-width: 1024.99px) and (max-width: 1440.98px) {
   .container {
     max-width: 980px;
   }
@@ -497,8 +497,8 @@ footer a:hover {
   }
 }
 
-/* Tablets: 768px–1024px */
-@media (min-width: 768px) and (max-width: 1024px) {
+/* Tablets: 767.99px–1024.98px */
+@media (min-width: 767.99px) and (max-width: 1024.98px) {
   .container {
     max-width: 740px;
     padding: 0 16px;
@@ -563,8 +563,8 @@ footer a:hover {
   }
 }
 
-/* Large mobile phones: 481px–767px */
-@media (min-width: 481px) and (max-width: 767px) {
+/* Large mobile phones: 480.99px–767.98px */
+@media (min-width: 480.99px) and (max-width: 767.98px) {
   .container {
     max-width: 100%;
     padding: 0 14px;
@@ -683,8 +683,8 @@ footer a:hover {
   }
 }
 
-/* Standard mobile phones: 376px–480px */
-@media (min-width: 376px) and (max-width: 480px) {
+/* Standard mobile phones: 375.99px–480.98px */
+@media (min-width: 375.99px) and (max-width: 480.98px) {
   .container {
     max-width: 100%;
     padding: 0 12px;
@@ -843,8 +843,8 @@ footer a:hover {
   }
 }
 
-/* Small mobile phones: 320px–375px */
-@media (max-width: 375px) {
+/* Small mobile phones: up to 375.98px */
+@media (max-width: 375.98px) {
   .container {
     max-width: 100%;
     padding: 0 10px;
