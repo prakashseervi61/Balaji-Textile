@@ -43,11 +43,11 @@ img {
 
 /* ---------- Container (fluid with max width) ---------- */
 .container {
-  max-width: 980px;
+  max-width: 100%;
   margin: 0 auto;
-  background: #FFFFFF;
+  background: #FFFEF0;
   width: 100%;
-  padding: 0 12px;
+  padding: 0 20px;
   overflow-x: hidden;
 }
 
@@ -310,7 +310,7 @@ h2.section-title {
 .product-item {
   width: 220px;
   border: 1px solid #CCCCCC;
-  background: #FFFEF0;
+  background: #FFFFFF;
   padding: 12px;
   text-align: center;
   box-sizing: border-box;
@@ -477,7 +477,7 @@ footer a:hover {
 /* Large desktops: 1440.99px and up — keep desktop layout, wider gutters */
 @media (min-width: 1440.99px) {
   .container {
-    max-width: 1180px;
+    max-width: 100%;
   }
   .banner-image {
     min-height: 300px;
@@ -490,7 +490,7 @@ footer a:hover {
 /* Laptops: 1024.99px–1440.98px — standard desktop layout */
 @media (min-width: 1024.99px) and (max-width: 1440.98px) {
   .container {
-    max-width: 980px;
+    max-width: 100%;
   }
   .banner-image {
     min-height: 280px;
@@ -500,7 +500,7 @@ footer a:hover {
 /* Tablets: 767.99px–1024.98px */
 @media (min-width: 767.99px) and (max-width: 1024.98px) {
   .container {
-    max-width: 740px;
+    max-width: 100%;
     padding: 0 16px;
   }
   .site-header {
