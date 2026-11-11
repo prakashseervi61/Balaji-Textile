@@ -336,8 +336,18 @@ button:focus-visible,
 .hero-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to bottom, rgba(123,17,19,0.55), rgba(123,17,19,0.75));
+  background: linear-gradient(135deg, rgba(123,17,19,0.6) 0%, rgba(90,38,44,0.75) 50%, rgba(123,17,19,0.85) 100%);
   z-index: 1;
+}
+
+/* Subtle vignette effect */
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at center, transparent 40%, rgba(0,0,0,0.2) 100%);
+  z-index: 1;
+  pointer-events: none;
 }
 
 .hero-content {
@@ -466,11 +476,20 @@ button:focus-visible,
 .why-item {
   text-align: center;
   padding: var(--spacing-md);
+  background: var(--color-white);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.why-item:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
 }
 
 .why-icon {
-  width: 56px;
-  height: 56px;
+  width: 60px;
+  height: 60px;
   margin: 0 auto var(--spacing-sm);
   display: flex;
   align-items: center;
@@ -479,6 +498,13 @@ button:focus-visible,
   border-radius: 50%;
   color: var(--color-gold-dark);
   border: 2px solid var(--color-gold);
+  transition: background 0.25s ease, transform 0.25s ease;
+}
+
+.why-item:hover .why-icon {
+  background: var(--color-gold);
+  color: var(--color-white);
+  transform: scale(1.08);
 }
 
 .why-item h3 {
@@ -612,6 +638,9 @@ button:focus-visible,
   font-size: 18px;
   color: var(--color-maroon);
   margin-bottom: var(--spacing-xs);
+  border-bottom: 2px solid var(--color-gold);
+  padding-bottom: 4px;
+  display: inline-block;
 }
 
 .product-body p {
@@ -668,13 +697,32 @@ button:focus-visible,
 .gallery-overlay {
   position: absolute;
   inset: 0;
-  background: rgba(123, 17, 19, 0.5);
+  background: rgba(123, 17, 19, 0.6);
   display: flex;
   align-items: center;
   justify-content: center;
   color: var(--color-white);
   opacity: 0;
-  transition: opacity 0.25s ease;
+  transition: opacity 0.3s ease;
+  backdrop-filter: blur(2px);
+}
+
+.gallery-item:hover .gallery-overlay {
+  opacity: 1;
+}
+
+.gallery-overlay svg {
+  width: 32px;
+  height: 32px;
+  stroke: var(--color-white);
+  stroke-width: 2;
+  fill: none;
+  transform: scale(0.8);
+  transition: transform 0.3s ease;
+}
+
+.gallery-item:hover .gallery-overlay svg {
+  transform: scale(1);
 }
 
 .gallery-item:hover .gallery-overlay {
