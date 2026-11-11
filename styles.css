@@ -423,6 +423,18 @@ button:focus-visible,
   justify-content: center;
 }
 
+.hero-buttons .btn-outline {
+  color: var(--color-cream);
+  border-color: var(--color-cream);
+  background: transparent;
+}
+
+.hero-buttons .btn-outline:hover,
+.hero-buttons .btn-outline:focus {
+  background: var(--color-cream);
+  color: var(--color-maroon);
+}
+
 /* ---------- Buttons ---------- */
 .btn {
   display: inline-block;
@@ -1195,6 +1207,7 @@ footer a:hover,
     min-height: auto;
     border-bottom: 3px solid transparent;
     transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+    white-space: nowrap;
   }
 
   .main-nav a:hover,
