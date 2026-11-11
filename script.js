@@ -21,31 +21,52 @@
     }, { passive: true });
   }
 
-  // ---------- Mobile navigation toggle ----------
+  // ---------- Mobile navigation toggle (slide from right) ----------
   var nav = document.getElementById("main-nav");
   var toggle = document.getElementById("nav-toggle");
 
   if (nav && toggle) {
+    // Create overlay backdrop
+    var overlay = document.createElement("div");
+    overlay.className = "nav-overlay";
+    document.body.appendChild(overlay);
+
+    function openMenu() {
+      nav.classList.add("is-open");
+      toggle.setAttribute("aria-expanded", "true");
+      overlay.classList.add("is-open");
+      document.body.style.overflow = "hidden";
+    }
+
+    function closeMenu() {
+      nav.classList.remove("is-open");
+      toggle.setAttribute("aria-expanded", "false");
+      overlay.classList.remove("is-open");
+      document.body.style.overflow = "";
+    }
+
     toggle.addEventListener("click", function () {
-      var isOpen = nav.classList.toggle("is-open");
-      toggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+      if (nav.classList.contains("is-open")) {
+        closeMenu();
+      } else {
+        openMenu();
+      }
     });
 
     // Close menu on link click
     nav.querySelectorAll("a").forEach(function (link) {
       link.addEventListener("click", function () {
-        if (nav.classList.contains("is-open")) {
-          nav.classList.remove("is-open");
-          toggle.setAttribute("aria-expanded", "false");
-        }
+        closeMenu();
       });
     });
+
+    // Click overlay to close
+    overlay.addEventListener("click", closeMenu);
 
     // Escape key closes menu
     document.addEventListener("keydown", function (e) {
       if (e.key === "Escape" && nav.classList.contains("is-open")) {
-        nav.classList.remove("is-open");
-        toggle.setAttribute("aria-expanded", "false");
+        closeMenu();
         toggle.focus();
       }
     });
