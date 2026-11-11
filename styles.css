@@ -64,6 +64,19 @@ img {
   top: 0;
 }
 
+/* ---------- Focus indicators ---------- */
+a:focus-visible,
+button:focus-visible,
+.btn:focus-visible {
+  outline: 2px solid #B8862B;
+  outline-offset: 2px;
+}
+
+.main-nav a:focus-visible {
+  outline: 2px solid #D9C29A;
+  outline-offset: -2px;
+}
+
 /* ---------- Header ---------- */
 .site-header {
   background: #FFFFFF;
@@ -538,7 +551,7 @@ h2.section-title {
 
 .map {
   border: 1px solid #CCCCCC;
-  height: auto;
+  height: 320px;
   min-height: 280px;
   background: #EEEEEE;
   overflow: hidden;
