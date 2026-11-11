@@ -423,17 +423,7 @@ button:focus-visible,
   justify-content: center;
 }
 
-.hero-buttons .btn-outline {
-  color: var(--color-cream);
-  border-color: var(--color-cream);
-  background: transparent;
-}
-
-.hero-buttons .btn-outline:hover,
-.hero-buttons .btn-outline:focus {
-  background: var(--color-cream);
-  color: var(--color-maroon);
-}
+/* moved to after .btn-outline definition */
 
 /* ---------- Buttons ---------- */
 .btn {
@@ -480,6 +470,19 @@ button:focus-visible,
 .btn-outline:focus {
   background: var(--color-maroon);
   color: var(--color-cream);
+}
+
+/* Hero button override for dark background */
+.hero-buttons .btn-outline {
+  color: var(--color-cream) !important;
+  border-color: var(--color-cream) !important;
+  background: transparent !important;
+}
+
+.hero-buttons .btn-outline:hover,
+.hero-buttons .btn-outline:focus {
+  background: var(--color-cream);
+  color: var(--color-maroon);
 }
 
 .btn-gold {
@@ -1207,7 +1210,7 @@ footer a:hover,
     min-height: auto;
     border-bottom: 3px solid transparent;
     transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
-    white-space: nowrap;
+    white-space: nowrap !important;
   }
 
   .main-nav a:hover,
