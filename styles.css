@@ -826,10 +826,18 @@ button:focus-visible,
 .contact-item {
   margin-bottom: var(--spacing-sm);
   line-height: 1.6;
+  padding: var(--spacing-xs) 0;
+  border-bottom: 1px solid var(--color-border-light);
+}
+
+.contact-item:last-child {
+  border-bottom: none;
 }
 
 .contact-item strong {
   color: var(--color-maroon);
+  display: inline-block;
+  min-width: 90px;
 }
 
 .contact-item a {
@@ -894,6 +902,9 @@ button:focus-visible,
   font-size: 22px;
   color: var(--color-white);
   margin-bottom: var(--spacing-sm);
+  border-bottom: 2px solid var(--color-gold);
+  padding-bottom: 6px;
+  display: inline-block;
 }
 
 .footer-col h4 {
