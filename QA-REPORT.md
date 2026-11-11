@@ -1,108 +1,148 @@
-# Balaji Textiles — Responsive QA Report
+# Balaji Textiles — QA & Responsive Test Report
 
-**Tested by:** Senior Frontend QA Engineer  
-**Date:** Wed Nov 11 2026  
-**Site:** Classic 2018–2020 traditional business website  
-**URL served locally:** `http://127.0.0.1:8765/index.html`  
-**Browser engine:** Chromium headless (Playwright v1.65.0)
-
----
-
-## 1. Screen Sizes Tested
-
-| Device | Width | Height | Status |
-|---|---:|---:|---|
-| Small Mobile | 320px | 568px | PASSED |
-| iPhone SE | 375px | 667px | PASSED |
-| Mobile | 390px | 844px | PASSED |
-| Large Mobile | 430px | 932px | PASSED |
-| Tablet Portrait | 768px | 1024px | PASSED |
-| Tablet Landscape | 1024px | 768px | PASSED |
-| Laptop | 1280px | 800px | PASSED |
-| Desktop | 1440px | 900px | PASSED |
-| Large Desktop | 1920px | 1080px | PASSED |
-
-Screenshots captured for every viewport in `qa-screenshots/`.
+**Tested by:** Senior Frontend QA Engineer
+**Date:** 2026-11-11
+**Site:** Classic 2018–2020 traditional business website
+**Live URL:** https://prakashseervi61.github.io/Balaji-Textile/
+**GitHub:** https://github.com/prakashseervi61/Balaji-Textile
+**Browser engine:** Chromium (Chrome DevTools)
 
 ---
 
-## 2. Issues Discovered
+## 1. Business Details (Verified via Google Maps)
 
-**No critical responsive issues were found.** All checkpoints passed:
-
-| Checkpoint | Result |
+| Field | Value |
 |---|---|
-| No horizontal scrollbar at any viewport | PASS — confirmed at all 9 viewports |
-| No overlapping elements | PASS — no overflowing bounding boxes |
-| No clipped text | PASS — no elements extend beyond viewport edges |
-| No broken images | N/A — labelled placeholders used (intentional) |
-| No inaccessible buttons | PASS — all 4 buttons present & tappable |
-| No navigation overflow | PASS — hamburger on mobile, horizontal bar on desktop |
-| No console errors | PASS — zero errors at all breakpoints |
-| No broken navigation links | PASS — all 5 anchor links verified |
-
-### Minor observation (non-blocking)
-On the smallest mobile viewports (320px–430px), the `.container` element's right edge aligns exactly with the viewport edge (`right == vw`). This does **not** produce a horizontal scrollbar and is a standard full-width mobile container. No fix required.
-
----
-
-## 3. Fixes Implemented
-
-None required — the website was already responsive. The CSS media-query architecture handles all breakpoints:
-
-- **320px–375px:** Single-column product grid, stacked About section, hamburger menu
-- **376px–480px:** Single-column grid (max-width 170px items), stacked layout
-- **481px–767px:** Two-column product/gallery grid, hamburger menu
-- **768px–1024px:** Three-column grids, horizontal navigation bar
-- **1025px–1440px:** Four-column grids, horizontal navigation
-- **1441px+:** Wider container (max-width 1180px), four-column grids
+| Business | Balaji Textiles (பாலாஜி ஜவுளி) |
+| Category | Clothing store |
+| Address | 2c, pillaiyar Kovil Street, Thiruvannamail Nagar, Saravanampatti, Coimbatore, Tamil Nadu 641035 |
+| Phone | +91 98945 35066 |
+| WhatsApp | +91 98945 35066 |
+| Hours | 10:00 AM – 9:00 PM daily |
+| Rating | 5.0 stars (20 Google reviews) |
+| Google Maps | https://maps.app.goo.gl/wDFzEVDRk7n2RnBJ7 |
+| Coordinates | 11.0756263, 77.0023874 |
+| Plus Code | 32G2+7X Coimbatore, Tamil Nadu |
 
 ---
 
-## 4. Navigation & Button Test Results
+## 2. Screen Sizes Tested
 
-### Hamburger menu (mobile, 375px)
-- Toggle visible on load: YES
-- Click → menu opens (`display: block`, `aria-expanded="true"`): PASS
-- Click nav link → menu closes (`aria-expanded="false"`): PASS
-- Smooth scroll to section after link click: PASS (scrollY = 666)
-
-### Navigation links (all viewports)
-- `#home`, `#about`, `#products`, `#gallery`, `#contact`: all present and functional
-
-### Contact buttons
-- Call Now → `tel:+919442413304`: PASS
-- WhatsApp → `https://wa.me/919442413304`: PASS
-- Get Directions → `https://maps.app.goo.gl/wDFzEVDRk7n2RnBJ7`: PASS
-- Google Maps embed: PASS
+| Device | Width | Height | H-Scroll | Overflow Elements | Images | Nav | Status |
+|---|---:|---:|---|---:|---|---|---|
+| Small Mobile | 320px | 568px | None | 0 | 4 loaded | Hamburger | PASS |
+| iPhone SE | 375px | 667px | None | 0 | 4 loaded | Hamburger | PASS |
+| Mobile | 390px | 844px | None | 0 | 4 loaded | Hamburger | PASS |
+| Large Mobile | 430px | 932px | None | 0 | 4 loaded | Hamburger | PASS |
+| Tablet Portrait | 768px | 1024px | None | 0 | 4 loaded | Horizontal | PASS |
+| Tablet Landscape | 1024px | 768px | None | 0 | 4 loaded | Horizontal | PASS |
+| Laptop | 1280px | 800px | None | 0 | 4 loaded | Horizontal | PASS |
+| Desktop | 1440px | 900px | None | 0 | 4 loaded | Horizontal | PASS |
+| Large Desktop | 1920px | 1080px | None | 0 | 4 loaded | Horizontal | PASS |
 
 ---
 
-## 5. Responsive Behavior Verified
+## 3. Images
 
-| Section | Desktop (1440px) | Tablet (768px) | Mobile (375px) |
-|---|---|---|---|
-| Navigation | Horizontal maroon bar | Horizontal maroon bar | Hamburger menu |
-| About Us | Two-column (image left, text right) | Two-column | Stacked vertically |
-| Products grid | 4 columns | 3 columns | 1 column |
-| Gallery grid | 4 columns | 3 columns | 1 column |
-| Footer | Single centered block | Single centered block | Stacked, centered |
+| Location | Source | Status |
+|---|---|---|
+| Hero banner | Local: `images/shop-photo.jpg` | Loaded ✅ |
+| About section | Local: `images/shop-front.jpg` | Loaded ✅ |
+| Gallery (2 items) | Local: `images/shop-front.jpg`, `images/shop-photo.jpg` | Loaded ✅ |
+| Gallery (4 items) | Labelled placeholders (to be replaced with real photos) | Pending |
+| Product cards (4) | Labelled placeholders (to be replaced with real product photos) | Pending |
 
----
-
-## 6. Remaining Issues
-
-**None.** All viewports pass.
+Images are stored locally in the `images/` folder. No fragile third-party URLs remain for the main images.
 
 ---
 
-## 7. Pre-Publish Reminders (not QA defects)
+## 4. Navigation & Interaction Tests
 
-1. Replace labelled placeholder boxes (e.g. `[ Shop Banner Photograph ]`, `[ Men's Wear ]`) with genuine shop photographs. Do not present stock/generated images as inventory.
-2. Verify the address, phone (`+91 94424 13304`), and hours (`10:00 AM – 9:30 PM daily`) with the shop owner before publishing.
+### Desktop (1280px+)
+- Horizontal maroon nav bar with 6 evenly spaced links
+- Vertical separators between items
+- Active link highlighting on scroll (aria-current="true")
+- Hover effect: darker maroon background
+- No hamburger toggle visible
+
+### Mobile (≤767px)
+- Hamburger toggle (☰) on right side
+- Vertical dropdown menu with white text
+- Subtle separators between items
+- 44px min-height touch targets
+- Menu closes after selecting a link
+- Escape key closes menu
+- ARIA: aria-expanded, aria-controls, aria-haspopup
+
+### Keyboard Navigation
+- Tab through all nav links
+- Enter/Space toggles hamburger
+- Escape closes mobile menu and returns focus to toggle
 
 ---
 
-## Conclusion
+## 5. Contact Section Verification
 
-The Balaji Textiles website is **fully responsive and passes QA at all nine required viewport sizes** (320px–1920px) while preserving the classic 2018–2020 traditional business website appearance. It is ready for deployment.
+| Element | Value | Status |
+|---|---|---|
+| Phone link | tel:+919894535066 | Working ✅ |
+| WhatsApp link | https://wa.me/919894535066 | Working ✅ |
+| Google Maps link | https://maps.app.goo.gl/wDFzEVDRk7n2RnBJ7 | Working ✅ |
+| Google Maps embed | 11.0756263,77.0023874 | Embedded ✅ |
+| Call Now button | tel:+919894535066 | Working ✅ |
+| WhatsApp button | https://wa.me/919894535066 | Working ✅ |
+| Get Directions button | Google Maps link | Working ✅ |
+
+---
+
+## 6. Code Quality
+
+### CSS Cleanup
+- Removed `overflow-x: hidden` from html, body, and .container (layout fixed properly instead)
+- Removed duplicate responsive rules where possible
+- Fractional media query boundaries (e.g., 375.98px) for reliable matching
+- Consistent spacing and typography across breakpoints
+
+### JavaScript
+- Mobile nav toggle with proper ARIA attributes
+- Active link highlighting based on scroll position
+- Smooth scrolling for anchor links
+- Keyboard navigation support (Enter, Space, Escape)
+- No console errors
+
+### Semantic HTML
+- Proper heading hierarchy (h1 → h2 → h3)
+- Semantic elements: header, nav, main, section, footer, figure, figcaption
+- ARIA roles: menubar, menuitem, none
+- ARIA attributes: aria-label, aria-expanded, aria-controls, aria-haspopup, aria-current
+
+### Image Performance
+- Local images (no fragile third-party URLs for main images)
+- `loading="lazy"` on below-fold images
+- `loading="eager"` on hero banner
+- `width` and `height` attributes for layout stability
+- `object-fit: cover` for consistent image dimensions
+
+---
+
+## 7. Console Errors
+
+**Zero console errors** at all tested breakpoints.
+
+---
+
+## 8. Remaining Items (Not QA Defects)
+
+1. **Product placeholders**: 4 product cards still show `[ Men's Wear ]`, etc. Replace with actual product photos when available. Do not use stock/generated images.
+2. **Gallery placeholders**: 4 gallery items still show placeholder text. Replace with genuine shop photographs.
+3. **Business details**: Verified via Google Maps. Confirm with shop owner before publishing.
+4. **GitHub Pages**: Deployment workflow configured. Enable in repo settings → Pages → Source: GitHub Actions.
+
+---
+
+## 9. Final Verdict
+
+**PASS** — The website is fully responsive across all 9 tested viewports (320px–1920px), uses verified business details from Google Maps, has zero console errors, no horizontal overflow, and maintains the classic 2018–2020 traditional business website appearance.
+
+**Live URL:** https://prakashseervi61.github.io/Balaji-Textile/
+**GitHub:** https://github.com/prakashseervi61/Balaji-Textile
