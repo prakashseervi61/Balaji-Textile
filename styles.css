@@ -15,7 +15,7 @@ html {
 }
 
 body {
-  font-family: "Georgia", "Times New Roman", Times, serif;
+  font-family: "Lato", "Arial", sans-serif;
   background: #FFFEF0; /* light cream */
   color: #333333;
   line-height: 1.6;
@@ -80,7 +80,7 @@ img {
 }
 
 .logo {
-  font-family: "Georgia", "Times New Roman", Times, serif;
+  font-family: "Playfair Display", "Georgia", serif;
   font-size: 28px;
   font-weight: bold;
   color: #7B1113;
@@ -96,7 +96,7 @@ img {
   font-size: 14px;
   color: #555555;
   font-weight: bold;
-  font-family: "Arial", "Helvetica", sans-serif;
+  font-family: "Lato", "Arial", sans-serif;
   white-space: nowrap;
 }
 
@@ -109,7 +109,7 @@ img {
   font-size: 20px;
   line-height: 1;
   cursor: pointer;
-  font-family: "Arial", "Helvetica", sans-serif;
+  font-family: "Lato", "Arial", sans-serif;
 }
 
 .nav-toggle:focus {
@@ -145,7 +145,7 @@ img {
   padding: 13px 0;
   font-size: 15px;
   font-weight: bold;
-  font-family: "Arial", "Helvetica", sans-serif;
+  font-family: "Lato", "Arial", sans-serif;
 }
 
 .main-nav a:hover,
@@ -171,11 +171,15 @@ img {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: "Georgia", "Times New Roman", Times, serif;
-  font-size: 17px;
-  color: #7B1113;
-  font-style: italic;
   overflow: hidden;
+}
+
+.banner-image img {
+  width: 100%;
+  height: 100%;
+  min-height: 220px;
+  object-fit: cover;
+  border: none;
 }
 
 .banner-text {
@@ -184,7 +188,7 @@ img {
 }
 
 .banner-text h1 {
-  font-family: "Georgia", "Times New Roman", Times, serif;
+  font-family: "Playfair Display", "Georgia", serif;
   font-size: 24px;
   color: #7B1113;
   margin-bottom: 10px;
@@ -205,7 +209,7 @@ img {
   font-size: 14px;
   font-weight: bold;
   border: 1px solid #550A0A;
-  font-family: "Arial", "Helvetica", sans-serif;
+  font-family: "Lato", "Arial", sans-serif;
   cursor: pointer;
 }
 
@@ -216,7 +220,7 @@ img {
 /* ---------- Section headings ---------- */
 .section-title,
 h2.section-title {
-  font-family: "Georgia", "Times New Roman", Times, serif;
+  font-family: "Playfair Display", "Georgia", serif;
   font-size: 21px;
   color: #7B1113;
   margin-bottom: 18px;
@@ -253,10 +257,18 @@ h2.section-title {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: "Georgia", "Times New Roman", Times, serif;
+  font-family: "Playfair Display", "Georgia", serif;
   font-size: 15px;
   color: #7B1113;
   font-style: italic;
+}
+
+.about-img img {
+  width: 100%;
+  height: auto;
+  min-height: 200px;
+  object-fit: cover;
+  border: 1px solid #BBBBBB;
 }
 
 .about-text {
@@ -265,7 +277,7 @@ h2.section-title {
 }
 
 .about-text h2 {
-  font-family: "Georgia", "Times New Roman", Times, serif;
+  font-family: "Playfair Display", "Georgia", serif;
   font-size: 21px;
   color: #7B1113;
   margin-bottom: 12px;
@@ -288,7 +300,7 @@ h2.section-title {
 }
 
 .products h2 {
-  font-family: "Georgia", "Times New Roman", Times, serif;
+  font-family: "Playfair Display", "Georgia", serif;
   font-size: 21px;
   color: #7B1113;
   text-align: center;
@@ -326,14 +338,14 @@ h2.section-title {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: "Georgia", "Times New Roman", Times, serif;
+  font-family: "Playfair Display", "Georgia", serif;
   font-size: 14px;
   color: #7B1113;
   font-style: italic;
 }
 
 .product-item h3 {
-  font-family: "Georgia", "Times New Roman", Times, serif;
+  font-family: "Playfair Display", "Georgia", serif;
   font-size: 16px;
   color: #7B1113;
   margin-bottom: 6px;
@@ -352,7 +364,7 @@ h2.section-title {
 }
 
 .gallery h2 {
-  font-family: "Georgia", "Times New Roman", Times, serif;
+  font-family: "Playfair Display", "Georgia", serif;
   font-size: 21px;
   color: #7B1113;
   text-align: center;
@@ -380,10 +392,19 @@ h2.section-title {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: "Georgia", "Times New Roman", Times, serif;
+  font-family: "Playfair Display", "Georgia", serif;
   font-size: 14px;
   color: #7B1113;
   font-style: italic;
+  overflow: hidden;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  min-height: 150px;
+  object-fit: cover;
+  border: none;
 }
 
 /* ---------- Customer Reviews ---------- */
@@ -394,7 +415,7 @@ h2.section-title {
 }
 
 .reviews h2 {
-  font-family: "Georgia", "Times New Roman", Times, serif;
+  font-family: "Playfair Display", "Georgia", serif;
   font-size: 21px;
   color: #7B1113;
   text-align: center;
@@ -411,7 +432,7 @@ h2.section-title {
   font-size: 15px;
   color: #555555;
   margin-bottom: 22px;
-  font-family: "Arial", "Helvetica", sans-serif;
+  font-family: "Lato", "Arial", sans-serif;
 }
 
 .review-grid {
@@ -449,7 +470,7 @@ h2.section-title {
   font-size: 12px;
   color: #7B1113;
   font-weight: bold;
-  font-family: "Arial", "Helvetica", sans-serif;
+  font-family: "Lato", "Arial", sans-serif;
 }
 
 .reviews-link {
@@ -464,7 +485,7 @@ h2.section-title {
 }
 
 .contact h2 {
-  font-family: "Georgia", "Times New Roman", Times, serif;
+  font-family: "Playfair Display", "Georgia", serif;
   font-size: 21px;
   color: #7B1113;
   margin-bottom: 20px;
@@ -519,7 +540,7 @@ footer {
   padding: 20px 14px;
   text-align: center;
   font-size: 14px;
-  font-family: "Arial", "Helvetica", sans-serif;
+  font-family: "Lato", "Arial", sans-serif;
   overflow: hidden;
 }
 
