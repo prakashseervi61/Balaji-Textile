@@ -1243,13 +1243,14 @@ footer a:hover,
     padding: 0;
     height: auto;
     overflow-y: visible;
-    gap: var(--spacing-md);
+    gap: var(--spacing-xs);
   }
 
   .main-nav li {
     border: none;
     padding: 0;
     margin: 0;
+    flex: none;
   }
 
   .main-nav li:last-child {
