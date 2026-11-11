@@ -33,7 +33,6 @@
   --shadow-lg: 0 4px 20px rgba(114,47,55,0.12);
 
   --header-height: 64px;
-  --top-bar-height: 36px;
 }
 
 /* ---------- Reset ---------- */
@@ -45,12 +44,6 @@
 
 html {
   scroll-behavior: smooth;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
-  }
 }
 
 body {
@@ -161,7 +154,7 @@ button:focus-visible,
   display: flex;
   align-items: center;
   justify-content: space-between;
-  min-height: var(--header-height);
+  min-height: 64px;
   gap: var(--spacing-md);
 }
 
@@ -1445,18 +1438,6 @@ footer a:hover,
   }
 }
 
-/* ---------- Reduced motion ---------- */
-@media (prefers-reduced-motion: reduce) {
-  .hero-img,
-  .product-card,
-  .gallery-item img,
-  .reveal {
-    transition: none;
-    transform: none;
-    opacity: 1;
-  }
-}
-
 /* ---------- Print ---------- */
 @media print {
   .top-bar, .nav-toggle, .whatsapp-float, .back-to-top, .mobile-bar, .lightbox {
@@ -1464,5 +1445,20 @@ footer a:hover,
   }
   .site-header {
     position: static;
+  }
+}
+
+/* ---------- Reduced motion ---------- */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .hero-img,
+  .product-card,
+  .gallery-item img,
+  .reveal {
+    transition: none;
+    transform: none;
+    opacity: 1;
   }
 }
