@@ -1,45 +1,16 @@
 /* ==========================================================================
-   Balaji Textiles — Frontend behaviour
+   Balaji Textiles — Simple behaviour (classic 2018–2020 style)
    ========================================================================== */
 
 (function () {
   "use strict";
 
-  // -------- Set current year in footer --------
-  const yearEl = document.getElementById("year");
-  if (yearEl) {
-    yearEl.textContent = new Date().getFullYear();
-  }
-
-  // -------- Mobile menu toggle --------
-  const mobileBtn = document.querySelector(".mobile-menu-btn");
-  const mobileMenu = document.getElementById("mobile-menu");
-
-  if (mobileBtn && mobileMenu) {
-    let isOpen = false;
-
-    mobileBtn.addEventListener("click", () => {
-      isOpen = !isOpen;
-      mobileBtn.setAttribute("aria-expanded", isOpen);
-      mobileMenu.classList.toggle("open");
-    });
-
-    // Close mobile menu when a link is clicked
-    mobileMenu.querySelectorAll("a").forEach((link) => {
-      link.addEventListener("click", () => {
-        isOpen = false;
-        mobileBtn.setAttribute("aria-expanded", "false");
-        mobileMenu.classList.remove("open");
-      });
-    });
-  }
-
-  // -------- Smooth scrolling for anchor links --------
-  document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+  // Smooth scrolling for anchor links
+  document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
     anchor.addEventListener("click", function (event) {
-      const targetId = this.getAttribute("href");
+      var targetId = this.getAttribute("href");
       if (targetId.length > 1) {
-        const target = document.querySelector(targetId);
+        var target = document.querySelector(targetId);
         if (target) {
           event.preventDefault();
           target.scrollIntoView({ behavior: "smooth" });
@@ -48,35 +19,27 @@
     });
   });
 
-  // -------- Lazy load placeholder images with fade-in --------
-  const images = document.querySelectorAll("img[loading='lazy']");
-  const observerOptions = { root: null, rootMargin: "200px 0px", threshold: 0.01 };
+  // Simple mobile navigation toggle (kept minimal for classic style)
+  var nav = document.querySelector(".main-nav");
+  if (nav) {
+    var toggle = document.createElement("button");
+    toggle.textContent = "\u2630"; // hamburger
+    toggle.className = "nav-toggle";
+    toggle.setAttribute("aria-label", "Toggle navigation");
+    toggle.setAttribute("aria-expanded", "false");
 
-  const imageObserver = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        const img = entry.target;
-        img.classList.add("loaded");
-        imageObserver.unobserve(img);
-      }
-    });
-  }, observerOptions);
+    var header = document.querySelector(".site-header");
+    if (header) {
+      header.appendChild(toggle);
 
-  images.forEach((img) => imageObserver.observe(img));
+      var open = false;
+      toggle.addEventListener("click", function () {
+        open = !open;
+        toggle.setAttribute("aria-expanded", open);
+        nav.style.display = open ? "block" : "";
+      });
 
-  // -------- Header scroll effect (subtle) --------
-  const header = document.getElementById("site-header");
-  let lastScrollY = window.scrollY;
-
-  window.addEventListener(
-    "scroll",
-    () => {
-      if (window.scrollY > 40) {
-        header.style.boxShadow = "0 4px 20px rgba(114, 47, 55, 0.1)";
-      } else {
-        header.style.boxShadow = "none";
-      }
-    },
-    { passive: true }
-  );
+      // Hide toggle on desktop via CSS media query handles it; keep simple
+    }
+  }
 })();
