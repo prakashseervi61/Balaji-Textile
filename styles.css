@@ -1004,6 +1004,7 @@ button:focus-visible,
   right: 24px;
   width: 56px;
   height: 56px;
+  z-index: 99;
   background: #25D366;
   border-radius: 50%;
   display: flex;
@@ -1034,7 +1035,7 @@ button:focus-visible,
 .back-to-top {
   position: fixed;
   bottom: 24px;
-  right: 90px;
+  right: 100px;
   width: 44px;
   height: 44px;
   background: var(--color-maroon);
@@ -1287,6 +1288,7 @@ footer a:hover,
 
   .whatsapp-float {
     display: flex;
+    right: 24px;
   }
 
   .mobile-bar {
@@ -1298,7 +1300,7 @@ footer a:hover,
   }
 
   .back-to-top {
-    right: 24px;
+    right: 100px;
   }
 }
 
@@ -1331,6 +1333,10 @@ footer a:hover,
   .whatsapp-float {
     bottom: 32px;
     right: 32px;
+  }
+
+  .back-to-top {
+    right: 120px;
   }
 }
 
