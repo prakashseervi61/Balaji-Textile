@@ -21,11 +21,15 @@ This is an informational business website (NOT an e-commerce platform). No shopp
 
 ## Business Information (preliminary — verify with shop owner)
 
-- Business: Balaji Textiles
-- Location: Saravanampatti, Coimbatore, Tamil Nadu
-- Phone: +91 94424 13304
-- Hours: 10:00 AM – 9:30 PM daily
+- Business: Balaji Textiles (பாலாஜி ஜவுளி)
+- Category: Clothing store
+- Address: 2c, pillaiyar Kovil Street, Thiruvannamail Nagar, Saravanampatti, Coimbatore, Tamil Nadu 641035
+- Phone: +91 98945 35066
+- Hours: 10:00 AM – 9:00 PM daily
+- Rating: 5.0 stars (20 Google reviews)
 - Google Maps: https://maps.app.goo.gl/wDFzEVDRk7n2RnBJ7
+- Coordinates: 11.0756263, 77.0023874
+- Plus code: 32G2+7X Coimbatore, Tamil Nadu
 
 ## Images
 
