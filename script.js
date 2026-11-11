@@ -1,43 +1,72 @@
 /* ==========================================================================
-   Balaji Textiles — Navigation & Smooth Scrolling
+   Balaji Textiles — JavaScript
    Classic 2018–2020 style
    ========================================================================== */
 
 (function () {
   "use strict";
 
-  var header = document.querySelector(".site-header");
-  var nav = document.querySelector(".main-nav");
+  // ---------- Header shadow on scroll ----------
+  var header = document.getElementById("site-header");
+  if (header) {
+    var lastScroll = 0;
+    window.addEventListener("scroll", function () {
+      var scrollY = window.scrollY;
+      if (scrollY > 10) {
+        header.classList.add("scrolled");
+      } else {
+        header.classList.remove("scrolled");
+      }
+      lastScroll = scrollY;
+    }, { passive: true });
+  }
+
+  // ---------- Mobile navigation toggle ----------
+  var nav = document.getElementById("main-nav");
+  var toggle = document.getElementById("nav-toggle");
+
+  if (nav && toggle) {
+    toggle.addEventListener("click", function () {
+      var isOpen = nav.classList.toggle("is-open");
+      toggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+    });
+
+    // Close menu on link click
+    nav.querySelectorAll("a").forEach(function (link) {
+      link.addEventListener("click", function () {
+        if (nav.classList.contains("is-open")) {
+          nav.classList.remove("is-open");
+          toggle.setAttribute("aria-expanded", "false");
+        }
+      });
+    });
+
+    // Escape key closes menu
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && nav.classList.contains("is-open")) {
+        nav.classList.remove("is-open");
+        toggle.setAttribute("aria-expanded", "false");
+        toggle.focus();
+      }
+    });
+  }
+
+  // ---------- Active nav highlighting (scroll-spy) ----------
   var navLinks = nav ? nav.querySelectorAll("a") : [];
   var sections = [];
 
-  // Collect sections for active highlighting
   navLinks.forEach(function (link) {
-    var id = link.getAttribute("href");
-    if (id && id.charAt(0) === "#") {
-      var section = document.querySelector(id);
-      if (section) sections.push({ link: link, section: section, id: id });
+    var href = link.getAttribute("href");
+    if (href && href.charAt(0) === "#") {
+      var section = document.querySelector(href);
+      if (section) sections.push({ link: link, section: section });
     }
   });
 
-  // -------- Smooth scrolling for anchor links --------
-  document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
-    anchor.addEventListener("click", function (event) {
-      var targetId = this.getAttribute("href");
-      if (targetId && targetId.length > 1) {
-        var target = document.querySelector(targetId);
-        if (target) {
-          event.preventDefault();
-          target.scrollIntoView({ behavior: "smooth", block: "start" });
-        }
-      }
-    });
-  });
-
-  // -------- Active navigation highlighting on scroll --------
+  var scrollSpyTicking = false;
   function updateActiveLink() {
-    var scrollY = window.scrollY + 120;
-    var current = null;
+    var scrollY = window.scrollY + (header ? header.offsetHeight + 20 : 120);
+    var current = sections.length ? sections[0] : null;
     sections.forEach(function (item) {
       if (item.section.offsetTop <= scrollY) {
         current = item;
@@ -51,99 +80,167 @@
       current.link.classList.add("active");
       current.link.setAttribute("aria-current", "true");
     }
+    scrollSpyTicking = false;
   }
 
-  window.addEventListener("scroll", updateActiveLink, { passive: true });
+  window.addEventListener("scroll", function () {
+    if (!scrollSpyTicking) {
+      requestAnimationFrame(updateActiveLink);
+      scrollSpyTicking = true;
+    }
+  }, { passive: true });
   updateActiveLink();
 
-  // -------- Mobile navigation toggle (hamburger) --------
-  if (header && nav) {
-    var toggle = document.createElement("button");
-    toggle.className = "nav-toggle";
-    toggle.setAttribute("aria-label", "Toggle navigation menu");
-    toggle.setAttribute("aria-expanded", "false");
-    toggle.setAttribute("aria-controls", "main-nav");
-    toggle.setAttribute("aria-haspopup", "true");
-    toggle.innerHTML = "\u2630"; // hamburger icon
-
-    header.appendChild(toggle);
-
-    var isOpen = false;
-
-    function openMenu() {
-      isOpen = true;
-      toggle.setAttribute("aria-expanded", "true");
-      nav.style.display = "block";
-      // Focus first link
-      var firstLink = nav.querySelector("a");
-      if (firstLink) firstLink.focus();
-    }
-
-    function closeMenu() {
-      isOpen = false;
-      toggle.setAttribute("aria-expanded", "false");
-      if (window.innerWidth <= 767.98) {
-        nav.style.display = "none";
+  // ---------- Back to top button ----------
+  var backToTop = document.getElementById("back-to-top");
+  if (backToTop) {
+    window.addEventListener("scroll", function () {
+      if (window.scrollY > 400) {
+        backToTop.classList.add("visible");
       } else {
-        nav.style.display = "";
+        backToTop.classList.remove("visible");
       }
-    }
+    }, { passive: true });
 
-    toggle.addEventListener("click", function () {
-      if (isOpen) {
-        closeMenu();
-      } else {
-        openMenu();
-      }
+    backToTop.addEventListener("click", function () {
+      window.scrollTo({ top: 0, behavior: "smooth" });
     });
+  }
 
-    // Keyboard: Enter/Space to toggle
-    toggle.addEventListener("keydown", function (e) {
+  // ---------- Lightbox ----------
+  var lightbox = document.getElementById("lightbox");
+  var lightboxImg = document.getElementById("lightbox-img");
+  var lightboxClose = document.getElementById("lightbox-close");
+  var lightboxPrev = document.getElementById("lightbox-prev");
+  var lightboxNext = document.getElementById("lightbox-next");
+  var galleryItems = document.querySelectorAll(".gallery-item img");
+  var galleryImages = [];
+  var currentImageIndex = 0;
+  var previousFocus = null;
+
+  galleryItems.forEach(function (img, index) {
+    galleryImages.push({ src: img.src, alt: img.alt });
+    img.parentElement.addEventListener("click", function () {
+      openLightbox(index);
+    });
+    // Keyboard support
+    img.parentElement.setAttribute("tabindex", "0");
+    img.parentElement.setAttribute("role", "button");
+    img.parentElement.setAttribute("aria-label", "View image: " + img.alt);
+    img.parentElement.addEventListener("keydown", function (e) {
       if (e.key === "Enter" || e.key === " ") {
         e.preventDefault();
-        if (isOpen) closeMenu(); else openMenu();
+        openLightbox(index);
+      }
+    });
+  });
+
+  function openLightbox(index) {
+    if (!lightbox || !lightboxImg) return;
+    previousFocus = document.activeElement;
+    currentImageIndex = index;
+    lightboxImg.src = galleryImages[index].src;
+    lightboxImg.alt = galleryImages[index].alt;
+    lightbox.removeAttribute("hidden");
+    document.body.style.overflow = "hidden";
+    if (lightboxClose) lightboxClose.focus();
+  }
+
+  function closeLightbox() {
+    if (!lightbox) return;
+    lightbox.setAttribute("hidden", "");
+    document.body.style.overflow = "";
+    if (previousFocus) previousFocus.focus();
+  }
+
+  function showPrevImage() {
+    if (galleryImages.length === 0) return;
+    currentImageIndex = (currentImageIndex - 1 + galleryImages.length) % galleryImages.length;
+    lightboxImg.src = galleryImages[currentImageIndex].src;
+    lightboxImg.alt = galleryImages[currentImageIndex].alt;
+  }
+
+  function showNextImage() {
+    if (galleryImages.length === 0) return;
+    currentImageIndex = (currentImageIndex + 1) % galleryImages.length;
+    lightboxImg.src = galleryImages[currentImageIndex].src;
+    lightboxImg.alt = galleryImages[currentImageIndex].alt;
+  }
+
+  if (lightboxClose) {
+    lightboxClose.addEventListener("click", closeLightbox);
+  }
+  if (lightboxPrev) {
+    lightboxPrev.addEventListener("click", showPrevImage);
+  }
+  if (lightboxNext) {
+    lightboxNext.addEventListener("click", showNextImage);
+  }
+
+  // Lightbox keyboard navigation
+  if (lightbox) {
+    lightbox.addEventListener("keydown", function (e) {
+      if (e.key === "Escape") {
+        closeLightbox();
+      } else if (e.key === "ArrowLeft") {
+        showPrevImage();
+      } else if (e.key === "ArrowRight") {
+        showNextImage();
       }
     });
 
-    // Close mobile menu when a nav link is clicked
-    nav.querySelectorAll("a").forEach(function (link) {
-      link.addEventListener("click", function () {
-        if (window.innerWidth <= 767.98) {
-          closeMenu();
+    // Click outside image to close
+    lightbox.addEventListener("click", function (e) {
+      if (e.target === lightbox) {
+        closeLightbox();
+      }
+    });
+  }
+
+  // ---------- Image error fallback ----------
+  document.querySelectorAll(".product-img-wrap img").forEach(function (img) {
+    img.addEventListener("error", function () {
+      this.classList.add("img-error");
+      var fallback = this.parentElement.querySelector(".img-fallback");
+      if (fallback) {
+        fallback.style.display = "flex";
+      }
+    });
+    // Check if already broken (cached)
+    if (img.complete && img.naturalWidth === 0) {
+      img.classList.add("img-error");
+      var fallback = img.parentElement.querySelector(".img-fallback");
+      if (fallback) {
+        fallback.style.display = "flex";
+      }
+    }
+  });
+
+  // ---------- Scroll reveal ----------
+  if ("IntersectionObserver" in window) {
+    var revealObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          revealObserver.unobserve(entry.target);
         }
       });
-    });
+    }, { threshold: 0.1, rootMargin: "0px 0px -40px 0px" });
 
-    // Escape key closes menu
-    document.addEventListener("keydown", function (e) {
-      if (e.key === "Escape" && isOpen) {
-        closeMenu();
-        toggle.focus();
-      }
+    document.querySelectorAll(".reveal").forEach(function (el) {
+      revealObserver.observe(el);
     });
-
-    // Re-open desktop nav on resize if window becomes large
-    window.addEventListener("resize", function () {
-      if (window.innerWidth > 767.98) {
-        nav.style.display = "";
-        toggle.style.display = "none";
-        isOpen = false;
-        toggle.setAttribute("aria-expanded", "false");
-      } else {
-        toggle.style.display = "inline-block";
-        if (!isOpen) {
-          nav.style.display = "none";
-        }
-      }
+  } else {
+    // Fallback: show all content
+    document.querySelectorAll(".reveal").forEach(function (el) {
+      el.classList.add("visible");
     });
+  }
 
-    // Initialize correct state on load
-    if (window.innerWidth > 767.98) {
-      toggle.style.display = "none";
-      nav.style.display = "";
-    } else {
-      toggle.style.display = "inline-block";
-      nav.style.display = "none";
-    }
+  // ---------- Respect reduced motion ----------
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    document.querySelectorAll(".reveal").forEach(function (el) {
+      el.classList.add("visible");
+    });
   }
 })();
