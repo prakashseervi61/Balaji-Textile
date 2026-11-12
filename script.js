@@ -171,6 +171,88 @@
     });
   });
 
+  // ---------- Lightbox ----------
+  var lightbox = document.getElementById("lightbox");
+  var lightboxImg = document.getElementById("lightbox-img");
+  var lightboxClose = document.getElementById("lightbox-close");
+  var lightboxPrev = document.getElementById("lightbox-prev");
+  var lightboxNext = document.getElementById("lightbox-next");
+  var galleryItems = document.querySelectorAll(".gallery-item img");
+  var galleryImages = [];
+  var currentImageIndex = 0;
+  var previousFocus = null;
+
+  galleryItems.forEach(function (img, index) {
+    galleryImages.push({ src: img.src, alt: img.alt });
+    img.parentElement.addEventListener("click", function () {
+      openLightbox(index);
+    });
+    img.parentElement.setAttribute("tabindex", "0");
+    img.parentElement.setAttribute("role", "button");
+    img.parentElement.setAttribute("aria-label", "View image: " + img.alt);
+    img.parentElement.addEventListener("keydown", function (e) {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        openLightbox(index);
+      }
+    });
+  });
+
+  function openLightbox(index) {
+    if (!lightbox || !lightboxImg) return;
+    previousFocus = document.activeElement;
+    currentImageIndex = index;
+    lightboxImg.src = galleryImages[index].src;
+    lightboxImg.alt = galleryImages[index].alt;
+    lightbox.removeAttribute("hidden");
+    document.body.style.overflow = "hidden";
+    if (lightboxClose) lightboxClose.focus();
+  }
+
+  function closeLightbox() {
+    if (!lightbox) return;
+    lightbox.setAttribute("hidden", "");
+    document.body.style.overflow = "";
+    if (previousFocus) previousFocus.focus();
+  }
+
+  function showPrevImage() {
+    if (galleryImages.length === 0) return;
+    currentImageIndex = (currentImageIndex - 1 + galleryImages.length) % galleryImages.length;
+    lightboxImg.src = galleryImages[currentImageIndex].src;
+    lightboxImg.alt = galleryImages[currentImageIndex].alt;
+  }
+
+  function showNextImage() {
+    if (galleryImages.length === 0) return;
+    currentImageIndex = (currentImageIndex + 1) % galleryImages.length;
+    lightboxImg.src = galleryImages[currentImageIndex].src;
+    lightboxImg.alt = galleryImages[currentImageIndex].alt;
+  }
+
+  if (lightboxClose) {
+    lightboxClose.addEventListener("click", closeLightbox);
+  }
+  if (lightboxPrev) {
+    lightboxPrev.addEventListener("click", showPrevImage);
+  }
+  if (lightboxNext) {
+    lightboxNext.addEventListener("click", showNextImage);
+  }
+
+  if (lightbox) {
+    document.addEventListener("keydown", function (e) {
+      if (lightbox.hasAttribute("hidden")) return;
+      if (e.key === "Escape") {
+        closeLightbox();
+      } else if (e.key === "ArrowLeft") {
+        showPrevImage();
+      } else if (e.key === "ArrowRight") {
+        showNextImage();
+      }
+    });
+  }
+
   // ---------- Scroll reveal ----------
   if ("IntersectionObserver" in window) {
     var revealObserver = new IntersectionObserver(function (entries) {

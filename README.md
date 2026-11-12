@@ -80,6 +80,13 @@ Balaji Textile/
 - [ ] Test on real mobile devices
 - [ ] Enable GitHub Pages: Settings → Pages → Source: GitHub Actions
 
+### To Enable Gallery
+The gallery section is hidden by default. To enable it:
+1. Add at least 4 distinct real photos to `images/gallery/`
+2. Remove `style="display: none;"` from the gallery section in `index.html`
+3. Add the gallery link back to nav and footer
+4. Update the gallery grid with the new photos
+
 ## Images Needed
 
 | Filename | Location | Description | Status |
