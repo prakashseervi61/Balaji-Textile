@@ -13,7 +13,7 @@
   --text: #1B2433;
   --white: #FFFFFF;
   --accent: #F5B82E;
-  --wa: #0F7A3F;
+  --wa: #00DB40;
 
   --font-heading: "Playfair Display", Georgia, serif;
   --font-body: "Lato", Arial, sans-serif;
@@ -135,7 +135,7 @@ button:focus-visible,
 .status-badge.open {
   background: rgba(15,122,63,0.2);
   color: #2ECC71;
-  border: 1px solid rgba(15,122,63,0.4);
+  border: 1px solid rgba(0,219,64,0.4);
 }
 
 .status-badge.closed {
@@ -513,12 +513,12 @@ section {
 .btn-wa {
   background: var(--wa);
   color: var(--white);
-  border: 1px solid #0A5A2E;
+  border: 1px solid #00B833;
 }
 
 .btn-wa:hover,
 .btn-wa:focus {
-  background: #0A5A2E;
+  background: #00B833;
 }
 
 /* ---------- Why Choose Us ---------- */
@@ -1124,13 +1124,13 @@ section {
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 4px 16px rgba(15,122,63,0.4);
+  box-shadow: 0 4px 16px rgba(0,219,64,0.4);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .whatsapp-float:hover {
   transform: scale(1.08);
-  box-shadow: 0 6px 20px rgba(15,122,63,0.5);
+  box-shadow: 0 6px 20px rgba(0,219,64,0.5);
 }
 
 .whatsapp-float svg {
