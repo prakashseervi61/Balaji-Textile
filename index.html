@@ -8,7 +8,7 @@
   <meta name="keywords" content="Balaji Textiles, textile shop Saravanampatti, Coimbatore textiles, readymade clothing, sarees, dress materials, men's wear, women's wear, kids wear, fabric shop Coimbatore" />
   <meta name="author" content="Balaji Textiles" />
   <meta name="robots" content="index, follow" />
-  <meta name="theme-color" content="#7B1113" />
+  <meta name="theme-color" content="#0A1445" />
   <link rel="canonical" href="https://prakashseervi61.github.io/Balaji-Textile/" />
 
   <!-- Open Graph -->
@@ -31,7 +31,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Lato:wght@300;400;600;700&family=Noto+Sans+Tamil:wght@400;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%237B1113' rx='10'/%3E%3Ctext x='50' y='60' font-family='serif' font-size='50' fill='%23FFFEF0' text-anchor='middle'%3EBT%3C/text%3E%3C/svg%3E" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%230A1445' rx='10'/%3E%3Ctext x='50' y='60' font-family='serif' font-size='50' fill='%23FFFFFF' text-anchor='middle'%3EBT%3C/text%3E%3C/svg%3E" />
 
   <!-- Schema.org LocalBusiness structured data -->
   <script type="application/ld+json">
@@ -83,7 +83,7 @@
     <div class="container">
       <div class="top-bar-inner">
         <span class="top-bar-item">📞 <a href="tel:+919894535066">+91 98945 35066</a></span>
-        <span class="top-bar-item">🕐 8:00 AM – 9:00 PM Daily</span>
+        <span class="top-bar-item" id="status-badge-wrap"><span class="status-badge" id="status-badge">Open daily 8:00 AM – 9:00 PM</span></span>
         <span class="top-bar-item"><a href="https://wa.me/919894535066?text=Hello%20Balaji%20Textiles%2C%20I%20would%20like%20to%20know%20more%20about%20your%20collections." target="_blank" rel="noopener">WhatsApp Us</a></span>
       </div>
     </div>
@@ -95,6 +95,7 @@
       <a href="#home" class="logo">
         Balaji <span>Textiles</span>
         <span class="logo-tamil">பாலாஜி ஜவுளி</span>
+        <!-- TODO: owner to supply Tamil tagline -->
       </a>
 
       <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="main-nav"></button>
@@ -104,7 +105,6 @@
           <li><a href="#home">Home</a></li>
           <li><a href="#about">About Us</a></li>
           <li><a href="#products">Products</a></li>
-          <li><a href="#gallery">Gallery</a></li>
           <li><a href="#reviews">Reviews</a></li>
           <li><a href="#contact">Contact Us</a></li>
         </ul>
@@ -116,15 +116,15 @@
   <main id="main-content">
 
     <!-- Hero -->
-    <section id="home" class="hero traditional-border">
-      <img class="hero-img" src="images/shop-photo.jpg" alt="Balaji Textiles shop, Saravanampatti, Coimbatore" width="800" height="400" loading="eager" />
+    <section id="home" class="hero">
+      <img class="hero-img" src="images/shop-photo.jpg" alt="Balaji Textiles shop, Saravanampatti, Coimbatore" width="400" height="291" loading="eager" />
       <div class="hero-overlay" aria-hidden="true"></div>
       <div class="hero-content">
         <p class="hero-tagline">பாலாஜி ஜவுளி</p>
         <h1>Welcome to Balaji Textiles</h1>
         <p class="hero-intro">Your destination for clothing and textile collections in Saravanampatti, Coimbatore.</p>
         <div class="hero-buttons">
-          <a href="#products" class="btn btn-primary">View Products</a>
+          <a href="#products" class="btn btn-primary">View Collections</a>
           <a href="#contact" class="btn btn-outline">Visit Us</a>
         </div>
       </div>
@@ -187,74 +187,108 @@
     <section id="products" class="products reveal">
       <div class="container">
         <h2 class="section-title">Our Products</h2>
-        <div class="product-grid">
-          <div class="product-card">
-            <div class="product-img-wrap">
-              <img src="images/products/mens-wear.svg?v=2" alt="Men's wear collection" width="400" height="300" loading="lazy" />
-              <div class="img-fallback">Men's Wear</div>
-            </div>
-            <div class="product-body">
-              <h3>Men's Wear</h3>
-              <p>Shirts, trousers and traditional wear for men.</p>
-              <a href="https://wa.me/919894535066?text=Hello%20Balaji%20Textiles%2C%20I%20would%20like%20to%20enquire%20about%20Men%27s%20Wear." target="_blank" rel="noopener" class="product-enquiry">Enquire on WhatsApp &rarr;</a>
-            </div>
+        <p class="products-hint">Tap an item to ask us on WhatsApp</p>
+
+        <!-- Category tabs -->
+        <div class="product-tabs">
+          <button type="button" class="tab-btn active" data-filter="all">All <span class="count">(47)</span></button>
+          <button type="button" class="tab-btn" data-filter="men">Men <span class="count">(10)</span></button>
+          <button type="button" class="tab-btn" data-filter="women">Women <span class="count">(12)</span></button>
+          <button type="button" class="tab-btn" data-filter="kids">Kids <span class="count">(9)</span></button>
+          <button type="button" class="tab-btn" data-filter="tailoring">Tailoring &amp; Matching <span class="count">(6)</span></button>
+        </div>
+
+        <!-- Men's group -->
+        <div class="product-group" data-category="men">
+          <h3 class="group-title">Men</h3>
+          <div class="pill-grid">
+            <a href="https://wa.me/919894535066?text=Hi%20Balaji%20Textiles%2C%20I%27m%20interested%20in%20Men%3A%20Full%20sleeve%20shirts.%20Is%20it%20available%3F" target="_blank" rel="noopener" class="pill" data-category="men">Full sleeve shirts</a>
+            <a href="https://wa.me/919894535066?text=Hi%20Balaji%20Textiles%2C%20I%27m%20interested%20in%20Men%3A%20Half%20sleeve%20shirts.%20Is%20it%20available%3F" target="_blank" rel="noopener" class="pill" data-category="men">Half sleeve shirts</a>
+            <a href="https://wa.me/919894535066?text=Hi%20Balaji%20Textiles%2C%20I%27m%20interested%20in%20Men%3A%20Collar%20t-shirts.%20Is%20it%20available%3F" target="_blank" rel="noopener" class="pill" data-category="men">Collar t-shirts</a>
+            <a href="https://wa.me/919894535066?text=Hi%20Balaji%20Textiles%2C%20I%27m%20interested%20in%20Men%3A%20Round-neck%20t-shirts.%20Is%20it%20available%3F" target="_blank" rel="noopener" class="pill" data-category="men">Round-neck t-shirts</a>
+            <a href="https://wa.me/919894535066?text=Hi%20Balaji%20Textiles%2C%20I%27m%20interested%20in%20Men%3A%20Jean%20pants.%20Is%20it%20available%3F" target="_blank" rel="noopener" class="pill" data-category="men">Jean pants</a>
+            <a href="https://wa.me/919894535066?text=Hi%20Balaji%20Textiles%2C%20I%27m%20interested%20in%20Men%3A%20Cotton%20pants.%20Is%20it%20available%3F" target="_blank" rel="noopener" class="pill" data-category="men">Cotton pants</a>
+            <a href="https://wa.me/919894535066?text=Hi%20Balaji%20Textiles%2C%20I%27m%20interested%20in%20Men%3A%20Trousers.%20Is%20it%20available%3F" target="_blank" rel="noopener" class="pill" data-category="men">Trousers</a>
+            <a href="https://wa.me/919894535066?text=Hi%20Balaji%20Textiles%2C%20I%27m%20interested%20in%20Men%3A%20Night%20pants.%20Is%20it%20available%3F" target="_blank" rel="noopener" class="pill" data-category="men">Night pants</a>
+            <a href="https://wa.me/919894535066?text=Hi%20Balaji%20Textiles%2C%20I%27m%20interested%20in%20Men%3A%20Half%20pants.%20Is%20it%20available%3F" target="_blank" rel="noopener" class="pill" data-category="men">Half pants</a>
+            <a href="https://wa.me/919894535066?text=Hi%20Balaji%20Textiles%2C%20I%27m%20interested%20in%20Men%3A%20Innerwear.%20Is%20it%20available%3F" target="_blank" rel="noopener" class="pill" data-category="men">Innerwear</a>
           </div>
-          <div class="product-card">
-            <div class="product-img-wrap">
-              <img src="images/products/womens-wear.svg?v=2" alt="Women's wear collection" width="400" height="300" loading="lazy" />
-              <div class="img-fallback">Women's Wear</div>
-            </div>
-            <div class="product-body">
-              <h3>Women's Wear</h3>
-              <p>Sarees, dress materials and elegant wear for women.</p>
-              <a href="https://wa.me/919894535066?text=Hello%20Balaji%20Textiles%2C%20I%20would%20like%20to%20enquire%20about%20Women%27s%20Wear." target="_blank" rel="noopener" class="product-enquiry">Enquire on WhatsApp &rarr;</a>
-            </div>
+        </div>
+
+        <!-- Women's group -->
+        <div class="product-group" data-category="women">
+          <h3 class="group-title">Women</h3>
+          <div class="pill-grid">
+            <a href="https://wa.me/919894535066?text=Hi%20Balaji%20Textiles%2C%20I%27m%20interested%20in%20Women%3A%20Sarees.%20Is%20it%20available%3F" target="_blank" rel="noopener" class="pill" data-category="women">Sarees</a>
+            <a href="https://wa.me/919894535066?text=Hi%20Balaji%20Textiles%2C%20I%27m%20interested%20in%20Women%3A%20Chudidhars.%20Is%20it%20available%3F" target="_blank" rel="noopener" class="pill" data-category="women">Chudidhars</a>
+            <a href="https://wa.me/919894535066?text=Hi%20Balaji%20Textiles%2C%20I%27m%20interested%20in%20Women%3A%20Tops.%20Is%20it%20available%3F" target="_blank" rel="noopener" class="pill" data-category="women">Tops</a>
+            <a href="https://wa.me/919894535066?text=Hi%20Balaji%20Textiles%2C%20I%27m%20interested%20in%20Women%3A%20Shararas.%20Is%20it%20available%3F" target="_blank" rel="noopener" class="pill" data-category="women">Shararas</a>
+            <a href="https://wa.me/919894535066?text=Hi%20Balaji%20Textiles%2C%20I%27m%20interested%20in%20Women%3A%20Western%20wear.%20Is%20it%20available%3F" target="_blank" rel="noopener" class="pill" data-category="women">Western wear</a>
+            <a href="https://wa.me/919894535066?text=Hi%20Balaji%20Textiles%2C%20I%27m%20interested%20in%20Women%3A%20Frocks.%20Is%20it%20available%3F" target="_blank" rel="noopener" class="pill" data-category="women">Frocks</a>
+            <a href="https://wa.me/919894535066?text=Hi%20Balaji%20Textiles%2C%20I%27m%20interested%20in%20Women%3A%20Palazzo%20pants.%20Is%20it%20available%3F" target="_blank" rel="noopener" class="pill" data-category="women">Palazzo pants</a>
+            <a href="https://wa.me/919894535066?text=Hi%20Balaji%20Textiles%2C%20I%27m%20interested%20in%20Women%3A%20Straight%20pants.%20Is%20it%20available%3F" target="_blank" rel="noopener" class="pill" data-category="women">Straight pants</a>
+            <a href="https://wa.me/919894535066?text=Hi%20Balaji%20Textiles%2C%20I%27m%20interested%20in%20Women%3A%20Ankle%20leggings.%20Is%20it%20available%3F" target="_blank" rel="noopener" class="pill" data-category="women">Ankle leggings</a>
+            <a href="https://wa.me/919894535066?text=Hi%20Balaji%20Textiles%2C%20I%27m%20interested%20in%20Women%3A%20Regular%20leggings.%20Is%20it%20available%3F" target="_blank" rel="noopener" class="pill" data-category="women">Regular leggings</a>
+            <a href="https://wa.me/919894535066?text=Hi%20Balaji%20Textiles%2C%20I%27m%20interested%20in%20Women%3A%20Shawls.%20Is%20it%20available%3F" target="_blank" rel="noopener" class="pill" data-category="women">Shawls</a>
+            <a href="https://wa.me/919894535066?text=Hi%20Balaji%20Textiles%2C%20I%27m%20interested%20in%20Women%3A%20Innerwear.%20Is%20it%20available%3F" target="_blank" rel="noopener" class="pill" data-category="women">Innerwear</a>
           </div>
-          <div class="product-card">
-            <div class="product-img-wrap">
-              <img src="images/products/kids-wear.svg?v=2" alt="Kids' wear collection" width="400" height="300" loading="lazy" />
-              <div class="img-fallback">Kids' Wear</div>
-            </div>
-            <div class="product-body">
-              <h3>Kids' Wear</h3>
-              <p>Comfortable and stylish clothing for children.</p>
-              <a href="https://wa.me/919894535066?text=Hello%20Balaji%20Textiles%2C%20I%20would%20like%20to%20enquire%20about%20Kids%27%20Wear." target="_blank" rel="noopener" class="product-enquiry">Enquire on WhatsApp &rarr;</a>
-            </div>
+        </div>
+
+        <!-- Kids' group -->
+        <div class="product-group" data-category="kids">
+          <h3 class="group-title">Kids</h3>
+          <div class="pill-grid">
+            <a href="https://wa.me/919894535066?text=Hi%20Balaji%20Textiles%2C%20I%27m%20interested%20in%20Kids%3A%20Coat%20suits.%20Is%20it%20available%3F" target="_blank" rel="noopener" class="pill" data-category="kids">Coat suits</a>
+            <a href="https://wa.me/919894535066?text=Hi%20Balaji%20Textiles%2C%20I%27m%20interested%20in%20Kids%3A%20Party%20wear.%20Is%20it%20available%3F" target="_blank" rel="noopener" class="pill" data-category="kids">Party wear</a>
+            <a href="https://wa.me/919894535066?text=Hi%20Balaji%20Textiles%2C%20I%27m%20interested%20in%20Kids%3A%20Jean%20pants.%20Is%20it%20available%3F" target="_blank" rel="noopener" class="pill" data-category="kids">Jean pants</a>
+            <a href="https://wa.me/919894535066?text=Hi%20Balaji%20Textiles%2C%20I%27m%20interested%20in%20Kids%3A%20Cotton%20pants.%20Is%20it%20available%3F" target="_blank" rel="noopener" class="pill" data-category="kids">Cotton pants</a>
+            <a href="https://wa.me/919894535066?text=Hi%20Balaji%20Textiles%2C%20I%27m%20interested%20in%20Kids%3A%20Full%20sleeve%20t-shirts.%20Is%20it%20available%3F" target="_blank" rel="noopener" class="pill" data-category="kids">Full sleeve t-shirts</a>
+            <a href="https://wa.me/919894535066?text=Hi%20Balaji%20Textiles%2C%20I%27m%20interested%20in%20Kids%3A%20Half%20sleeve%20t-shirts.%20Is%20it%20available%3F" target="_blank" rel="noopener" class="pill" data-category="kids">Half sleeve t-shirts</a>
+            <a href="https://wa.me/919894535066?text=Hi%20Balaji%20Textiles%2C%20I%27m%20interested%20in%20Kids%3A%20Full%20night%20pants.%20Is%20it%20available%3F" target="_blank" rel="noopener" class="pill" data-category="kids">Full night pants</a>
+            <a href="https://wa.me/919894535066?text=Hi%20Balaji%20Textiles%2C%20I%27m%20interested%20in%20Kids%3A%20Half%20night%20pants.%20Is%20it%20available%3F" target="_blank" rel="noopener" class="pill" data-category="kids">Half night pants</a>
+            <a href="https://wa.me/919894535066?text=Hi%20Balaji%20Textiles%2C%20I%27m%20interested%20in%20Kids%3A%20Innerwear.%20Is%20it%20available%3F" target="_blank" rel="noopener" class="pill" data-category="kids">Innerwear</a>
           </div>
-          <div class="product-card">
-            <div class="product-img-wrap">
-              <img src="images/products/fabrics.svg?v=2" alt="Fabrics and dress materials" width="400" height="300" loading="lazy" />
-              <div class="img-fallback">Fabrics &amp; Dress Materials</div>
-            </div>
-            <div class="product-body">
-              <h3>Fabrics &amp; Dress Materials</h3>
-              <p>Quality fabrics and dress materials for tailoring.</p>
-              <a href="https://wa.me/919894535066?text=Hello%20Balaji%20Textiles%2C%20I%20would%20like%20to%20enquire%20about%20Fabrics%20and%20Dress%20Materials." target="_blank" rel="noopener" class="product-enquiry">Enquire on WhatsApp &rarr;</a>
-            </div>
+        </div>
+
+        <!-- Tailoring group -->
+        <div class="product-group" data-category="tailoring">
+          <h3 class="group-title">Tailoring &amp; Matching</h3>
+          <div class="pill-grid">
+            <a href="https://wa.me/919894535066?text=Hi%20Balaji%20Textiles%2C%20I%27m%20interested%20in%20Tailoring%20%26%20Matching%3A%20Blouse%20linings.%20Is%20it%20available%3F" target="_blank" rel="noopener" class="pill" data-category="tailoring">Blouse linings</a>
+            <a href="https://wa.me/919894535066?text=Hi%20Balaji%20Textiles%2C%20I%27m%20interested%20in%20Tailoring%20%26%20Matching%3A%20Silk%20falls.%20Is%20it%20available%3F" target="_blank" rel="noopener" class="pill" data-category="tailoring">Silk falls</a>
+            <a href="https://wa.me/919894535066?text=Hi%20Balaji%20Textiles%2C%20I%27m%20interested%20in%20Tailoring%20%26%20Matching%3A%20Cotton%20falls.%20Is%20it%20available%3F" target="_blank" rel="noopener" class="pill" data-category="tailoring">Cotton falls</a>
+            <a href="https://wa.me/919894535066?text=Hi%20Balaji%20Textiles%2C%20I%27m%20interested%20in%20Tailoring%20%26%20Matching%3A%20Designer%20laces.%20Is%20it%20available%3F" target="_blank" rel="noopener" class="pill" data-category="tailoring">Designer laces</a>
+            <a href="https://wa.me/919894535066?text=Hi%20Balaji%20Textiles%2C%20I%27m%20interested%20in%20Tailoring%20%26%20Matching%3A%20Saree%20hangings%20(latkans).%20Is%20it%20available%3F" target="_blank" rel="noopener" class="pill" data-category="tailoring">Saree hangings (latkans)</a>
+            <a href="https://wa.me/919894535066?text=Hi%20Balaji%20Textiles%2C%20I%27m%20interested%20in%20Tailoring%20%26%20Matching%3A%20Stitching%20accessories.%20Is%20it%20available%3F" target="_blank" rel="noopener" class="pill" data-category="tailoring">Stitching accessories</a>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Photo Gallery -->
-    <section id="gallery" class="gallery reveal">
+    <!-- Shade Matching -->
+    <section class="shade-match reveal">
       <div class="container">
-        <h2 class="section-title">Photo Gallery</h2>
-        <div class="gallery-grid">
-          <!-- Add more <figure class="gallery-item"> elements here -->
-          <figure class="gallery-item">
-            <img src="images/shop-front.jpg" alt="Balaji Textiles shop exterior, Saravanampatti" width="400" height="300" loading="lazy" />
-            <span class="gallery-overlay" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></span>
-          </figure>
-          <figure class="gallery-item">
-            <img src="images/shop-photo.jpg" alt="Balaji Textiles shop view, Saravanampatti" width="400" height="300" loading="lazy" />
-            <span class="gallery-overlay" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></span>
-          </figure>
+        <h2 class="section-title">Exact Shade Matching for Sarees &amp; Blouses</h2>
+        <p>Based on our customers' feedback, we help you find the perfect matching lining, falls, and blouse material for your sarees.</p>
+        <div class="shade-steps">
+          <div class="shade-step">
+            <div class="step-num">1</div>
+            <p class="step-text">Take a photo of your saree in daylight — include the border and pallu.</p>
+          </div>
+          <div class="shade-step">
+            <div class="step-num">2</div>
+            <p class="step-text">Send it to us on WhatsApp.</p>
+          </div>
+          <div class="shade-step">
+            <div class="step-num">3</div>
+            <p class="step-text">We check matching shades in our store.</p>
+          </div>
         </div>
+        <a href="https://wa.me/919894535066?text=Hi%20Balaji%20Textiles%2C%20I%27d%20like%20shade%20matching.%20I%27ll%20send%20a%20photo%20of%20my%20saree." target="_blank" rel="noopener" class="btn btn-wa">Shade Match on WhatsApp</a>
       </div>
     </section>
 
-    <!-- Customer Reviews -->
+    <!-- Reviews -->
     <section id="reviews" class="reviews reveal">
       <div class="container">
         <h2 class="section-title">Customer Reviews</h2>
@@ -312,11 +346,14 @@
               <strong>WhatsApp:</strong> <a href="https://wa.me/919894535066?text=Hello%20Balaji%20Textiles%2C%20I%20would%20like%20to%20know%20more%20about%20your%20collections." target="_blank" rel="noopener">+91 98945 35066</a>
             </div>
             <div class="contact-item">
-              <strong>Hours:</strong> 8:00 AM – 9:00 PM daily
+              <strong>Hours:</strong> <span id="contact-hours">Open daily 8:00 AM – 9:00 PM</span>
+            </div>
+            <div class="contact-item" id="contact-status-wrap">
+              <strong>Status:</strong> <span id="contact-status">Open daily 8:00 AM – 9:00 PM</span>
             </div>
             <div class="contact-actions">
               <a href="tel:+919894535066" class="btn btn-primary">Call Now</a>
-              <a href="https://wa.me/919894535066?text=Hello%20Balaji%20Textiles%2C%20I%20would%20like%20to%20know%20more%20about%20your%20collections." target="_blank" rel="noopener" class="btn btn-whatsapp">WhatsApp</a>
+              <a href="https://wa.me/919894535066?text=Hello%20Balaji%20Textiles%2C%20I%20would%20like%20to%20know%20more%20about%20your%20collections." target="_blank" rel="noopener" class="btn btn-wa">WhatsApp</a>
               <a href="https://maps.app.goo.gl/wDFzEVDRk7n2RnBJ7" target="_blank" rel="noopener" class="btn btn-outline">Get Directions</a>
             </div>
           </div>
@@ -348,7 +385,6 @@
             <li><a href="#home">Home</a></li>
             <li><a href="#about">About Us</a></li>
             <li><a href="#products">Products</a></li>
-            <li><a href="#gallery">Gallery</a></li>
             <li><a href="#reviews">Reviews</a></li>
             <li><a href="#contact">Contact Us</a></li>
           </ul>
