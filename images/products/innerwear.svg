@@ -1,0 +1,12 @@
+<svg width="800" height="600" viewBox="0 0 800 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <title>Innerwear</title>
+  <rect width="800" height="600" fill="#E7EFFA"/>
+  <circle cx="400" cy="300" r="198" fill="#FFFFFF" opacity="0.6"/>
+  <circle cx="638" cy="126" r="44" fill="#FFFFFF" opacity="0.35"/>
+  <circle cx="162" cy="482" r="56" fill="#FFFFFF" opacity="0.3"/>
+  <path d="M350 210 L340 170 L365 170 L382 212 Q400 230 418 212 L435 170 L460 170 L450 210 L460 410 L340 410 Z" fill="#FFFFFF" stroke="#173A6B" stroke-width="7" stroke-linejoin="round"/>
+  <path d="M382 216 Q400 232 418 216" fill="none" stroke="#6AAFE8" stroke-width="5" stroke-linecap="round"/>
+  <path d="M340 392 H460" fill="none" stroke="#6AAFE8" stroke-width="5" stroke-linecap="round" opacity="0.5"/>
+  <path d="M368 230 Q366 320 370 390" fill="none" stroke="#6AAFE8" stroke-width="4" stroke-linecap="round" opacity="0.4"/>
+  <path d="M432 230 Q434 320 430 390" fill="none" stroke="#6AAFE8" stroke-width="4" stroke-linecap="round" opacity="0.4"/>
+</svg>

@@ -1,0 +1,12 @@
+<svg width="800" height="600" viewBox="0 0 800 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <title>Women's top</title>
+  <rect width="800" height="600" fill="#E5EFFF"/>
+  <circle cx="400" cy="300" r="198" fill="#FFFFFF" opacity="0.55"/>
+  <circle cx="650" cy="134" r="44" fill="#FFFFFF" opacity="0.35"/>
+  <circle cx="154" cy="476" r="56" fill="#FFFFFF" opacity="0.3"/>
+  <path d="M345 182 Q400 162 455 182 L496 232 L470 268 L450 238 L456 376 L344 376 L350 238 L330 268 L304 232 Z" fill="#FFFFFF" stroke="#173A6B" stroke-width="7" stroke-linejoin="round"/>
+  <path d="M375 174 L400 216 L425 174" fill="none" stroke="#173A6B" stroke-width="6" stroke-linejoin="round"/>
+  <path d="M330 250 L352 244" fill="none" stroke="#4DB8FF" stroke-width="5" stroke-linecap="round"/>
+  <path d="M470 250 L448 244" fill="none" stroke="#4DB8FF" stroke-width="5" stroke-linecap="round"/>
+  <path d="M344 352 H456" fill="none" stroke="#4DB8FF" stroke-width="5" stroke-linecap="round" opacity="0.45"/>
+</svg>

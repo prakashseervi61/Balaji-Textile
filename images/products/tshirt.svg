@@ -1,0 +1,10 @@
+<svg width="800" height="600" viewBox="0 0 800 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <title>T-shirt</title>
+  <rect width="800" height="600" fill="#E1F2FF"/>
+  <circle cx="400" cy="300" r="198" fill="#FFFFFF" opacity="0.58"/>
+  <circle cx="650" cy="136" r="44" fill="#FFFFFF" opacity="0.35"/>
+  <circle cx="150" cy="470" r="54" fill="#FFFFFF" opacity="0.3"/>
+  <path d="M340 172 L372 152 Q400 185 428 152 L460 172 L514 222 L492 286 L458 272 L460 462 L340 462 L342 272 L308 286 L286 222 Z" fill="#FFFFFF" stroke="#173A6B" stroke-width="7" stroke-linejoin="round"/>
+  <path d="M382 164 Q400 190 418 164" fill="none" stroke="#173A6B" stroke-width="5" stroke-linecap="round"/>
+  <path d="M342 440 H458" fill="none" stroke="#2F8FCD" stroke-width="5" stroke-linecap="round" opacity="0.4"/>
+</svg>

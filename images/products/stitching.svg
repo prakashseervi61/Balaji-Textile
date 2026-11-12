@@ -1,0 +1,15 @@
+<svg width="800" height="600" viewBox="0 0 800 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <title>Stitching accessories</title>
+  <rect width="800" height="600" fill="#E5EFFF"/>
+  <circle cx="400" cy="300" r="198" fill="#FFFFFF" opacity="0.55"/>
+  <circle cx="646" cy="124" r="44" fill="#FFFFFF" opacity="0.35"/>
+  <circle cx="156" cy="484" r="56" fill="#FFFFFF" opacity="0.3"/>
+  <rect x="296" y="296" width="98" height="42" rx="10" fill="#FFFFFF" stroke="#173A6B" stroke-width="7"/>
+  <path d="M314 338 H376 V416 H314 Z" fill="#FFFFFF" stroke="#173A6B" stroke-width="7" stroke-linejoin="round"/>
+  <rect x="296" y="416" width="98" height="42" rx="10" fill="#FFFFFF" stroke="#173A6B" stroke-width="7"/>
+  <path d="M314 356 H376 M314 376 H376 M314 396 H376" fill="none" stroke="#4DB8FF" stroke-width="5" stroke-linecap="round"/>
+  <path d="M376 380 Q438 358 468 304 Q492 264 542 282" fill="none" stroke="#4DB8FF" stroke-width="5" stroke-linecap="round"/>
+  <path d="M470 442 L588 310" fill="none" stroke="#173A6B" stroke-width="7" stroke-linecap="round"/>
+  <circle cx="594" cy="304" r="8" fill="none" stroke="#173A6B" stroke-width="5"/>
+  <path d="M542 282 Q570 280 594 304" fill="none" stroke="#4DB8FF" stroke-width="5" stroke-linecap="round"/>
+</svg>

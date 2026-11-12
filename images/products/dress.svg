@@ -1,0 +1,16 @@
+<svg width="800" height="600" viewBox="0 0 800 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <title>Dress</title>
+  <rect width="800" height="600" fill="#E1F2FF"/>
+  <circle cx="400" cy="300" r="198" fill="#FFFFFF" opacity="0.58"/>
+  <circle cx="632" cy="122" r="46" fill="#FFFFFF" opacity="0.35"/>
+  <circle cx="170" cy="486" r="56" fill="#FFFFFF" opacity="0.3"/>
+  <path d="M355 182 Q400 164 445 182 L456 252 L500 440 Q400 472 300 440 L344 252 Z" fill="#FFFFFF" stroke="#173A6B" stroke-width="7" stroke-linejoin="round"/>
+  <path d="M355 182 L330 210 L346 246" fill="none" stroke="#173A6B" stroke-width="6" stroke-linejoin="round"/>
+  <path d="M445 182 L470 210 L454 246" fill="none" stroke="#173A6B" stroke-width="6" stroke-linejoin="round"/>
+  <path d="M372 174 Q400 204 428 174" fill="none" stroke="#173A6B" stroke-width="6" stroke-linecap="round"/>
+  <path d="M344 286 H456" fill="none" stroke="#2F8FCD" stroke-width="5" stroke-linecap="round" opacity="0.5"/>
+  <path d="M370 300 Q362 370 348 438" fill="none" stroke="#6AAFE8" stroke-width="5" stroke-linecap="round" opacity="0.5"/>
+  <path d="M400 300 V454" fill="none" stroke="#6AAFE8" stroke-width="5" stroke-linecap="round" opacity="0.5"/>
+  <path d="M430 300 Q438 370 452 438" fill="none" stroke="#6AAFE8" stroke-width="5" stroke-linecap="round" opacity="0.5"/>
+  <path d="M312 438 Q400 468 488 438" fill="none" stroke="#4DB8FF" stroke-width="8" stroke-linecap="round"/>
+</svg>

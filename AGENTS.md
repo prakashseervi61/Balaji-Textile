@@ -16,28 +16,32 @@ Plain HTML5 + CSS3 + vanilla JS only. No package manager, framework, build step,
 - Preview: `python3 -m http.server 8765 --bind 127.0.0.1` from the repo root.
 - JS syntax check: `node --check script.js`
 - No lint, typecheck, test, or build command exists. Do not add one for a small change.
-- Pages deploys only on pushes to `main`. `blue-redesign` is the redesign integration
-  branch; `products-ux` is stacked on it. Target PRs at `blue-redesign`, never `main`,
-  until the redesign lands.
+- Pages deploys only on pushes to `main`. The blue redesign has landed; `blue-redesign`
+  is the working branch for catalogue changes. Target PRs at `main` unless the owner
+  specifies another base.
 
 ## Products catalogue
 
 This is the high-risk area. The catalogue has no data file, CMS, or JS rendering:
-every product is a hand-written `<a class="pill">` in `products.html`.
+every product is a hand-written `<article class="product-card" data-category="...">`
+inside the single `#product-grid` in `products.html`.
 
-- Each pill belongs inside `.product-group[data-category="..."]`; valid values are
-  `men`, `women`, `kids`, `tailoring`. The same values are the tab `data-filter`s,
-  URL hashes (`#men`, `#women`, `#kids`, `#tailoring`), and `VALID_FILTERS` in
-  `script.js`.
-- To add a product, add a pill with a prefilled `wa.me/919894535066?text=...`
-  enquiry and matching `data-category`. Do not hardcode counts: tab `.count` and
-  group `.group-count` values are computed from the DOM at runtime.
+- Valid categories are `men`, `women`, `kids`, `tailoring`. The same values are the
+  tab `data-filter`s, URL hashes (`#men`, `#women`, `#kids`, `#tailoring`), and
+  `VALID_FILTERS` in `script.js`. `all` is a view, not a card category.
+- Each card contains `.product-media > img`, `.product-category`, `.product-name`,
+  and one `.product-enquire` link. To add a product, add a card with a prefilled
+  `wa.me/919894535066?text=...` enquiry and matching `data-category`. Do not
+  hardcode counts: tab `.count` values are computed from `.product-card` at runtime.
+- Card images are local 4:3 SVGs in `images/products/` (800×600). They are
+  decorative placeholders with `alt=""`; replace the `src` with a real 4:3 photo
+  and add meaningful alt text when photos become available.
 - Keep search and tab filtering working together, including the empty state and
-  its WhatsApp link. With JS disabled, search/tabs are hidden by the `noscript`
-  block and all products must remain visible — never generate products in JS.
+  its WhatsApp link. With JS disabled, search/tabs/meta are hidden by the
+  `noscript` block and all products must remain visible — never generate products
+  in JS.
 - Product names, categories, and enquiries are real business information. Never
   invent products, prices, offers, stock, delivery promises, reviews, or photos.
-  The text pills are intentional; `images/products/*.svg` are unused placeholders.
 - Sticky tabs and anchor offsets depend on `--header-height`, written by
   `script.js` from the measured header. Do not replace it with a hardcoded 72px;
   72px is only the CSS fallback before script runs.
@@ -63,7 +67,8 @@ every product is a hand-written `<a class="pill">` in `products.html`.
 
 ## Verify products changes
 
-Check widths 320/375/768/1024/1440 with no horizontal scroll, sticky tabs directly
-under the header, search + tabs combined, every category deep link, WhatsApp
-prefills, and keyboard-only drawer behavior. Also load `products.html` with JS
-disabled and confirm all products and the static hours remain visible.
+Check widths 320/375/390/430/600/768/1024/1280/1440/1920 with no horizontal
+scroll, sticky tabs directly under the header, search + tabs combined, every
+category deep link, WhatsApp prefills, and keyboard-only drawer behavior. Also
+load `products.html` with JS disabled and confirm all products and the static
+hours remain visible.

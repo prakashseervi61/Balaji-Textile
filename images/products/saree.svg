@@ -1,0 +1,19 @@
+<svg width="800" height="600" viewBox="0 0 800 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <title>Saree</title>
+  <rect width="800" height="600" fill="#E1F2FF"/>
+  <circle cx="400" cy="300" r="198" fill="#FFFFFF" opacity="0.56"/>
+  <circle cx="646" cy="126" r="44" fill="#FFFFFF" opacity="0.35"/>
+  <circle cx="156" cy="484" r="56" fill="#FFFFFF" opacity="0.3"/>
+  <path d="M360 288 L318 466 Q400 498 482 466 L440 288 Z" fill="#FFFFFF" stroke="#173A6B" stroke-width="7" stroke-linejoin="round"/>
+  <path d="M324 462 Q400 492 476 462" fill="none" stroke="#2F8FCD" stroke-width="10" stroke-linecap="round"/>
+  <path d="M372 302 Q364 382 348 462" fill="none" stroke="#6AAFE8" stroke-width="5" stroke-linecap="round" opacity="0.6"/>
+  <path d="M392 302 Q390 386 382 472" fill="none" stroke="#6AAFE8" stroke-width="5" stroke-linecap="round" opacity="0.6"/>
+  <path d="M412 302 Q418 386 426 470" fill="none" stroke="#6AAFE8" stroke-width="5" stroke-linecap="round" opacity="0.6"/>
+  <path d="M352 190 Q400 172 448 190 L458 248 L438 290 L362 290 L342 248 Z" fill="#FFFFFF" stroke="#173A6B" stroke-width="7" stroke-linejoin="round"/>
+  <path d="M372 186 Q400 216 428 186" fill="none" stroke="#173A6B" stroke-width="6" stroke-linecap="round"/>
+  <path d="M352 190 Q452 206 486 286 L512 452 L478 468 L448 356 Q430 300 380 286 Z" fill="#FFFFFF" stroke="#173A6B" stroke-width="7" stroke-linejoin="round"/>
+  <path d="M360 198 Q440 216 474 292 L500 448" fill="none" stroke="#4DB8FF" stroke-width="9" stroke-linecap="round"/>
+  <circle cx="452" cy="342" r="6" fill="#4DB8FF"/>
+  <circle cx="463" cy="378" r="6" fill="#4DB8FF"/>
+  <circle cx="474" cy="414" r="6" fill="#4DB8FF"/>
+</svg>

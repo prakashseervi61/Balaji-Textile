@@ -1,0 +1,16 @@
+<svg width="800" height="600" viewBox="0 0 800 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <title>Full sleeve shirt</title>
+  <rect width="800" height="600" fill="#E5EFFF"/>
+  <circle cx="400" cy="300" r="198" fill="#FFFFFF" opacity="0.55"/>
+  <circle cx="642" cy="120" r="44" fill="#FFFFFF" opacity="0.35"/>
+  <circle cx="158" cy="490" r="58" fill="#FFFFFF" opacity="0.3"/>
+  <path d="M340 168 L380 145 L400 175 L420 145 L460 168 L512 205 L540 390 L480 406 L454 300 L460 466 L340 466 L346 300 L320 406 L260 390 L288 205 Z" fill="#FFFFFF" stroke="#173A6B" stroke-width="7" stroke-linejoin="round"/>
+  <path d="M380 145 L366 198 L400 214 L434 198 L420 145" fill="none" stroke="#173A6B" stroke-width="7" stroke-linejoin="round"/>
+  <path d="M400 214 V466" fill="none" stroke="#173A6B" stroke-width="7" stroke-linecap="round"/>
+  <path d="M270 372 L326 387" fill="none" stroke="#173A6B" stroke-width="7" stroke-linecap="round"/>
+  <path d="M474 387 L530 372" fill="none" stroke="#173A6B" stroke-width="7" stroke-linecap="round"/>
+  <path d="M352 272 H392 V310 H352 Z" fill="none" stroke="#4DB8FF" stroke-width="5" stroke-linejoin="round"/>
+  <circle cx="400" cy="258" r="5" fill="#173A6B"/>
+  <circle cx="400" cy="322" r="5" fill="#173A6B"/>
+  <circle cx="400" cy="386" r="5" fill="#173A6B"/>
+</svg>

@@ -1,0 +1,19 @@
+<svg width="800" height="600" viewBox="0 0 800 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <title>Designer lace</title>
+  <rect width="800" height="600" fill="#E2F3F0"/>
+  <circle cx="400" cy="300" r="198" fill="#FFFFFF" opacity="0.6"/>
+  <circle cx="638" cy="124" r="44" fill="#FFFFFF" opacity="0.35"/>
+  <circle cx="162" cy="482" r="56" fill="#FFFFFF" opacity="0.3"/>
+  <path d="M240 296 H560 V354 Q544 382 528 354 Q512 382 496 354 Q480 382 464 354 Q448 382 432 354 Q416 382 400 354 Q384 382 368 354 Q352 382 336 354 Q320 382 304 354 Q288 382 272 354 Q256 382 240 354 Z" fill="#FFFFFF" stroke="#173A6B" stroke-width="7" stroke-linejoin="round"/>
+  <path d="M250 312 H550" fill="none" stroke="#3FA796" stroke-width="5" stroke-linecap="round" stroke-dasharray="1 12"/>
+  <circle cx="256" cy="330" r="6" fill="none" stroke="#3FA796" stroke-width="4"/>
+  <circle cx="288" cy="330" r="6" fill="none" stroke="#3FA796" stroke-width="4"/>
+  <circle cx="320" cy="330" r="6" fill="none" stroke="#3FA796" stroke-width="4"/>
+  <circle cx="352" cy="330" r="6" fill="none" stroke="#3FA796" stroke-width="4"/>
+  <circle cx="384" cy="330" r="6" fill="none" stroke="#3FA796" stroke-width="4"/>
+  <circle cx="416" cy="330" r="6" fill="none" stroke="#3FA796" stroke-width="4"/>
+  <circle cx="448" cy="330" r="6" fill="none" stroke="#3FA796" stroke-width="4"/>
+  <circle cx="480" cy="330" r="6" fill="none" stroke="#3FA796" stroke-width="4"/>
+  <circle cx="512" cy="330" r="6" fill="none" stroke="#3FA796" stroke-width="4"/>
+  <circle cx="544" cy="330" r="6" fill="none" stroke="#3FA796" stroke-width="4"/>
+</svg>
