@@ -1,0 +1,16 @@
+<svg width="800" height="600" viewBox="0 0 800 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <title>Wide-leg trousers</title>
+  <rect width="800" height="600" fill="#E2F3F0"/>
+  <circle cx="400" cy="300" r="198" fill="#FFFFFF" opacity="0.6"/>
+  <circle cx="644" cy="130" r="44" fill="#FFFFFF" opacity="0.35"/>
+  <circle cx="158" cy="478" r="56" fill="#FFFFFF" opacity="0.3"/>
+  <path d="M310 160 H490 V208 H310 Z" fill="#FFFFFF" stroke="#173A6B" stroke-width="7" stroke-linejoin="round"/>
+  <path d="M310 208 L292 466 H384 L400 306 L416 466 H508 L490 208 Z" fill="#FFFFFF" stroke="#173A6B" stroke-width="7" stroke-linejoin="round"/>
+  <path d="M400 208 V306" fill="none" stroke="#173A6B" stroke-width="7" stroke-linecap="round"/>
+  <path d="M310 184 H490" fill="none" stroke="#173A6B" stroke-width="4"/>
+  <path d="M382 208 Q400 224 418 208" fill="none" stroke="#3FA796" stroke-width="5" stroke-linecap="round"/>
+  <path d="M354 236 L342 446" fill="none" stroke="#3FA796" stroke-width="5" stroke-linecap="round" opacity="0.5"/>
+  <path d="M446 236 L458 446" fill="none" stroke="#3FA796" stroke-width="5" stroke-linecap="round" opacity="0.5"/>
+  <path d="M292 448 H384" fill="none" stroke="#173A6B" stroke-width="5" stroke-linecap="round"/>
+  <path d="M416 448 H508" fill="none" stroke="#173A6B" stroke-width="5" stroke-linecap="round"/>
+</svg>

@@ -29,7 +29,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Lato:wght@300;400;600;700&family=Noto+Sans+Tamil:wght@400;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
-  <noscript><style>.reveal { opacity: 1; transform: none; } .products-tools, .tabs-sticky { display: none; }</style></noscript>
+  <noscript><style>.reveal { opacity: 1; transform: none; } .catalogue-search, .tabs-sticky, .catalogue-meta { display: none; }</style></noscript>
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%230A1445' rx='10'/%3E%3Ctext x='50' y='60' font-family='serif' font-size='50' fill='%23FFFFFF' text-anchor='middle'%3EBT%3C/text%3E%3C/svg%3E" />
 </head>
 <body>
@@ -82,153 +82,604 @@
 
   <main id="main-content">
 
-    <!-- Page Title -->
-    <section class="page-title-section">
+    <!-- Catalogue intro -->
+    <section class="catalogue-hero">
       <div class="container">
-        <h1 class="section-title">Our Products</h1>
-        <p class="page-subtitle">Browse our clothing and textile collections for the whole family.</p>
+        <h1 class="catalogue-title">Our Products</h1>
+        <p class="catalogue-subtitle">Clothing and textiles for the whole family, from everyday essentials to occasion wear and tailoring.</p>
+        <div class="product-search catalogue-search">
+          <label class="visually-hidden" for="product-search">Search products</label>
+          <svg class="search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true" focusable="false"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <input type="search" id="product-search" placeholder="Search shirts, sarees, falls&hellip;" autocomplete="off" />
+        </div>
       </div>
     </section>
 
-    <!-- Products -->
-    <section class="products" aria-labelledby="catalogue-heading">
-      <div class="container">
-        <h2 class="visually-hidden" id="catalogue-heading">Product catalogue</h2>
-        <div class="products-tools">
-          <div class="product-search">
-            <label class="visually-hidden" for="product-search">Search products</label>
-            <svg class="search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true" focusable="false"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-            <input type="search" id="product-search" placeholder="Search shirts, sarees, falls&hellip;" autocomplete="off" />
-          </div>
-          <p class="results-count" id="results-count" role="status" aria-live="polite">Showing 37 items</p>
-          <p class="products-hint">Tap any item to ask about it on WhatsApp.</p>
-        </div>
-      </div>
+    <!-- Product catalogue -->
+    <section class="catalogue" aria-labelledby="catalogue-heading">
+      <h2 class="visually-hidden" id="catalogue-heading">Product catalogue</h2>
 
-      <!-- Sticky category tabs -->
       <div class="tabs-sticky">
         <div class="container">
           <div class="tabs-wrap">
             <div class="product-tabs" id="product-tabs" role="group" aria-label="Filter products by category">
-              <button type="button" class="tab-btn active" data-filter="all" aria-pressed="true" aria-controls="product-list">All <span class="count"></span></button>
-              <button type="button" class="tab-btn" data-filter="men" aria-pressed="false" aria-controls="product-list">Men <span class="count"></span></button>
-              <button type="button" class="tab-btn" data-filter="women" aria-pressed="false" aria-controls="product-list">Women <span class="count"></span></button>
-              <button type="button" class="tab-btn" data-filter="kids" aria-pressed="false" aria-controls="product-list">Kids <span class="count"></span></button>
-              <button type="button" class="tab-btn" data-filter="tailoring" aria-pressed="false" aria-controls="product-list">Tailoring &amp; Matching <span class="count"></span></button>
+              <button type="button" class="tab-btn active" data-filter="all" aria-pressed="true" aria-controls="product-grid">All <span class="count"></span></button>
+              <button type="button" class="tab-btn" data-filter="men" aria-pressed="false" aria-controls="product-grid">Men <span class="count"></span></button>
+              <button type="button" class="tab-btn" data-filter="women" aria-pressed="false" aria-controls="product-grid">Women <span class="count"></span></button>
+              <button type="button" class="tab-btn" data-filter="kids" aria-pressed="false" aria-controls="product-grid">Kids <span class="count"></span></button>
+              <button type="button" class="tab-btn" data-filter="tailoring" aria-pressed="false" aria-controls="product-grid">Tailoring &amp; Matching <span class="count"></span></button>
             </div>
           </div>
         </div>
       </div>
 
-      <div class="container" id="product-list">
-
-        <!-- Men's group -->
-        <div class="product-group" data-category="men">
-          <h3 class="group-title">
-            <svg class="group-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20.38 3.46 16 2a4 4 0 0 1-8 0L3.62 3.46a2 2 0 0 0-1.34 2.23l.58 3.57a1 1 0 0 0 .99.84H6v10a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V10h2.15a1 1 0 0 0 .99-.84l.58-3.57a2 2 0 0 0-1.34-2.23z"/></svg>
-            Men
-            <span class="group-count">10 items</span>
-          </h3>
-          <div class="pill-grid">
-            <a href="https://wa.me/919894535066?text=Hi%20Balaji%20Textiles%2C%20I%27m%20interested%20in%20Men%3A%20Full%20sleeve%20shirts.%20Is%20it%20available%3F" target="_blank" rel="noopener" class="pill" data-category="men"><svg class="pill-icon" aria-hidden="true" focusable="false"><use href="#icon-whatsapp"></use></svg>Full sleeve shirts</a>
-            <a href="https://wa.me/919894535066?text=Hi%20Balaji%20Textiles%2C%20I%27m%20interested%20in%20Men%3A%20Half%20sleeve%20shirts.%20Is%20it%20available%3F" target="_blank" rel="noopener" class="pill" data-category="men"><svg class="pill-icon" aria-hidden="true" focusable="false"><use href="#icon-whatsapp"></use></svg>Half sleeve shirts</a>
-            <a href="https://wa.me/919894535066?text=Hi%20Balaji%20Textiles%2C%20I%27m%20interested%20in%20Men%3A%20Collar%20t-shirts.%20Is%20it%20available%3F" target="_blank" rel="noopener" class="pill" data-category="men"><svg class="pill-icon" aria-hidden="true" focusable="false"><use href="#icon-whatsapp"></use></svg>Collar t-shirts</a>
-            <a href="https://wa.me/919894535066?text=Hi%20Balaji%20Textiles%2C%20I%27m%20interested%20in%20Men%3A%20Round-neck%20t-shirts.%20Is%20it%20available%3F" target="_blank" rel="noopener" class="pill" data-category="men"><svg class="pill-icon" aria-hidden="true" focusable="false"><use href="#icon-whatsapp"></use></svg>Round-neck t-shirts</a>
-            <a href="https://wa.me/919894535066?text=Hi%20Balaji%20Textiles%2C%20I%27m%20interested%20in%20Men%3A%20Jean%20pants.%20Is%20it%20available%3F" target="_blank" rel="noopener" class="pill" data-category="men"><svg class="pill-icon" aria-hidden="true" focusable="false"><use href="#icon-whatsapp"></use></svg>Jean pants</a>
-            <a href="https://wa.me/919894535066?text=Hi%20Balaji%20Textiles%2C%20I%27m%20interested%20in%20Men%3A%20Cotton%20pants.%20Is%20it%20available%3F" target="_blank" rel="noopener" class="pill" data-category="men"><svg class="pill-icon" aria-hidden="true" focusable="false"><use href="#icon-whatsapp"></use></svg>Cotton pants</a>
-            <a href="https://wa.me/919894535066?text=Hi%20Balaji%20Textiles%2C%20I%27m%20interested%20in%20Men%3A%20Trousers.%20Is%20it%20available%3F" target="_blank" rel="noopener" class="pill" data-category="men"><svg class="pill-icon" aria-hidden="true" focusable="false"><use href="#icon-whatsapp"></use></svg>Trousers</a>
-            <a href="https://wa.me/919894535066?text=Hi%20Balaji%20Textiles%2C%20I%27m%20interested%20in%20Men%3A%20Night%20pants.%20Is%20it%20available%3F" target="_blank" rel="noopener" class="pill" data-category="men"><svg class="pill-icon" aria-hidden="true" focusable="false"><use href="#icon-whatsapp"></use></svg>Night pants</a>
-            <a href="https://wa.me/919894535066?text=Hi%20Balaji%20Textiles%2C%20I%27m%20interested%20in%20Men%3A%20Half%20pants.%20Is%20it%20available%3F" target="_blank" rel="noopener" class="pill" data-category="men"><svg class="pill-icon" aria-hidden="true" focusable="false"><use href="#icon-whatsapp"></use></svg>Half pants</a>
-            <a href="https://wa.me/919894535066?text=Hi%20Balaji%20Textiles%2C%20I%27m%20interested%20in%20Men%3A%20Innerwear.%20Is%20it%20available%3F" target="_blank" rel="noopener" class="pill" data-category="men"><svg class="pill-icon" aria-hidden="true" focusable="false"><use href="#icon-whatsapp"></use></svg>Innerwear</a>
-          </div>
+      <div class="container catalogue-container">
+        <div class="catalogue-meta">
+          <p class="results-count" id="results-count" role="status" aria-live="polite"></p>
+          <p class="products-hint">Ask about any item on WhatsApp.</p>
         </div>
 
-        <!-- Women's group -->
-        <div class="product-group" data-category="women">
-          <h3 class="group-title">
-            <svg class="group-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 8a2 2 0 1 0-2-2"/><path d="M12 8v2l8.5 5.5a1.5 1.5 0 0 1-.8 2.5H4.3a1.5 1.5 0 0 1-.8-2.5L12 10"/></svg>
-            Women
-            <span class="group-count">12 items</span>
-          </h3>
-          <div class="pill-grid">
-            <a href="https://wa.me/919894535066?text=Hi%20Balaji%20Textiles%2C%20I%27m%20interested%20in%20Women%3A%20Sarees.%20Is%20it%20available%3F" target="_blank" rel="noopener" class="pill" data-category="women"><svg class="pill-icon" aria-hidden="true" focusable="false"><use href="#icon-whatsapp"></use></svg>Sarees</a>
-            <a href="https://wa.me/919894535066?text=Hi%20Balaji%20Textiles%2C%20I%27m%20interested%20in%20Women%3A%20Chudidhars.%20Is%20it%20available%3F" target="_blank" rel="noopener" class="pill" data-category="women"><svg class="pill-icon" aria-hidden="true" focusable="false"><use href="#icon-whatsapp"></use></svg>Chudidhars</a>
-            <a href="https://wa.me/919894535066?text=Hi%20Balaji%20Textiles%2C%20I%27m%20interested%20in%20Women%3A%20Tops.%20Is%20it%20available%3F" target="_blank" rel="noopener" class="pill" data-category="women"><svg class="pill-icon" aria-hidden="true" focusable="false"><use href="#icon-whatsapp"></use></svg>Tops</a>
-            <a href="https://wa.me/919894535066?text=Hi%20Balaji%20Textiles%2C%20I%27m%20interested%20in%20Women%3A%20Shararas.%20Is%20it%20available%3F" target="_blank" rel="noopener" class="pill" data-category="women"><svg class="pill-icon" aria-hidden="true" focusable="false"><use href="#icon-whatsapp"></use></svg>Shararas</a>
-            <a href="https://wa.me/919894535066?text=Hi%20Balaji%20Textiles%2C%20I%27m%20interested%20in%20Women%3A%20Western%20wear.%20Is%20it%20available%3F" target="_blank" rel="noopener" class="pill" data-category="women"><svg class="pill-icon" aria-hidden="true" focusable="false"><use href="#icon-whatsapp"></use></svg>Western wear</a>
-            <a href="https://wa.me/919894535066?text=Hi%20Balaji%20Textiles%2C%20I%27m%20interested%20in%20Women%3A%20Frocks.%20Is%20it%20available%3F" target="_blank" rel="noopener" class="pill" data-category="women"><svg class="pill-icon" aria-hidden="true" focusable="false"><use href="#icon-whatsapp"></use></svg>Frocks</a>
-            <a href="https://wa.me/919894535066?text=Hi%20Balaji%20Textiles%2C%20I%27m%20interested%20in%20Women%3A%20Palazzo%20pants.%20Is%20it%20available%3F" target="_blank" rel="noopener" class="pill" data-category="women"><svg class="pill-icon" aria-hidden="true" focusable="false"><use href="#icon-whatsapp"></use></svg>Palazzo pants</a>
-            <a href="https://wa.me/919894535066?text=Hi%20Balaji%20Textiles%2C%20I%27m%20interested%20in%20Women%3A%20Straight%20pants.%20Is%20it%20available%3F" target="_blank" rel="noopener" class="pill" data-category="women"><svg class="pill-icon" aria-hidden="true" focusable="false"><use href="#icon-whatsapp"></use></svg>Straight pants</a>
-            <a href="https://wa.me/919894535066?text=Hi%20Balaji%20Textiles%2C%20I%27m%20interested%20in%20Women%3A%20Ankle%20leggings.%20Is%20it%20available%3F" target="_blank" rel="noopener" class="pill" data-category="women"><svg class="pill-icon" aria-hidden="true" focusable="false"><use href="#icon-whatsapp"></use></svg>Ankle leggings</a>
-            <a href="https://wa.me/919894535066?text=Hi%20Balaji%20Textiles%2C%20I%27m%20interested%20in%20Women%3A%20Regular%20leggings.%20Is%20it%20available%3F" target="_blank" rel="noopener" class="pill" data-category="women"><svg class="pill-icon" aria-hidden="true" focusable="false"><use href="#icon-whatsapp"></use></svg>Regular leggings</a>
-            <a href="https://wa.me/919894535066?text=Hi%20Balaji%20Textiles%2C%20I%27m%20interested%20in%20Women%3A%20Shawls.%20Is%20it%20available%3F" target="_blank" rel="noopener" class="pill" data-category="women"><svg class="pill-icon" aria-hidden="true" focusable="false"><use href="#icon-whatsapp"></use></svg>Shawls</a>
-            <a href="https://wa.me/919894535066?text=Hi%20Balaji%20Textiles%2C%20I%27m%20interested%20in%20Women%3A%20Innerwear.%20Is%20it%20available%3F" target="_blank" rel="noopener" class="pill" data-category="women"><svg class="pill-icon" aria-hidden="true" focusable="false"><use href="#icon-whatsapp"></use></svg>Innerwear</a>
-          </div>
+        <div class="product-grid" id="product-grid">
+          <!-- 37 products. Replace each placeholder SVG with a real 4:3 photo and update the alt text when available. -->
+            <!-- Full Sleeve Shirts -->
+            <article class="product-card" data-category="men">
+              <div class="product-media">
+                <img src="images/products/shirt-long.svg" alt="" width="800" height="600" loading="lazy" decoding="async" />
+              </div>
+              <div class="product-card-body">
+                <p class="product-category">Men&rsquo;s Wear</p>
+                <h3 class="product-name">Full Sleeve Shirts</h3>
+                <a class="product-enquire" href="https://wa.me/919894535066?text=Hello%20Balaji%20Textiles%2C%20I%20am%20interested%20in%20Men's%20Full%20Sleeve%20Shirts.%20Could%20you%20please%20share%20the%20available%20options%20and%20prices%3F" target="_blank" rel="noopener" aria-label="Enquire about Full Sleeve Shirts on WhatsApp">
+                  <svg class="enquire-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true" focusable="false"><path d="M12 5v14M5 12h14"/></svg>
+                  Enquire
+                </a>
+              </div>
+            </article>
+
+            <!-- Half Sleeve Shirts -->
+            <article class="product-card" data-category="men">
+              <div class="product-media">
+                <img src="images/products/shirt-short.svg" alt="" width="800" height="600" loading="lazy" decoding="async" />
+              </div>
+              <div class="product-card-body">
+                <p class="product-category">Men&rsquo;s Wear</p>
+                <h3 class="product-name">Half Sleeve Shirts</h3>
+                <a class="product-enquire" href="https://wa.me/919894535066?text=Hello%20Balaji%20Textiles%2C%20I%20am%20interested%20in%20Men's%20Half%20Sleeve%20Shirts.%20Could%20you%20please%20share%20the%20available%20options%20and%20prices%3F" target="_blank" rel="noopener" aria-label="Enquire about Half Sleeve Shirts on WhatsApp">
+                  <svg class="enquire-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true" focusable="false"><path d="M12 5v14M5 12h14"/></svg>
+                  Enquire
+                </a>
+              </div>
+            </article>
+
+            <!-- Collar T-Shirts -->
+            <article class="product-card" data-category="men">
+              <div class="product-media">
+                <img src="images/products/shirt-short.svg" alt="" width="800" height="600" loading="lazy" decoding="async" />
+              </div>
+              <div class="product-card-body">
+                <p class="product-category">Men&rsquo;s Wear</p>
+                <h3 class="product-name">Collar T-Shirts</h3>
+                <a class="product-enquire" href="https://wa.me/919894535066?text=Hello%20Balaji%20Textiles%2C%20I%20am%20interested%20in%20Men's%20Collar%20T-Shirts.%20Could%20you%20please%20share%20the%20available%20options%20and%20prices%3F" target="_blank" rel="noopener" aria-label="Enquire about Collar T-Shirts on WhatsApp">
+                  <svg class="enquire-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true" focusable="false"><path d="M12 5v14M5 12h14"/></svg>
+                  Enquire
+                </a>
+              </div>
+            </article>
+
+            <!-- Round-Neck T-Shirts -->
+            <article class="product-card" data-category="men">
+              <div class="product-media">
+                <img src="images/products/tshirt.svg" alt="" width="800" height="600" loading="lazy" decoding="async" />
+              </div>
+              <div class="product-card-body">
+                <p class="product-category">Men&rsquo;s Wear</p>
+                <h3 class="product-name">Round-Neck T-Shirts</h3>
+                <a class="product-enquire" href="https://wa.me/919894535066?text=Hello%20Balaji%20Textiles%2C%20I%20am%20interested%20in%20Men's%20Round-Neck%20T-Shirts.%20Could%20you%20please%20share%20the%20available%20options%20and%20prices%3F" target="_blank" rel="noopener" aria-label="Enquire about Round-Neck T-Shirts on WhatsApp">
+                  <svg class="enquire-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true" focusable="false"><path d="M12 5v14M5 12h14"/></svg>
+                  Enquire
+                </a>
+              </div>
+            </article>
+
+            <!-- Jean Pants -->
+            <article class="product-card" data-category="men">
+              <div class="product-media">
+                <img src="images/products/trousers.svg" alt="" width="800" height="600" loading="lazy" decoding="async" />
+              </div>
+              <div class="product-card-body">
+                <p class="product-category">Men&rsquo;s Wear</p>
+                <h3 class="product-name">Jean Pants</h3>
+                <a class="product-enquire" href="https://wa.me/919894535066?text=Hello%20Balaji%20Textiles%2C%20I%20am%20interested%20in%20Men's%20Jean%20Pants.%20Could%20you%20please%20share%20the%20available%20options%20and%20prices%3F" target="_blank" rel="noopener" aria-label="Enquire about Jean Pants on WhatsApp">
+                  <svg class="enquire-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true" focusable="false"><path d="M12 5v14M5 12h14"/></svg>
+                  Enquire
+                </a>
+              </div>
+            </article>
+
+            <!-- Cotton Pants -->
+            <article class="product-card" data-category="men">
+              <div class="product-media">
+                <img src="images/products/trousers.svg" alt="" width="800" height="600" loading="lazy" decoding="async" />
+              </div>
+              <div class="product-card-body">
+                <p class="product-category">Men&rsquo;s Wear</p>
+                <h3 class="product-name">Cotton Pants</h3>
+                <a class="product-enquire" href="https://wa.me/919894535066?text=Hello%20Balaji%20Textiles%2C%20I%20am%20interested%20in%20Men's%20Cotton%20Pants.%20Could%20you%20please%20share%20the%20available%20options%20and%20prices%3F" target="_blank" rel="noopener" aria-label="Enquire about Cotton Pants on WhatsApp">
+                  <svg class="enquire-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true" focusable="false"><path d="M12 5v14M5 12h14"/></svg>
+                  Enquire
+                </a>
+              </div>
+            </article>
+
+            <!-- Trousers -->
+            <article class="product-card" data-category="men">
+              <div class="product-media">
+                <img src="images/products/trousers.svg" alt="" width="800" height="600" loading="lazy" decoding="async" />
+              </div>
+              <div class="product-card-body">
+                <p class="product-category">Men&rsquo;s Wear</p>
+                <h3 class="product-name">Trousers</h3>
+                <a class="product-enquire" href="https://wa.me/919894535066?text=Hello%20Balaji%20Textiles%2C%20I%20am%20interested%20in%20Men's%20Trousers.%20Could%20you%20please%20share%20the%20available%20options%20and%20prices%3F" target="_blank" rel="noopener" aria-label="Enquire about Trousers on WhatsApp">
+                  <svg class="enquire-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true" focusable="false"><path d="M12 5v14M5 12h14"/></svg>
+                  Enquire
+                </a>
+              </div>
+            </article>
+
+            <!-- Night Pants -->
+            <article class="product-card" data-category="men">
+              <div class="product-media">
+                <img src="images/products/trousers.svg" alt="" width="800" height="600" loading="lazy" decoding="async" />
+              </div>
+              <div class="product-card-body">
+                <p class="product-category">Men&rsquo;s Wear</p>
+                <h3 class="product-name">Night Pants</h3>
+                <a class="product-enquire" href="https://wa.me/919894535066?text=Hello%20Balaji%20Textiles%2C%20I%20am%20interested%20in%20Men's%20Night%20Pants.%20Could%20you%20please%20share%20the%20available%20options%20and%20prices%3F" target="_blank" rel="noopener" aria-label="Enquire about Night Pants on WhatsApp">
+                  <svg class="enquire-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true" focusable="false"><path d="M12 5v14M5 12h14"/></svg>
+                  Enquire
+                </a>
+              </div>
+            </article>
+
+            <!-- Half Pants -->
+            <article class="product-card" data-category="men">
+              <div class="product-media">
+                <img src="images/products/shorts.svg" alt="" width="800" height="600" loading="lazy" decoding="async" />
+              </div>
+              <div class="product-card-body">
+                <p class="product-category">Men&rsquo;s Wear</p>
+                <h3 class="product-name">Half Pants</h3>
+                <a class="product-enquire" href="https://wa.me/919894535066?text=Hello%20Balaji%20Textiles%2C%20I%20am%20interested%20in%20Men's%20Half%20Pants.%20Could%20you%20please%20share%20the%20available%20options%20and%20prices%3F" target="_blank" rel="noopener" aria-label="Enquire about Half Pants on WhatsApp">
+                  <svg class="enquire-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true" focusable="false"><path d="M12 5v14M5 12h14"/></svg>
+                  Enquire
+                </a>
+              </div>
+            </article>
+
+            <!-- Innerwear -->
+            <article class="product-card" data-category="men">
+              <div class="product-media">
+                <img src="images/products/innerwear.svg" alt="" width="800" height="600" loading="lazy" decoding="async" />
+              </div>
+              <div class="product-card-body">
+                <p class="product-category">Men&rsquo;s Wear</p>
+                <h3 class="product-name">Innerwear</h3>
+                <a class="product-enquire" href="https://wa.me/919894535066?text=Hello%20Balaji%20Textiles%2C%20I%20am%20interested%20in%20Men's%20Innerwear.%20Could%20you%20please%20share%20the%20available%20options%20and%20prices%3F" target="_blank" rel="noopener" aria-label="Enquire about Innerwear on WhatsApp">
+                  <svg class="enquire-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true" focusable="false"><path d="M12 5v14M5 12h14"/></svg>
+                  Enquire
+                </a>
+              </div>
+            </article>
+
+            <!-- Sarees -->
+            <article class="product-card" data-category="women">
+              <div class="product-media">
+                <img src="images/products/saree.svg" alt="" width="800" height="600" loading="lazy" decoding="async" />
+              </div>
+              <div class="product-card-body">
+                <p class="product-category">Women&rsquo;s Wear</p>
+                <h3 class="product-name">Sarees</h3>
+                <a class="product-enquire" href="https://wa.me/919894535066?text=Hello%20Balaji%20Textiles%2C%20I%20am%20interested%20in%20Women's%20Sarees.%20Could%20you%20please%20share%20the%20available%20options%20and%20prices%3F" target="_blank" rel="noopener" aria-label="Enquire about Sarees on WhatsApp">
+                  <svg class="enquire-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true" focusable="false"><path d="M12 5v14M5 12h14"/></svg>
+                  Enquire
+                </a>
+              </div>
+            </article>
+
+            <!-- Chudidhars -->
+            <article class="product-card" data-category="women">
+              <div class="product-media">
+                <img src="images/products/kurti.svg" alt="" width="800" height="600" loading="lazy" decoding="async" />
+              </div>
+              <div class="product-card-body">
+                <p class="product-category">Women&rsquo;s Wear</p>
+                <h3 class="product-name">Chudidhars</h3>
+                <a class="product-enquire" href="https://wa.me/919894535066?text=Hello%20Balaji%20Textiles%2C%20I%20am%20interested%20in%20Women's%20Chudidhars.%20Could%20you%20please%20share%20the%20available%20options%20and%20prices%3F" target="_blank" rel="noopener" aria-label="Enquire about Chudidhars on WhatsApp">
+                  <svg class="enquire-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true" focusable="false"><path d="M12 5v14M5 12h14"/></svg>
+                  Enquire
+                </a>
+              </div>
+            </article>
+
+            <!-- Tops -->
+            <article class="product-card" data-category="women">
+              <div class="product-media">
+                <img src="images/products/top.svg" alt="" width="800" height="600" loading="lazy" decoding="async" />
+              </div>
+              <div class="product-card-body">
+                <p class="product-category">Women&rsquo;s Wear</p>
+                <h3 class="product-name">Tops</h3>
+                <a class="product-enquire" href="https://wa.me/919894535066?text=Hello%20Balaji%20Textiles%2C%20I%20am%20interested%20in%20Women's%20Tops.%20Could%20you%20please%20share%20the%20available%20options%20and%20prices%3F" target="_blank" rel="noopener" aria-label="Enquire about Tops on WhatsApp">
+                  <svg class="enquire-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true" focusable="false"><path d="M12 5v14M5 12h14"/></svg>
+                  Enquire
+                </a>
+              </div>
+            </article>
+
+            <!-- Shararas -->
+            <article class="product-card" data-category="women">
+              <div class="product-media">
+                <img src="images/products/wide-leg.svg" alt="" width="800" height="600" loading="lazy" decoding="async" />
+              </div>
+              <div class="product-card-body">
+                <p class="product-category">Women&rsquo;s Wear</p>
+                <h3 class="product-name">Shararas</h3>
+                <a class="product-enquire" href="https://wa.me/919894535066?text=Hello%20Balaji%20Textiles%2C%20I%20am%20interested%20in%20Women's%20Shararas.%20Could%20you%20please%20share%20the%20available%20options%20and%20prices%3F" target="_blank" rel="noopener" aria-label="Enquire about Shararas on WhatsApp">
+                  <svg class="enquire-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true" focusable="false"><path d="M12 5v14M5 12h14"/></svg>
+                  Enquire
+                </a>
+              </div>
+            </article>
+
+            <!-- Western Wear -->
+            <article class="product-card" data-category="women">
+              <div class="product-media">
+                <img src="images/products/dress.svg" alt="" width="800" height="600" loading="lazy" decoding="async" />
+              </div>
+              <div class="product-card-body">
+                <p class="product-category">Women&rsquo;s Wear</p>
+                <h3 class="product-name">Western Wear</h3>
+                <a class="product-enquire" href="https://wa.me/919894535066?text=Hello%20Balaji%20Textiles%2C%20I%20am%20interested%20in%20Women's%20Western%20Wear.%20Could%20you%20please%20share%20the%20available%20options%20and%20prices%3F" target="_blank" rel="noopener" aria-label="Enquire about Western Wear on WhatsApp">
+                  <svg class="enquire-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true" focusable="false"><path d="M12 5v14M5 12h14"/></svg>
+                  Enquire
+                </a>
+              </div>
+            </article>
+
+            <!-- Frocks -->
+            <article class="product-card" data-category="women">
+              <div class="product-media">
+                <img src="images/products/dress.svg" alt="" width="800" height="600" loading="lazy" decoding="async" />
+              </div>
+              <div class="product-card-body">
+                <p class="product-category">Women&rsquo;s Wear</p>
+                <h3 class="product-name">Frocks</h3>
+                <a class="product-enquire" href="https://wa.me/919894535066?text=Hello%20Balaji%20Textiles%2C%20I%20am%20interested%20in%20Women's%20Frocks.%20Could%20you%20please%20share%20the%20available%20options%20and%20prices%3F" target="_blank" rel="noopener" aria-label="Enquire about Frocks on WhatsApp">
+                  <svg class="enquire-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true" focusable="false"><path d="M12 5v14M5 12h14"/></svg>
+                  Enquire
+                </a>
+              </div>
+            </article>
+
+            <!-- Palazzo Pants -->
+            <article class="product-card" data-category="women">
+              <div class="product-media">
+                <img src="images/products/wide-leg.svg" alt="" width="800" height="600" loading="lazy" decoding="async" />
+              </div>
+              <div class="product-card-body">
+                <p class="product-category">Women&rsquo;s Wear</p>
+                <h3 class="product-name">Palazzo Pants</h3>
+                <a class="product-enquire" href="https://wa.me/919894535066?text=Hello%20Balaji%20Textiles%2C%20I%20am%20interested%20in%20Women's%20Palazzo%20Pants.%20Could%20you%20please%20share%20the%20available%20options%20and%20prices%3F" target="_blank" rel="noopener" aria-label="Enquire about Palazzo Pants on WhatsApp">
+                  <svg class="enquire-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true" focusable="false"><path d="M12 5v14M5 12h14"/></svg>
+                  Enquire
+                </a>
+              </div>
+            </article>
+
+            <!-- Straight Pants -->
+            <article class="product-card" data-category="women">
+              <div class="product-media">
+                <img src="images/products/trousers.svg" alt="" width="800" height="600" loading="lazy" decoding="async" />
+              </div>
+              <div class="product-card-body">
+                <p class="product-category">Women&rsquo;s Wear</p>
+                <h3 class="product-name">Straight Pants</h3>
+                <a class="product-enquire" href="https://wa.me/919894535066?text=Hello%20Balaji%20Textiles%2C%20I%20am%20interested%20in%20Women's%20Straight%20Pants.%20Could%20you%20please%20share%20the%20available%20options%20and%20prices%3F" target="_blank" rel="noopener" aria-label="Enquire about Straight Pants on WhatsApp">
+                  <svg class="enquire-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true" focusable="false"><path d="M12 5v14M5 12h14"/></svg>
+                  Enquire
+                </a>
+              </div>
+            </article>
+
+            <!-- Ankle Leggings -->
+            <article class="product-card" data-category="women">
+              <div class="product-media">
+                <img src="images/products/leggings.svg" alt="" width="800" height="600" loading="lazy" decoding="async" />
+              </div>
+              <div class="product-card-body">
+                <p class="product-category">Women&rsquo;s Wear</p>
+                <h3 class="product-name">Ankle Leggings</h3>
+                <a class="product-enquire" href="https://wa.me/919894535066?text=Hello%20Balaji%20Textiles%2C%20I%20am%20interested%20in%20Women's%20Ankle%20Leggings.%20Could%20you%20please%20share%20the%20available%20options%20and%20prices%3F" target="_blank" rel="noopener" aria-label="Enquire about Ankle Leggings on WhatsApp">
+                  <svg class="enquire-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true" focusable="false"><path d="M12 5v14M5 12h14"/></svg>
+                  Enquire
+                </a>
+              </div>
+            </article>
+
+            <!-- Regular Leggings -->
+            <article class="product-card" data-category="women">
+              <div class="product-media">
+                <img src="images/products/leggings.svg" alt="" width="800" height="600" loading="lazy" decoding="async" />
+              </div>
+              <div class="product-card-body">
+                <p class="product-category">Women&rsquo;s Wear</p>
+                <h3 class="product-name">Regular Leggings</h3>
+                <a class="product-enquire" href="https://wa.me/919894535066?text=Hello%20Balaji%20Textiles%2C%20I%20am%20interested%20in%20Women's%20Regular%20Leggings.%20Could%20you%20please%20share%20the%20available%20options%20and%20prices%3F" target="_blank" rel="noopener" aria-label="Enquire about Regular Leggings on WhatsApp">
+                  <svg class="enquire-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true" focusable="false"><path d="M12 5v14M5 12h14"/></svg>
+                  Enquire
+                </a>
+              </div>
+            </article>
+
+            <!-- Shawls -->
+            <article class="product-card" data-category="women">
+              <div class="product-media">
+                <img src="images/products/shawl.svg" alt="" width="800" height="600" loading="lazy" decoding="async" />
+              </div>
+              <div class="product-card-body">
+                <p class="product-category">Women&rsquo;s Wear</p>
+                <h3 class="product-name">Shawls</h3>
+                <a class="product-enquire" href="https://wa.me/919894535066?text=Hello%20Balaji%20Textiles%2C%20I%20am%20interested%20in%20Women's%20Shawls.%20Could%20you%20please%20share%20the%20available%20options%20and%20prices%3F" target="_blank" rel="noopener" aria-label="Enquire about Shawls on WhatsApp">
+                  <svg class="enquire-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true" focusable="false"><path d="M12 5v14M5 12h14"/></svg>
+                  Enquire
+                </a>
+              </div>
+            </article>
+
+            <!-- Innerwear -->
+            <article class="product-card" data-category="women">
+              <div class="product-media">
+                <img src="images/products/innerwear.svg" alt="" width="800" height="600" loading="lazy" decoding="async" />
+              </div>
+              <div class="product-card-body">
+                <p class="product-category">Women&rsquo;s Wear</p>
+                <h3 class="product-name">Innerwear</h3>
+                <a class="product-enquire" href="https://wa.me/919894535066?text=Hello%20Balaji%20Textiles%2C%20I%20am%20interested%20in%20Women's%20Innerwear.%20Could%20you%20please%20share%20the%20available%20options%20and%20prices%3F" target="_blank" rel="noopener" aria-label="Enquire about Innerwear on WhatsApp">
+                  <svg class="enquire-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true" focusable="false"><path d="M12 5v14M5 12h14"/></svg>
+                  Enquire
+                </a>
+              </div>
+            </article>
+
+            <!-- Coat Suits -->
+            <article class="product-card" data-category="kids">
+              <div class="product-media">
+                <img src="images/products/kids-suit.svg" alt="" width="800" height="600" loading="lazy" decoding="async" />
+              </div>
+              <div class="product-card-body">
+                <p class="product-category">Kids&rsquo; Wear</p>
+                <h3 class="product-name">Coat Suits</h3>
+                <a class="product-enquire" href="https://wa.me/919894535066?text=Hello%20Balaji%20Textiles%2C%20I%20am%20interested%20in%20Kids'%20Coat%20Suits.%20Could%20you%20please%20share%20the%20available%20options%20and%20prices%3F" target="_blank" rel="noopener" aria-label="Enquire about Coat Suits on WhatsApp">
+                  <svg class="enquire-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true" focusable="false"><path d="M12 5v14M5 12h14"/></svg>
+                  Enquire
+                </a>
+              </div>
+            </article>
+
+            <!-- Party Wear -->
+            <article class="product-card" data-category="kids">
+              <div class="product-media">
+                <img src="images/products/dress.svg" alt="" width="800" height="600" loading="lazy" decoding="async" />
+              </div>
+              <div class="product-card-body">
+                <p class="product-category">Kids&rsquo; Wear</p>
+                <h3 class="product-name">Party Wear</h3>
+                <a class="product-enquire" href="https://wa.me/919894535066?text=Hello%20Balaji%20Textiles%2C%20I%20am%20interested%20in%20Kids'%20Party%20Wear.%20Could%20you%20please%20share%20the%20available%20options%20and%20prices%3F" target="_blank" rel="noopener" aria-label="Enquire about Party Wear on WhatsApp">
+                  <svg class="enquire-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true" focusable="false"><path d="M12 5v14M5 12h14"/></svg>
+                  Enquire
+                </a>
+              </div>
+            </article>
+
+            <!-- Jean Pants -->
+            <article class="product-card" data-category="kids">
+              <div class="product-media">
+                <img src="images/products/trousers.svg" alt="" width="800" height="600" loading="lazy" decoding="async" />
+              </div>
+              <div class="product-card-body">
+                <p class="product-category">Kids&rsquo; Wear</p>
+                <h3 class="product-name">Jean Pants</h3>
+                <a class="product-enquire" href="https://wa.me/919894535066?text=Hello%20Balaji%20Textiles%2C%20I%20am%20interested%20in%20Kids'%20Jean%20Pants.%20Could%20you%20please%20share%20the%20available%20options%20and%20prices%3F" target="_blank" rel="noopener" aria-label="Enquire about Jean Pants on WhatsApp">
+                  <svg class="enquire-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true" focusable="false"><path d="M12 5v14M5 12h14"/></svg>
+                  Enquire
+                </a>
+              </div>
+            </article>
+
+            <!-- Cotton Pants -->
+            <article class="product-card" data-category="kids">
+              <div class="product-media">
+                <img src="images/products/trousers.svg" alt="" width="800" height="600" loading="lazy" decoding="async" />
+              </div>
+              <div class="product-card-body">
+                <p class="product-category">Kids&rsquo; Wear</p>
+                <h3 class="product-name">Cotton Pants</h3>
+                <a class="product-enquire" href="https://wa.me/919894535066?text=Hello%20Balaji%20Textiles%2C%20I%20am%20interested%20in%20Kids'%20Cotton%20Pants.%20Could%20you%20please%20share%20the%20available%20options%20and%20prices%3F" target="_blank" rel="noopener" aria-label="Enquire about Cotton Pants on WhatsApp">
+                  <svg class="enquire-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true" focusable="false"><path d="M12 5v14M5 12h14"/></svg>
+                  Enquire
+                </a>
+              </div>
+            </article>
+
+            <!-- Full Sleeve T-Shirts -->
+            <article class="product-card" data-category="kids">
+              <div class="product-media">
+                <img src="images/products/tshirt.svg" alt="" width="800" height="600" loading="lazy" decoding="async" />
+              </div>
+              <div class="product-card-body">
+                <p class="product-category">Kids&rsquo; Wear</p>
+                <h3 class="product-name">Full Sleeve T-Shirts</h3>
+                <a class="product-enquire" href="https://wa.me/919894535066?text=Hello%20Balaji%20Textiles%2C%20I%20am%20interested%20in%20Kids'%20Full%20Sleeve%20T-Shirts.%20Could%20you%20please%20share%20the%20available%20options%20and%20prices%3F" target="_blank" rel="noopener" aria-label="Enquire about Full Sleeve T-Shirts on WhatsApp">
+                  <svg class="enquire-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true" focusable="false"><path d="M12 5v14M5 12h14"/></svg>
+                  Enquire
+                </a>
+              </div>
+            </article>
+
+            <!-- Half Sleeve T-Shirts -->
+            <article class="product-card" data-category="kids">
+              <div class="product-media">
+                <img src="images/products/tshirt.svg" alt="" width="800" height="600" loading="lazy" decoding="async" />
+              </div>
+              <div class="product-card-body">
+                <p class="product-category">Kids&rsquo; Wear</p>
+                <h3 class="product-name">Half Sleeve T-Shirts</h3>
+                <a class="product-enquire" href="https://wa.me/919894535066?text=Hello%20Balaji%20Textiles%2C%20I%20am%20interested%20in%20Kids'%20Half%20Sleeve%20T-Shirts.%20Could%20you%20please%20share%20the%20available%20options%20and%20prices%3F" target="_blank" rel="noopener" aria-label="Enquire about Half Sleeve T-Shirts on WhatsApp">
+                  <svg class="enquire-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true" focusable="false"><path d="M12 5v14M5 12h14"/></svg>
+                  Enquire
+                </a>
+              </div>
+            </article>
+
+            <!-- Full Night Pants -->
+            <article class="product-card" data-category="kids">
+              <div class="product-media">
+                <img src="images/products/trousers.svg" alt="" width="800" height="600" loading="lazy" decoding="async" />
+              </div>
+              <div class="product-card-body">
+                <p class="product-category">Kids&rsquo; Wear</p>
+                <h3 class="product-name">Full Night Pants</h3>
+                <a class="product-enquire" href="https://wa.me/919894535066?text=Hello%20Balaji%20Textiles%2C%20I%20am%20interested%20in%20Kids'%20Full%20Night%20Pants.%20Could%20you%20please%20share%20the%20available%20options%20and%20prices%3F" target="_blank" rel="noopener" aria-label="Enquire about Full Night Pants on WhatsApp">
+                  <svg class="enquire-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true" focusable="false"><path d="M12 5v14M5 12h14"/></svg>
+                  Enquire
+                </a>
+              </div>
+            </article>
+
+            <!-- Half Night Pants -->
+            <article class="product-card" data-category="kids">
+              <div class="product-media">
+                <img src="images/products/shorts.svg" alt="" width="800" height="600" loading="lazy" decoding="async" />
+              </div>
+              <div class="product-card-body">
+                <p class="product-category">Kids&rsquo; Wear</p>
+                <h3 class="product-name">Half Night Pants</h3>
+                <a class="product-enquire" href="https://wa.me/919894535066?text=Hello%20Balaji%20Textiles%2C%20I%20am%20interested%20in%20Kids'%20Half%20Night%20Pants.%20Could%20you%20please%20share%20the%20available%20options%20and%20prices%3F" target="_blank" rel="noopener" aria-label="Enquire about Half Night Pants on WhatsApp">
+                  <svg class="enquire-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true" focusable="false"><path d="M12 5v14M5 12h14"/></svg>
+                  Enquire
+                </a>
+              </div>
+            </article>
+
+            <!-- Innerwear -->
+            <article class="product-card" data-category="kids">
+              <div class="product-media">
+                <img src="images/products/innerwear.svg" alt="" width="800" height="600" loading="lazy" decoding="async" />
+              </div>
+              <div class="product-card-body">
+                <p class="product-category">Kids&rsquo; Wear</p>
+                <h3 class="product-name">Innerwear</h3>
+                <a class="product-enquire" href="https://wa.me/919894535066?text=Hello%20Balaji%20Textiles%2C%20I%20am%20interested%20in%20Kids'%20Innerwear.%20Could%20you%20please%20share%20the%20available%20options%20and%20prices%3F" target="_blank" rel="noopener" aria-label="Enquire about Innerwear on WhatsApp">
+                  <svg class="enquire-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true" focusable="false"><path d="M12 5v14M5 12h14"/></svg>
+                  Enquire
+                </a>
+              </div>
+            </article>
+
+            <!-- Blouse Linings -->
+            <article class="product-card" data-category="tailoring">
+              <div class="product-media">
+                <img src="images/products/fabric.svg" alt="" width="800" height="600" loading="lazy" decoding="async" />
+              </div>
+              <div class="product-card-body">
+                <p class="product-category">Tailoring &amp; Matching</p>
+                <h3 class="product-name">Blouse Linings</h3>
+                <a class="product-enquire" href="https://wa.me/919894535066?text=Hello%20Balaji%20Textiles%2C%20I%20am%20interested%20in%20Tailoring%20%26%20Matching%3A%20Blouse%20Linings.%20Could%20you%20please%20share%20the%20available%20options%20and%20prices%3F" target="_blank" rel="noopener" aria-label="Enquire about Blouse Linings on WhatsApp">
+                  <svg class="enquire-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true" focusable="false"><path d="M12 5v14M5 12h14"/></svg>
+                  Enquire
+                </a>
+              </div>
+            </article>
+
+            <!-- Silk Falls -->
+            <article class="product-card" data-category="tailoring">
+              <div class="product-media">
+                <img src="images/products/fabric.svg" alt="" width="800" height="600" loading="lazy" decoding="async" />
+              </div>
+              <div class="product-card-body">
+                <p class="product-category">Tailoring &amp; Matching</p>
+                <h3 class="product-name">Silk Falls</h3>
+                <a class="product-enquire" href="https://wa.me/919894535066?text=Hello%20Balaji%20Textiles%2C%20I%20am%20interested%20in%20Tailoring%20%26%20Matching%3A%20Silk%20Falls.%20Could%20you%20please%20share%20the%20available%20options%20and%20prices%3F" target="_blank" rel="noopener" aria-label="Enquire about Silk Falls on WhatsApp">
+                  <svg class="enquire-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true" focusable="false"><path d="M12 5v14M5 12h14"/></svg>
+                  Enquire
+                </a>
+              </div>
+            </article>
+
+            <!-- Cotton Falls -->
+            <article class="product-card" data-category="tailoring">
+              <div class="product-media">
+                <img src="images/products/fabric.svg" alt="" width="800" height="600" loading="lazy" decoding="async" />
+              </div>
+              <div class="product-card-body">
+                <p class="product-category">Tailoring &amp; Matching</p>
+                <h3 class="product-name">Cotton Falls</h3>
+                <a class="product-enquire" href="https://wa.me/919894535066?text=Hello%20Balaji%20Textiles%2C%20I%20am%20interested%20in%20Tailoring%20%26%20Matching%3A%20Cotton%20Falls.%20Could%20you%20please%20share%20the%20available%20options%20and%20prices%3F" target="_blank" rel="noopener" aria-label="Enquire about Cotton Falls on WhatsApp">
+                  <svg class="enquire-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true" focusable="false"><path d="M12 5v14M5 12h14"/></svg>
+                  Enquire
+                </a>
+              </div>
+            </article>
+
+            <!-- Designer Laces -->
+            <article class="product-card" data-category="tailoring">
+              <div class="product-media">
+                <img src="images/products/lace.svg" alt="" width="800" height="600" loading="lazy" decoding="async" />
+              </div>
+              <div class="product-card-body">
+                <p class="product-category">Tailoring &amp; Matching</p>
+                <h3 class="product-name">Designer Laces</h3>
+                <a class="product-enquire" href="https://wa.me/919894535066?text=Hello%20Balaji%20Textiles%2C%20I%20am%20interested%20in%20Tailoring%20%26%20Matching%3A%20Designer%20Laces.%20Could%20you%20please%20share%20the%20available%20options%20and%20prices%3F" target="_blank" rel="noopener" aria-label="Enquire about Designer Laces on WhatsApp">
+                  <svg class="enquire-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true" focusable="false"><path d="M12 5v14M5 12h14"/></svg>
+                  Enquire
+                </a>
+              </div>
+            </article>
+
+            <!-- Saree Hangings (Latkans) -->
+            <article class="product-card" data-category="tailoring">
+              <div class="product-media">
+                <img src="images/products/latkan.svg" alt="" width="800" height="600" loading="lazy" decoding="async" />
+              </div>
+              <div class="product-card-body">
+                <p class="product-category">Tailoring &amp; Matching</p>
+                <h3 class="product-name">Saree Hangings (Latkans)</h3>
+                <a class="product-enquire" href="https://wa.me/919894535066?text=Hello%20Balaji%20Textiles%2C%20I%20am%20interested%20in%20Tailoring%20%26%20Matching%3A%20Saree%20Hangings%20(Latkans).%20Could%20you%20please%20share%20the%20available%20options%20and%20prices%3F" target="_blank" rel="noopener" aria-label="Enquire about Saree Hangings (Latkans) on WhatsApp">
+                  <svg class="enquire-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true" focusable="false"><path d="M12 5v14M5 12h14"/></svg>
+                  Enquire
+                </a>
+              </div>
+            </article>
+
+            <!-- Stitching Accessories -->
+            <article class="product-card" data-category="tailoring">
+              <div class="product-media">
+                <img src="images/products/stitching.svg" alt="" width="800" height="600" loading="lazy" decoding="async" />
+              </div>
+              <div class="product-card-body">
+                <p class="product-category">Tailoring &amp; Matching</p>
+                <h3 class="product-name">Stitching Accessories</h3>
+                <a class="product-enquire" href="https://wa.me/919894535066?text=Hello%20Balaji%20Textiles%2C%20I%20am%20interested%20in%20Tailoring%20%26%20Matching%3A%20Stitching%20Accessories.%20Could%20you%20please%20share%20the%20available%20options%20and%20prices%3F" target="_blank" rel="noopener" aria-label="Enquire about Stitching Accessories on WhatsApp">
+                  <svg class="enquire-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true" focusable="false"><path d="M12 5v14M5 12h14"/></svg>
+                  Enquire
+                </a>
+              </div>
+            </article>
         </div>
 
-        <!-- Kids' group -->
-        <div class="product-group" data-category="kids">
-          <h3 class="group-title">
-            <svg class="group-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="7" r="3"/><path d="M5 21v-1a5 5 0 0 1 5-5h4a5 5 0 0 1 5 5v1"/></svg>
-            Kids
-            <span class="group-count">9 items</span>
-          </h3>
-          <div class="pill-grid">
-            <a href="https://wa.me/919894535066?text=Hi%20Balaji%20Textiles%2C%20I%27m%20interested%20in%20Kids%3A%20Coat%20suits.%20Is%20it%20available%3F" target="_blank" rel="noopener" class="pill" data-category="kids"><svg class="pill-icon" aria-hidden="true" focusable="false"><use href="#icon-whatsapp"></use></svg>Coat suits</a>
-            <a href="https://wa.me/919894535066?text=Hi%20Balaji%20Textiles%2C%20I%27m%20interested%20in%20Kids%3A%20Party%20wear.%20Is%20it%20available%3F" target="_blank" rel="noopener" class="pill" data-category="kids"><svg class="pill-icon" aria-hidden="true" focusable="false"><use href="#icon-whatsapp"></use></svg>Party wear</a>
-            <a href="https://wa.me/919894535066?text=Hi%20Balaji%20Textiles%2C%20I%27m%20interested%20in%20Kids%3A%20Jean%20pants.%20Is%20it%20available%3F" target="_blank" rel="noopener" class="pill" data-category="kids"><svg class="pill-icon" aria-hidden="true" focusable="false"><use href="#icon-whatsapp"></use></svg>Jean pants</a>
-            <a href="https://wa.me/919894535066?text=Hi%20Balaji%20Textiles%2C%20I%27m%20interested%20in%20Kids%3A%20Cotton%20pants.%20Is%20it%20available%3F" target="_blank" rel="noopener" class="pill" data-category="kids"><svg class="pill-icon" aria-hidden="true" focusable="false"><use href="#icon-whatsapp"></use></svg>Cotton pants</a>
-            <a href="https://wa.me/919894535066?text=Hi%20Balaji%20Textiles%2C%20I%27m%20interested%20in%20Kids%3A%20Full%20sleeve%20t-shirts.%20Is%20it%20available%3F" target="_blank" rel="noopener" class="pill" data-category="kids"><svg class="pill-icon" aria-hidden="true" focusable="false"><use href="#icon-whatsapp"></use></svg>Full sleeve t-shirts</a>
-            <a href="https://wa.me/919894535066?text=Hi%20Balaji%20Textiles%2C%20I%27m%20interested%20in%20Kids%3A%20Half%20sleeve%20t-shirts.%20Is%20it%20available%3F" target="_blank" rel="noopener" class="pill" data-category="kids"><svg class="pill-icon" aria-hidden="true" focusable="false"><use href="#icon-whatsapp"></use></svg>Half sleeve t-shirts</a>
-            <a href="https://wa.me/919894535066?text=Hi%20Balaji%20Textiles%2C%20I%27m%20interested%20in%20Kids%3A%20Full%20night%20pants.%20Is%20it%20available%3F" target="_blank" rel="noopener" class="pill" data-category="kids"><svg class="pill-icon" aria-hidden="true" focusable="false"><use href="#icon-whatsapp"></use></svg>Full night pants</a>
-            <a href="https://wa.me/919894535066?text=Hi%20Balaji%20Textiles%2C%20I%27m%20interested%20in%20Kids%3A%20Half%20night%20pants.%20Is%20it%20available%3F" target="_blank" rel="noopener" class="pill" data-category="kids"><svg class="pill-icon" aria-hidden="true" focusable="false"><use href="#icon-whatsapp"></use></svg>Half night pants</a>
-            <a href="https://wa.me/919894535066?text=Hi%20Balaji%20Textiles%2C%20I%27m%20interested%20in%20Kids%3A%20Innerwear.%20Is%20it%20available%3F" target="_blank" rel="noopener" class="pill" data-category="kids"><svg class="pill-icon" aria-hidden="true" focusable="false"><use href="#icon-whatsapp"></use></svg>Innerwear</a>
-          </div>
-        </div>
-
-        <!-- Tailoring group -->
-        <div class="product-group" data-category="tailoring">
-          <h3 class="group-title">
-            <svg class="group-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><line x1="20" y1="4" x2="8.12" y2="15.88"/><line x1="14.47" y1="14.48" x2="20" y2="20"/><line x1="8.12" y1="8.12" x2="12" y2="12"/></svg>
-            Tailoring &amp; Matching
-            <span class="group-count">6 items</span>
-          </h3>
-
-          <!-- Shade matching callout -->
-          <aside class="shade-callout" aria-labelledby="shade-callout-title">
-            <h4 id="shade-callout-title">Exact shade matching for sarees &amp; blouses</h4>
-            <ol class="shade-steps">
-              <li class="shade-step">
-                <span class="step-num" aria-hidden="true">1</span>
-                <span>Take a photo of your saree in daylight, include border and pallu.</span>
-              </li>
-              <li class="shade-step">
-                <span class="step-num" aria-hidden="true">2</span>
-                <span>Send it on WhatsApp.</span>
-              </li>
-              <li class="shade-step">
-                <span class="step-num" aria-hidden="true">3</span>
-                <span>We check matching shades in store.</span>
-              </li>
-            </ol>
-            <a class="btn btn-wa" href="https://wa.me/919894535066?text=Hi%20Balaji%20Textiles%2C%20I%27d%20like%20shade%20matching.%20I%27ll%20send%20a%20photo%20of%20my%20saree." target="_blank" rel="noopener">
-              <svg class="pill-icon" aria-hidden="true" focusable="false"><use href="#icon-whatsapp"></use></svg>
-              Shade match on WhatsApp
-            </a>
-          </aside>
-          <div class="pill-grid">
-            <a href="https://wa.me/919894535066?text=Hi%20Balaji%20Textiles%2C%20I%27m%20interested%20in%20Tailoring%20%26%20Matching%3A%20Blouse%20linings.%20Is%20it%20available%3F" target="_blank" rel="noopener" class="pill" data-category="tailoring"><svg class="pill-icon" aria-hidden="true" focusable="false"><use href="#icon-whatsapp"></use></svg>Blouse linings</a>
-            <a href="https://wa.me/919894535066?text=Hi%20Balaji%20Textiles%2C%20I%27m%20interested%20in%20Tailoring%20%26%20Matching%3A%20Silk%20falls.%20Is%20it%20available%3F" target="_blank" rel="noopener" class="pill" data-category="tailoring"><svg class="pill-icon" aria-hidden="true" focusable="false"><use href="#icon-whatsapp"></use></svg>Silk falls</a>
-            <a href="https://wa.me/919894535066?text=Hi%20Balaji%20Textiles%2C%20I%27m%20interested%20in%20Tailoring%20%26%20Matching%3A%20Cotton%20falls.%20Is%20it%20available%3F" target="_blank" rel="noopener" class="pill" data-category="tailoring"><svg class="pill-icon" aria-hidden="true" focusable="false"><use href="#icon-whatsapp"></use></svg>Cotton falls</a>
-            <a href="https://wa.me/919894535066?text=Hi%20Balaji%20Textiles%2C%20I%27m%20interested%20in%20Tailoring%20%26%20Matching%3A%20Designer%20laces.%20Is%20it%20available%3F" target="_blank" rel="noopener" class="pill" data-category="tailoring"><svg class="pill-icon" aria-hidden="true" focusable="false"><use href="#icon-whatsapp"></use></svg>Designer laces</a>
-            <a href="https://wa.me/919894535066?text=Hi%20Balaji%20Textiles%2C%20I%27m%20interested%20in%20Tailoring%20%26%20Matching%3A%20Saree%20hangings%20(latkans).%20Is%20it%20available%3F" target="_blank" rel="noopener" class="pill" data-category="tailoring"><svg class="pill-icon" aria-hidden="true" focusable="false"><use href="#icon-whatsapp"></use></svg>Saree hangings (latkans)</a>
-            <a href="https://wa.me/919894535066?text=Hi%20Balaji%20Textiles%2C%20I%27m%20interested%20in%20Tailoring%20%26%20Matching%3A%20Stitching%20accessories.%20Is%20it%20available%3F" target="_blank" rel="noopener" class="pill" data-category="tailoring"><svg class="pill-icon" aria-hidden="true" focusable="false"><use href="#icon-whatsapp"></use></svg>Stitching accessories</a>
-          </div>
-        </div>
-
-        <!-- Empty search state -->
         <div class="products-empty" id="products-empty" hidden>
-          <p>No items found.</p>
+          <p class="products-empty-title">No products found.</p>
+          <p class="products-empty-hint">Try a different word, or ask us directly.</p>
           <a class="btn btn-wa" id="products-empty-link" href="https://wa.me/919894535066?text=Hello%20Balaji%20Textiles%2C%20I%20would%20like%20to%20know%20more%20about%20your%20collections." target="_blank" rel="noopener">
             <svg class="pill-icon" aria-hidden="true" focusable="false"><use href="#icon-whatsapp"></use></svg>
             Ask us on WhatsApp

@@ -1,0 +1,29 @@
+<svg width="800" height="600" viewBox="0 0 800 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <title>Saree hanging tassels</title>
+  <rect width="800" height="600" fill="#E5EFFF"/>
+  <circle cx="400" cy="300" r="198" fill="#FFFFFF" opacity="0.55"/>
+  <circle cx="646" cy="124" r="44" fill="#FFFFFF" opacity="0.35"/>
+  <circle cx="156" cy="484" r="56" fill="#FFFFFF" opacity="0.3"/>
+  <path d="M276 148 H524" fill="none" stroke="#173A6B" stroke-width="7" stroke-linecap="round"/>
+  <circle cx="276" cy="148" r="7" fill="#173A6B"/>
+  <circle cx="524" cy="148" r="7" fill="#173A6B"/>
+  <path d="M350 148 V210" fill="none" stroke="#173A6B" stroke-width="6" stroke-linecap="round"/>
+  <circle cx="350" cy="226" r="16" fill="#FFFFFF" stroke="#173A6B" stroke-width="6"/>
+  <circle cx="350" cy="258" r="10" fill="#FFFFFF" stroke="#173A6B" stroke-width="6"/>
+  <path d="M318 284 Q350 270 382 284 L376 310 Q350 322 324 310 Z" fill="#FFFFFF" stroke="#173A6B" stroke-width="6" stroke-linejoin="round"/>
+  <path d="M326 316 V400 M338 318 V410 M350 320 V418 M362 318 V410 M374 316 V400" fill="none" stroke="#4DB8FF" stroke-width="5" stroke-linecap="round"/>
+  <circle cx="326" cy="404" r="4" fill="#173A6B"/>
+  <circle cx="338" cy="414" r="4" fill="#173A6B"/>
+  <circle cx="350" cy="422" r="4" fill="#173A6B"/>
+  <circle cx="362" cy="414" r="4" fill="#173A6B"/>
+  <circle cx="374" cy="404" r="4" fill="#173A6B"/>
+  <path d="M458 148 V186" fill="none" stroke="#173A6B" stroke-width="6" stroke-linecap="round"/>
+  <circle cx="458" cy="200" r="13" fill="#FFFFFF" stroke="#173A6B" stroke-width="6"/>
+  <path d="M430 246 Q458 234 486 246 L480 268 Q458 280 436 268 Z" fill="#FFFFFF" stroke="#173A6B" stroke-width="6" stroke-linejoin="round"/>
+  <path d="M438 274 V334 M448 276 V342 M458 278 V348 M468 276 V342 M478 274 V334" fill="none" stroke="#4DB8FF" stroke-width="5" stroke-linecap="round"/>
+  <circle cx="438" cy="338" r="4" fill="#173A6B"/>
+  <circle cx="448" cy="346" r="4" fill="#173A6B"/>
+  <circle cx="458" cy="352" r="4" fill="#173A6B"/>
+  <circle cx="468" cy="346" r="4" fill="#173A6B"/>
+  <circle cx="478" cy="338" r="4" fill="#173A6B"/>
+</svg>

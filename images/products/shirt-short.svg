@@ -1,0 +1,16 @@
+<svg width="800" height="600" viewBox="0 0 800 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <title>Short sleeve shirt</title>
+  <rect width="800" height="600" fill="#E2F3F0"/>
+  <circle cx="400" cy="300" r="198" fill="#FFFFFF" opacity="0.6"/>
+  <circle cx="632" cy="128" r="46" fill="#FFFFFF" opacity="0.35"/>
+  <circle cx="168" cy="478" r="56" fill="#FFFFFF" opacity="0.3"/>
+  <path d="M340 168 L380 145 L400 175 L420 145 L460 168 L512 205 L530 305 L474 320 L454 280 L460 466 L340 466 L346 280 L326 320 L270 305 L288 205 Z" fill="#FFFFFF" stroke="#173A6B" stroke-width="7" stroke-linejoin="round"/>
+  <path d="M380 145 L366 198 L400 214 L434 198 L420 145" fill="none" stroke="#173A6B" stroke-width="7" stroke-linejoin="round"/>
+  <path d="M400 214 V466" fill="none" stroke="#173A6B" stroke-width="7" stroke-linecap="round"/>
+  <path d="M278 290 L326 304" fill="none" stroke="#173A6B" stroke-width="7" stroke-linecap="round"/>
+  <path d="M474 304 L522 290" fill="none" stroke="#173A6B" stroke-width="7" stroke-linecap="round"/>
+  <path d="M352 272 H392 V310 H352 Z" fill="none" stroke="#3FA796" stroke-width="5" stroke-linejoin="round"/>
+  <circle cx="400" cy="258" r="5" fill="#173A6B"/>
+  <circle cx="400" cy="322" r="5" fill="#173A6B"/>
+  <circle cx="400" cy="386" r="5" fill="#173A6B"/>
+</svg>

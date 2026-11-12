@@ -1,0 +1,17 @@
+<svg width="800" height="600" viewBox="0 0 800 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <title>Trousers</title>
+  <rect width="800" height="600" fill="#E7EFFA"/>
+  <circle cx="400" cy="300" r="198" fill="#FFFFFF" opacity="0.6"/>
+  <circle cx="638" cy="126" r="44" fill="#FFFFFF" opacity="0.35"/>
+  <circle cx="162" cy="482" r="56" fill="#FFFFFF" opacity="0.3"/>
+  <path d="M310 155 H490 V208 H310 Z" fill="#FFFFFF" stroke="#173A6B" stroke-width="7" stroke-linejoin="round"/>
+  <path d="M310 208 L342 466 H388 L400 306 L412 466 H458 L490 208 Z" fill="#FFFFFF" stroke="#173A6B" stroke-width="7" stroke-linejoin="round"/>
+  <path d="M400 208 V306" fill="none" stroke="#173A6B" stroke-width="7" stroke-linecap="round"/>
+  <path d="M310 182 H490" fill="none" stroke="#173A6B" stroke-width="4"/>
+  <path d="M330 208 Q350 232 370 236" fill="none" stroke="#173A6B" stroke-width="6" stroke-linecap="round"/>
+  <path d="M470 208 Q450 232 430 236" fill="none" stroke="#173A6B" stroke-width="6" stroke-linecap="round"/>
+  <path d="M355 240 L366 448" fill="none" stroke="#6AAFE8" stroke-width="5" stroke-linecap="round" opacity="0.55"/>
+  <path d="M445 240 L434 448" fill="none" stroke="#6AAFE8" stroke-width="5" stroke-linecap="round" opacity="0.55"/>
+  <path d="M342 448 H388" fill="none" stroke="#173A6B" stroke-width="5" stroke-linecap="round"/>
+  <path d="M412 448 H458" fill="none" stroke="#173A6B" stroke-width="5" stroke-linecap="round"/>
+</svg>

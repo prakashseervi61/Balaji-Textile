@@ -19,7 +19,7 @@ Balaji Textile/
 ├── images/
 │   ├── shop-front.jpg  # Shop front photo (from Google Maps)
 │   ├── shop-photo.jpg  # Shop photo (from Google Maps)
-│   └── products/       # Optional product photos (SVG placeholders available)
+│   └── products/       # 18 local SVG placeholder illustrations (4:3, 800×600)
 ├── README.md
 ├── QA-REPORT.md
 └── .github/workflows/
@@ -35,9 +35,11 @@ Balaji Textile/
 - **Why Choose Us** — 4 icon boxes (Family Collections, Best Prices, Perfect Lining & Fall, Open 8 AM–9 PM)
 - **About Us** — Two-column layout (image left, text right)
 - **Our Products** — Four icon category cards linking to filtered catalogue tabs
-- **Products page** — Search, sticky category tabs with live counts, deep links
-  (`#men`, `#women`, `#kids`, `#tailoring`), WhatsApp enquiry pills, shade-matching
-  callout, compact reviews strip and a bottom WhatsApp card
+- **Products page** — 37-product catalogue of white cards with 4:3 pastel
+  illustration panels, uppercase category labels and navy WhatsApp Enquire
+  buttons; centered sticky filter tabs with live counts, search, deep links
+  (`#men`, `#women`, `#kids`, `#tailoring`), an empty state, compact reviews
+  strip and a bottom WhatsApp card
 - **Customer Reviews** — Cards with sky-blue left border, quote mark, 5.0★ badge
 - **Contact Us** — Two-column (details left, map right), Call/WhatsApp/Directions buttons
 - **Footer** — 3 columns (About blurb / Quick links / Contact & hours) + copyright
@@ -74,7 +76,7 @@ Balaji Textile/
 
 - [ ] Owner verifies business details (address, phone, hours) against Google Maps listing
 - [ ] Verify spelling of "Thiruvannamail Nagar" against the Google Maps listing
-- [ ] Add optional product photos to `images/products/` if the owner wants imagery
+- [ ] Replace the SVG placeholders in `images/products/` with real 4:3 product photos when available
 - [ ] Add more shop photos to `images/` and update gallery in index.html
 - [ ] Test on real mobile devices
 - [ ] Enable GitHub Pages: Settings → Pages → Source: GitHub Actions
@@ -86,16 +88,17 @@ The gallery section is hidden by default. To enable it:
 3. Add the gallery link back to nav and footer
 4. Update the gallery grid with the new photos
 
-## Images Needed
+## Images
 
 | Filename | Location | Description | Status |
 |---|---|---|---|
 | `shop-photo.jpg` | `images/` | Shop banner/hero photo | ✅ Have |
 | `shop-front.jpg` | `images/` | Shop front photo | ✅ Have |
-| `mens-wear.jpg` | `images/products/` | Men's wear collection | Optional |
-| `womens-wear.jpg` | `images/products/` | Women's wear collection | Optional |
-| `kids-wear.jpg` | `images/products/` | Kids' wear collection | Optional |
-| `fabrics.jpg` | `images/products/` | Fabrics & dress materials | Optional |
+| 18 SVG files | `images/products/` | 4:3 placeholder illustrations shared by the 37 cards | ✅ Have (placeholders) |
+
+The placeholder illustrations are decorative (`alt=""`) and easy to replace
+one-for-one. Keep the 4:3 ratio, update the card's `src`, and add meaningful alt
+text when real product photos are available. No stock photography is used.
 
 ## Tech Stack
 

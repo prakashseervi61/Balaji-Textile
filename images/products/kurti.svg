@@ -1,0 +1,15 @@
+<svg width="800" height="600" viewBox="0 0 800 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <title>Kurti</title>
+  <rect width="800" height="600" fill="#E2F3F0"/>
+  <circle cx="400" cy="300" r="198" fill="#FFFFFF" opacity="0.6"/>
+  <circle cx="638" cy="130" r="44" fill="#FFFFFF" opacity="0.35"/>
+  <circle cx="166" cy="480" r="56" fill="#FFFFFF" opacity="0.3"/>
+  <path d="M340 176 L374 156 L400 180 L426 156 L460 176 L500 246 L470 266 L454 236 L474 432 L326 432 L346 236 L330 266 L300 246 Z" fill="#FFFFFF" stroke="#173A6B" stroke-width="7" stroke-linejoin="round"/>
+  <path d="M374 156 Q400 196 426 156" fill="none" stroke="#3FA796" stroke-width="6" stroke-linecap="round"/>
+  <path d="M400 196 V300" fill="none" stroke="#173A6B" stroke-width="6" stroke-linecap="round"/>
+  <circle cx="400" cy="232" r="5" fill="#173A6B"/>
+  <circle cx="400" cy="266" r="5" fill="#173A6B"/>
+  <path d="M340 378 V432" fill="none" stroke="#173A6B" stroke-width="6" stroke-linecap="round"/>
+  <path d="M460 378 V432" fill="none" stroke="#173A6B" stroke-width="6" stroke-linecap="round"/>
+  <path d="M326 418 H474" fill="none" stroke="#3FA796" stroke-width="8" stroke-linecap="round"/>
+</svg>

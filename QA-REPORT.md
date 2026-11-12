@@ -1,183 +1,266 @@
 # Balaji Textiles — QA & Test Report
 
-**Branch:** products-ux (stacked on blue-redesign)
+**Branch:** blue-redesign
 **Date:** 2026-11-12
 **Live URL:** https://prakashseervi61.github.io/Balaji-Textile/
+**Tested locally:** http://127.0.0.1:8765 (Python static server)
 **GitHub:** https://github.com/prakashseervi61/Balaji-Textile
 
 ---
 
-## 1. What Changed on products-ux
+## 1. What Changed
 
-### Products page
-- Page heading is now `Our Products`
-- Removed the placeholder product gallery and duplicate section
-- Added a labelled search field that filters products by name
-- Tab counts are computed from the real 37 catalogue items:
-  All 37, Men 10, Women 12, Kids 9, Tailoring & Matching 6
-- Tabs are a sticky, single-row scroll strip under the header with edge fades
-- Tab and search filters combine; an empty state offers a prefilled WhatsApp link
-- Category deep links (`#men`, `#women`, `#kids`, `#tailoring`) activate the tab
-  and update the URL hash without scrolling the page
-- Every product pill has a WhatsApp icon and a prefilled enquiry message
-- Group headings have category icons and live per-group item counts
-- Shade-matching callout added under Tailoring & Matching (photo → WhatsApp → check in store)
-- Reviews reduced to a compact strip linking to the Google listing
-- Bottom WhatsApp card added after the contact section
-- With JavaScript disabled, search and tabs are hidden and all 37 items stay visible
+The products page was redesigned as a card catalogue matching the supplied brief.
 
-### Home page
-- Replaced dashed product previews with four icon category cards linking to the
-  filtered products page
-- Split the review star from the rating text so the orange star is decorative
-  and `5.0` keeps a high-contrast navy colour
+### Catalogue page
+- Light blue (`#EAF3FF`) catalogue area inside a centered 1150px container
+- White page header retained; Products nav item uses `aria-current="page"`
+- Centered, sticky category tabs: All, Men, Women, Kids, Tailoring & Matching
+- Tab counts computed from the 37 cards in the DOM at runtime; no hardcoded counts
+- Single grid of 37 `<article class="product-card" data-category="...">` cards
+- Each card has a 4:3 pastel illustration panel, uppercase category label, bold
+  product name and a navy pill-shaped Enquire button
+- Every Enquire button opens WhatsApp at +91 98945 35066 with a message generated
+  from the product's category and name
+- Search by product name, combined with the active category tab
+- Empty state with a prefilled WhatsApp link when nothing matches
+- Deep links `#men`, `#women`, `#kids`, `#tailoring` activate the matching tab
+  without scrolling the page; the active tab is centered in the scroll strip
+- Compact reviews strip, contact section and bottom WhatsApp card retained and
+  restyled to fit the catalogue
+- With JavaScript disabled, search/tabs/meta are hidden and all 37 products,
+  their WhatsApp links and the static hours remain visible
 
-### Top bar
-- Live Open/Closed badge on both pages using `Intl.DateTimeFormat` with
-  `Asia/Kolkata`, refreshed every 60 seconds
-- Badge states: `Open now · until 9:00 PM` and `Closed · opens 8:00 AM`
-- The HTML fallback remains `Open daily 8:00 AM – 9:00 PM`
+### Placeholder illustrations
+- 18 new local SVGs in `images/products/`, all 800×600 (4:3), pastel backgrounds
+- No stock photography, no generated product photos, no external image requests
+- Images use `alt=""` because they are decorative placeholders; the product name
+  is adjacent. Replace with real 4:3 photos and meaningful alt text later.
+- The four old maroon SVGs (`mens-wear`, `womens-wear`, `kids-wear`, `fabrics`)
+  are no longer referenced
 
-### Accessibility and layout fixes
-- Removed the desktop navigation `max-width` that caused horizontal overflow
-- Removed `body { min-width: 320px }`, which overflowed a 320px window once the
-  classic scrollbar reduced the content area to 305px
-- Closed mobile drawer is removed from the tab order (`visibility: hidden`)
-- Opening the drawer moves focus to the first link and traps Tab inside it
-- Escape closes the drawer and returns focus to the toggle
-- Added a hidden `Product catalogue` h2 so heading order is h1 → h2 → h3 → h4
-- Anchor and skip-link offsets now follow the measured header height
-- Reduced-motion mode disables drawer, reveal and hover movement transitions
-- Added safe-area padding for the fixed mobile bar
+### Shared header fix
+- `.logo` changed from a column flex container to `display: block`, keeping
+  "Balaji Textiles" on one line with the Tamil name beneath it. The homepage
+  header was checked and is unaffected.
 
-### Carry-over from blue-redesign
-- Blue palette, Playfair Display / Lato / Noto Sans Tamil typography
-- Sticky white header, full-width hero, navy footer
-- WhatsApp green `#0F7A3F` with white text (above 4.5:1 contrast)
-- Google Maps embed with a descriptive title
-- Gallery section remains hidden until real photos are available
+No products, prices, stock, delivery promises, reviews or business details were
+invented. No ecommerce functionality was added.
 
 ---
 
-## 2. Business Details (Verified via Google Maps)
+## 2. Catalogue Data Integrity
 
-| Field | Value |
-|---|---|
-| Business | Balaji Textiles (பாலாஜி ஜவுளி) |
-| Category | Clothing store |
-| Address | 2c, Pillaiyar Kovil Street, Thiruvannamail Nagar, Saravanampatti, Coimbatore, Tamil Nadu 641035 |
-| Phone | +91 98945 35066 |
-| WhatsApp | +91 98945 35066 |
-| Hours | 8:00 AM – 9:00 PM daily |
-| Rating | 5.0 stars (20 Google reviews) |
-| Google Maps | https://maps.app.goo.gl/wDFzEVDRk7n2RnBJ7 |
+Static audit of `products.html`:
 
----
+| Category | Products | Expected | Result |
+|---|---|---|---|
+| Men | 10 | 10 | PASS |
+| Women | 12 | 12 | PASS |
+| Kids | 9 | 9 | PASS |
+| Tailoring & Matching | 6 | 6 | PASS |
+| **Total** | **37** | **37** | **PASS** |
 
-## 3. Responsive Testing Results
-
-Both pages were checked at these viewports with Chrome DevTools emulation.
-
-| Viewport | Page | H-Scroll | Document width | Header | Status |
-|---|---|---|---|---|---|
-| 320px | Home / Products | None | 320px | 72px | PASS |
-| 375px | Home / Products | None | 375px | 72px | PASS |
-| 768px | Home / Products | None | 753px | 72px | PASS |
-| 1024px | Home / Products | None | 1009px | 72px | PASS |
-| 1440px | Home / Products | None | 1425px | 72px | PASS |
-
-The 768/1024/1440 values are browser client widths after the scrollbar; the
-document never exceeded the client width.
-
-Additional checks:
-- Sticky tabs sit at 72px, directly under the header, while scrolling the catalogue
-- Tab strip fades indicate overflow on either side and hides at the ends
-- All 37 pills and their WhatsApp links remain reachable at every width
-- Home category cards stay at 2 columns on phones and 4 columns from 768px
+- 37 cards, 37 unique `(category, name)` pairs, 0 duplicates
+- 0 unexpected products and 0 products missing from the brief
+- Every card label matched its category (`Men's Wear`, `Women's Wear`,
+  `Kids' Wear`, `Tailoring & Matching`)
+- Tab `data-filter` values match `VALID_FILTERS` in `script.js` exactly
+- No Fabrics category was added
+- `node --check script.js` passes
 
 ---
 
-## 4. Lighthouse Audit Results (Desktop, local server)
+## 3. Functional Test Results
 
-| Page | Accessibility | Best Practices | SEO | Agentic Browsing |
+Tested in headless Chrome via the DevTools Protocol at 1440px unless noted.
+
+### Category filters
+
+| Action | Visible cards | Result count | Hash | Result |
 |---|---|---|---|---|
-| index.html | 100 | 77 | 100 | 100 |
-| products.html | 100 | 77 | 100 | 100 |
+| All | 37 | Showing 37 items | `#all` | PASS |
+| Men | 10 | Showing 10 items | `#men` | PASS |
+| Women | 12 | Showing 12 items | `#women` | PASS |
+| Kids | 9 | Showing 9 items | `#kids` | PASS |
+| Tailoring & Matching | 6 | Showing 6 items | `#tailoring` | PASS |
 
-**Best Practices: 77/100** — both failures come from the Google Maps embed:
-1. Third-party cookies set by Google Maps
-2. Issues reported in Chrome's Issues panel for the same embed
+Exactly one tab has `aria-pressed="true"` after each change.
 
-These are inherent to the requested map embed and not caused by page code.
+### Search
+
+| Query | Visible results | Result |
+|---|---|---|
+| `shirt` | 6 (4 Men, 2 Kids) | PASS |
+| `saree` | 2 (Sarees, Saree Hangings) | PASS |
+| `innerwear` | 3 (Men, Women, Kids) | PASS |
+| `zzzz` | 0, empty state shown | PASS |
+
+Empty-state WhatsApp link: `https://wa.me/919894535066?text=Hi%20Balaji%20Textiles%2C%20I%27m%20looking%20for%3A%20zzzz`
+
+### Combined search + filter
+- Query `shirt` with Men selected → 4 items (the four men's shirt styles)
+- Result count and URL hash update together
+- Switching category keeps the search query; clearing search restores the category view
+
+### Deep links
+Each link was loaded as a fresh page:
+
+| URL | Active tab | Visible | Search | Result |
+|---|---|---|---|---|
+| `products.html#men` | Men | 10 | empty | PASS |
+| `products.html#women` | Women | 12 | empty | PASS |
+| `products.html#kids` | Kids | 9 | empty | PASS |
+| `products.html#tailoring` | Tailoring & Matching | 6 | empty | PASS |
+
+At 320px, loading `#tailoring` centered the tab in the scroll strip
+(`scrollLeft 293 / max 293`), exposed the left edge fade and left `scrollY` at 0.
+
+### Sticky tabs
+- After scrolling 1495px: header occupies `0–72px`, sticky tabs start at `72px`
+- Overlap: `0px`; `--header-height` resolved to `72px` from the measured header
+
+### WhatsApp enquiries
+All 37 links were audited individually:
+
+- Base: `https://wa.me/919894535066?text=...` (37/37)
+- Message: `Hello Balaji Textiles, I am interested in <Category> <Product>. Could you please share the available options and prices?` (37/37)
+- `target="_blank"` and `rel="noopener"` present (37/37)
+- `aria-label="Enquire about <Product> on WhatsApp"` present (37/37)
+- No prices or stock claims in any message
+
+Example:
+> Hello Balaji Textiles, I am interested in Men's Full Sleeve Shirts. Could you please share the available options and prices?
+
+### Other interactions
+- Empty state appears only when the combined filter returns 0 cards
+- All 37 `<img>` elements loaded (`naturalWidth > 0`), 0 broken
+- 0 browser console errors or uncaught exceptions during the full run
+- Contact section scroll-reveal activates (`opacity: 1`, `.visible`)
 
 ---
 
-## 5. Keyboard and No-JS Testing
+## 4. Responsive Test Results
 
-- ✅ Skip link scrolls to `main` and the next Tab enters the page content
-- ✅ Closed mobile drawer links are not in the tab order
-- ✅ Drawer opens from the toggle, moves focus to Home, and traps Tab/Shift+Tab
-- ✅ Escape closes the drawer and returns focus to the toggle
-- ✅ Tabs expose `aria-pressed` and activate with Enter/Space
-- ✅ Search input is labelled and combines with the active tab
-- ✅ Pill links, category cards and WhatsApp buttons have visible focus rings
-- ✅ No-JS: search/tabs are hidden, all 37 products and the static hours remain visible
-- ✅ `prefers-reduced-motion` removes reveal, hover and drawer movement transitions
+Measured with Chrome device emulation. "H-scroll" compares
+`documentElement.scrollWidth` with `clientWidth`.
 
----
+| Width | Grid columns | Card width | H-scroll | Result |
+|---|---|---|---|---|
+| 320px | 1 | 272px | None | PASS |
+| 375px | 2 | 157px | None | PASS |
+| 390px | 2 | 164px | None | PASS |
+| 430px | 2 | 184px | None | PASS |
+| 600px | 2 | 269px | None | PASS |
+| 768px | 3 | 228px | None | PASS |
+| 1024px | 4 | 229px | None | PASS |
+| 1280px | 4 | 261px | None | PASS |
+| 1440px | 4 | 261px | None | PASS |
+| 1920px | 4 | 261px | None | PASS |
 
-## 6. Remaining Items
-
-1. **Product photos** — add real photos when available; the catalogue currently
-   uses text pills by design.
-2. **Gallery photos** — at least 4 distinct real photos are needed to enable the
-   hidden gallery section.
-3. **Business details** — owner to confirm address spelling, phone and hours.
-4. **GitHub Pages** — enable Settings → Pages → Source: GitHub Actions if not
-   already enabled.
-5. **Address spelling** — verify “Thiruvannamail Nagar” against the Google Maps listing.
-6. **Tamil tagline** — owner to supply final wording for the hero section.
-7. **Reviews wording** — the five review texts on the home page are copied
-   verbatim from Google and should stay unchanged.
+- Grid: 1 column at 320px, 2 columns from 375px, 3 at 768px, 4 from 1024px
+- Category tabs fit on one centered row at 768px and above
+- Below 768px the tab strip scrolls horizontally with edge fades; every tab is
+  reachable by touch, keyboard focus or deep link
+- No horizontal page overflow at any tested width
 
 ---
 
-## 7. Assumptions
+## 5. Accessibility
 
-- The catalogue is informational; prices, stock and delivery are never promised.
-- Shade matching is described as a photo-based check in store, with no delivery
-  or turnaround claim.
-- Opening hours come from the Google listing: 8:00 AM – 9:00 PM daily.
-- The live badge treats 8:00 AM as open and 9:00 PM as closed.
-- The map embed is retained because it was requested for the contact section.
-- Gallery stays hidden until real photos exist.
+- **Focus rings:** real keyboard Tab produced `outline: 2px solid #4DB8FF`
+  with `2px` offset on filter buttons and Enquire links
+- **Tabs:** `aria-pressed` reflects the active filter; buttons activate with
+  Enter/Space; `aria-controls="product-grid"` is correct
+- **Result count:** `role="status"` and `aria-live="polite"` announce updates
+- **Heading order:** h1 → visually hidden h2 (Product catalogue) → h3 cards →
+  h2 Contact → h2 bottom CTA
+- **Drawer:** closed state uses `visibility: hidden` and is out of the tab order;
+  opening moves focus to "Home", Tab/Shift+Tab wrap inside the drawer, Escape
+  closes it, restores focus to the toggle (verified with a real mouse click) and
+  unlocks body scroll
+- **Skip link** and all local anchors resolve; no duplicate IDs on either page
+- **Reduced motion:** with `prefers-reduced-motion: reduce`, card/image
+  transitions compute to `0s`, transforms to `none`, and reveal content is visible
+- **Decorative images:** placeholder SVGs have empty alt text; product names are
+  real headings, so card content is still announced correctly
+
+### Text contrast (WCAG AA requires 4.5:1)
+
+| Pair | Ratio |
+|---|---|
+| Navy `#0A1445` on white | 17.52:1 |
+| Navy on tint `#EAF3FF` | 15.65:1 |
+| Blue `#1A3CC8` on white | 8.32:1 |
+| Blue on tint | 7.43:1 |
+| Category label `#1E5AA0` on white | 6.94:1 |
+| Muted `#4A5568` on tint | 6.72:1 |
+| White on navy Enquire button | 17.52:1 |
+| White on WhatsApp green `#0F7A3F` | 5.42:1 |
+
+All pass AA.
 
 ---
 
-## 8. Security and Code Quality
+## 6. No-JavaScript Test
 
-- ✅ Content-Security-Policy meta tag retained
-- ✅ Referrer-Policy: strict-origin-when-cross-origin
-- ✅ No production dependencies or third-party JavaScript libraries
-- ✅ All external links use `rel="noopener"` with `target="_blank"`
+With script execution disabled:
+
+| Check | Result |
+|---|---|
+| Product cards visible | 37 / 37 |
+| Tab bar | Hidden |
+| Search field | Hidden |
+| Catalogue meta/count line | Hidden |
+| Static top-bar hours | Visible (`Open daily 8:00 AM – 9:00 PM`) |
+| Contact hours | Visible in static HTML |
+| WhatsApp links | Present and usable |
+
+---
+
+## 7. Code Quality and Security
+
+- ✅ No libraries, frameworks, CDNs or build step added
+- ✅ CSP and referrer policy unchanged; only Google Fonts and the Maps frame are external
+- ✅ Every `target="_blank"` link has `rel="noopener"` (both pages)
+- ✅ No duplicate IDs; no missing local anchor targets
+- ✅ Catalogue JS remains ES5-compatible and inside the existing IIFE
+- ✅ Cards are static HTML; the catalogue is never generated in JS
 - ✅ `node --check script.js` passes
-- ✅ No duplicate IDs or missing local anchor targets
-- ✅ All images have alt text
-- ✅ Passive scroll listeners and feature checks for optional APIs
-- ℹ️ `X-Content-Type-Options`, `X-Frame-Options` and `Permissions-Policy` are
-  response headers; meta-tag versions were removed because browsers ignore them
-  for these policies.
+- ✅ No new dependencies
 
-### Tools used
-- Chrome DevTools MCP for viewport, keyboard and interaction checks
-- Lighthouse (desktop) for accessibility, SEO and best-practice audits
-- Manual review of HTML, CSS and JavaScript
+### Test tools used
+- Headless Chrome + DevTools Protocol (custom Node script) for widths, filters,
+  search, deep links, sticky offsets, drawer keyboard behavior, focus rings,
+  reduced motion and image loading
+- Static Node audit of card data, labels, counts, WhatsApp messages and assets
+- Manual visual review of screenshots at 320, 375, 768, 1440 and 1920px
+
+No Lighthouse audit was re-run for this iteration.
+
+---
+
+## 8. Remaining Items
+
+1. **Real product photos** — replace the 18 SVG placeholders with real 4:3
+   photos when available and add meaningful alt text per card.
+2. **Unused legacy SVGs** — `mens-wear.svg`, `womens-wear.svg`, `kids-wear.svg`
+   and `fabrics.svg` are unreferenced and can be removed when convenient.
+3. **Owner verification** — confirm address spelling, phone and hours against the
+   Google Maps listing.
+4. **Gallery** — at least 4 distinct real photos are needed before enabling the
+   hidden gallery section on the homepage.
+5. **Tamil tagline** — owner to confirm final hero wording.
+6. **Reviews** — the five Google review texts on the homepage are verbatim and
+   must stay unchanged.
 
 ---
 
 ## 9. Final Verdict
 
-**PASS** — Both pages score 100 for accessibility and SEO, all tested widths
-have zero horizontal overflow, the catalogue filters and deep links work, and
-the closed drawer is fully out of the keyboard tab order. `products-ux` is ready
-for review as a stacked PR into `blue-redesign`.
+**PASS** — all 37 products are present with correct categories and dynamic
+counts; all five filters, search combinations, empty state and deep links work;
+every Enquire button carries the correct product-specific WhatsApp message;
+37/37 images load; there is no horizontal overflow at any of the ten tested
+widths; keyboard, reduced-motion and no-JS behavior pass; and the console is
+clean. The catalogue is ready for review.

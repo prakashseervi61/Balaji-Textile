@@ -1,0 +1,19 @@
+<svg width="800" height="600" viewBox="0 0 800 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <title>Kids' coat suit</title>
+  <rect width="800" height="600" fill="#E2F3F0"/>
+  <circle cx="400" cy="300" r="198" fill="#FFFFFF" opacity="0.6"/>
+  <circle cx="634" cy="126" r="44" fill="#FFFFFF" opacity="0.35"/>
+  <circle cx="166" cy="482" r="56" fill="#FFFFFF" opacity="0.3"/>
+  <path d="M354 380 V456 H392 L400 432 L408 456 H446 V380 Z" fill="#FFFFFF" stroke="#173A6B" stroke-width="7" stroke-linejoin="round"/>
+  <path d="M340 190 L380 170 L400 206 L420 170 L460 190 L486 312 L456 322 L456 410 L344 410 L344 322 L314 312 Z" fill="#FFFFFF" stroke="#173A6B" stroke-width="7" stroke-linejoin="round"/>
+  <path d="M380 170 L400 206 L420 170" fill="none" stroke="#173A6B" stroke-width="6" stroke-linejoin="round"/>
+  <path d="M380 170 L364 232 L400 252 L436 232 L420 170" fill="none" stroke="#173A6B" stroke-width="6" stroke-linejoin="round"/>
+  <path d="M400 220 L380 208 V234 Z" fill="#3FA796" stroke="#173A6B" stroke-width="5" stroke-linejoin="round"/>
+  <path d="M400 220 L420 208 V234 Z" fill="#3FA796" stroke="#173A6B" stroke-width="5" stroke-linejoin="round"/>
+  <circle cx="400" cy="220" r="6" fill="#173A6B"/>
+  <path d="M352 332 H380" fill="none" stroke="#173A6B" stroke-width="5" stroke-linecap="round"/>
+  <path d="M420 332 H448" fill="none" stroke="#173A6B" stroke-width="5" stroke-linecap="round"/>
+  <circle cx="400" cy="342" r="5" fill="#173A6B"/>
+  <path d="M354 438 H392" fill="none" stroke="#173A6B" stroke-width="5" stroke-linecap="round"/>
+  <path d="M408 438 H446" fill="none" stroke="#173A6B" stroke-width="5" stroke-linecap="round"/>
+</svg>

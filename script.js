@@ -193,7 +193,7 @@
 
   // ---------- Product catalogue: tabs, search, deep links ----------
   var tabBtns = Array.prototype.slice.call(document.querySelectorAll(".tab-btn"));
-  var productGroups = Array.prototype.slice.call(document.querySelectorAll(".product-group"));
+  var productCards = Array.prototype.slice.call(document.querySelectorAll(".product-card"));
   var productSearch = document.getElementById("product-search");
   var resultsCount = document.getElementById("results-count");
   var emptyState = document.getElementById("products-empty");
@@ -214,22 +214,23 @@
     tabsWrap.classList.toggle("is-scrollable-right", tabStrip.scrollLeft < maxScroll - 2);
   }
 
-  if (tabBtns.length > 0) {
-    // Counts are derived from the pills that actually exist, never hardcoded.
+  if (tabBtns.length > 0 && productCards.length > 0) {
+    // Counts are derived from the cards that actually exist, never hardcoded.
     tabBtns.forEach(function (btn) {
       var filter = btn.getAttribute("data-filter");
-      var count;
-
-      if (filter === "all") {
-        count = document.querySelectorAll(".pill").length;
-      } else {
-        var group = document.querySelector('.product-group[data-category="' + filter + '"]');
-        count = group ? group.querySelectorAll(".pill").length : 0;
-      }
-
+      var count = filter === "all"
+        ? productCards.length
+        : productCards.filter(function (card) {
+            return card.getAttribute("data-category") === filter;
+          }).length;
       var countEl = btn.querySelector(".count");
       if (countEl) countEl.textContent = "(" + count + ")";
     });
+
+    function productName(card) {
+      var nameEl = card.querySelector(".product-name");
+      return nameEl ? nameEl.textContent.trim() : card.textContent.trim();
+    }
 
     function setEmptyLink(query) {
       if (!emptyLink) return;
@@ -244,25 +245,15 @@
       var query = rawQuery.toLowerCase();
       var total = 0;
 
-      productGroups.forEach(function (group) {
-        var category = group.getAttribute("data-category");
-        var categoryMatches = currentFilter === "all" || category === currentFilter;
-        var visibleInGroup = 0;
+      productCards.forEach(function (card) {
+        var categoryMatches = currentFilter === "all" ||
+          card.getAttribute("data-category") === currentFilter;
+        var nameMatches = !query ||
+          productName(card).toLowerCase().indexOf(query) !== -1;
+        var matches = categoryMatches && nameMatches;
 
-        group.querySelectorAll(".pill").forEach(function (pill) {
-          var matches = categoryMatches &&
-            (!query || pill.textContent.toLowerCase().indexOf(query) !== -1);
-          pill.hidden = !matches;
-          if (matches) visibleInGroup++;
-        });
-
-        var groupCount = group.querySelector(".group-count");
-        if (groupCount) {
-          groupCount.textContent = visibleInGroup + (visibleInGroup === 1 ? " item" : " items");
-        }
-
-        group.hidden = visibleInGroup === 0;
-        total += visibleInGroup;
+        card.hidden = !matches;
+        if (matches) total++;
       });
 
       if (resultsCount) {

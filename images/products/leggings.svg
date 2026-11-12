@@ -1,0 +1,15 @@
+<svg width="800" height="600" viewBox="0 0 800 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <title>Leggings</title>
+  <rect width="800" height="600" fill="#E7EFFA"/>
+  <circle cx="400" cy="300" r="198" fill="#FFFFFF" opacity="0.6"/>
+  <circle cx="636" cy="126" r="44" fill="#FFFFFF" opacity="0.35"/>
+  <circle cx="164" cy="482" r="56" fill="#FFFFFF" opacity="0.3"/>
+  <path d="M330 170 H470 V214 H330 Z" fill="#FFFFFF" stroke="#173A6B" stroke-width="7" stroke-linejoin="round"/>
+  <path d="M330 214 L346 466 H386 L398 300 L406 466 H456 L470 214 Z" fill="#FFFFFF" stroke="#173A6B" stroke-width="7" stroke-linejoin="round"/>
+  <path d="M398 214 V300" fill="none" stroke="#173A6B" stroke-width="7" stroke-linecap="round"/>
+  <path d="M330 192 H470" fill="none" stroke="#173A6B" stroke-width="4"/>
+  <path d="M358 240 L352 446" fill="none" stroke="#6AAFE8" stroke-width="5" stroke-linecap="round" opacity="0.5"/>
+  <path d="M442 240 L448 446" fill="none" stroke="#6AAFE8" stroke-width="5" stroke-linecap="round" opacity="0.5"/>
+  <path d="M346 448 H386" fill="none" stroke="#173A6B" stroke-width="5" stroke-linecap="round"/>
+  <path d="M406 448 H456" fill="none" stroke="#173A6B" stroke-width="5" stroke-linecap="round"/>
+</svg>
