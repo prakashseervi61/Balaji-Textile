@@ -26,58 +26,11 @@
   };
 
   // ---------- Open/Closed Badge ----------
-  function getISTTime() {
-    var now = new Date();
-    var formatter = new Intl.DateTimeFormat('en-US', {
-      timeZone: CONFIG.TZ,
-      hour: 'numeric',
-      minute: 'numeric',
-      hour12: false
-    });
-    var parts = formatter.formatToParts(now);
-    var hour = 0, minute = 0;
-    for (var i = 0; i < parts.length; i++) {
-      if (parts[i].type === 'hour') hour = parseInt(parts[i].value);
-      if (parts[i].type === 'minute') minute = parseInt(parts[i].value);
-    }
-    return { hour: hour, minute: minute };
+  // Static display - no dynamic badge
+  var contactHours = document.getElementById('contact-hours');
+  if (contactHours) {
+    contactHours.textContent = '8:00 AM \u2013 9:00 PM daily';
   }
-
-  function isOpenNow() {
-    var t = getISTTime();
-    var currentMinutes = t.hour * 60 + t.minute;
-    var openMinutes = CONFIG.OPEN_HOUR * 60;
-    var closeMinutes = CONFIG.CLOSE_HOUR * 60;
-    return currentMinutes >= openMinutes && currentMinutes < closeMinutes;
-  }
-
-  function updateStatusBadge() {
-    var open = isOpenNow();
-    var badge = document.getElementById('status-badge');
-    var contactStatus = document.getElementById('contact-status');
-    var contactHours = document.getElementById('contact-hours');
-
-    var badgeText = open
-      ? 'Open now \u00B7 closes 9:00 PM'
-      : 'Closed \u00B7 opens 8:00 AM';
-
-    var badgeClass = open ? 'status-badge open' : 'status-badge closed';
-
-    if (badge) {
-      badge.textContent = badgeText;
-      badge.className = badgeClass;
-    }
-    if (contactStatus) {
-      contactStatus.textContent = badgeText;
-    }
-    if (contactHours) {
-      contactHours.textContent = '8:00 AM \u2013 9:00 PM daily';
-    }
-  }
-
-  // Update on load and every 60 seconds
-  updateStatusBadge();
-  setInterval(updateStatusBadge, 60000);
 
   // ---------- Header shadow on scroll ----------
   var header = document.getElementById("site-header");
