@@ -2,7 +2,7 @@
 
 A classic, traditional small-business website for **Balaji Textiles**, a textile and readymade clothing store in Saravanampatti, Coimbatore, Tamil Nadu.
 
-Redesigned with a blue theme matching the shop's real billboard. Features a filterable product catalogue with WhatsApp enquiries.
+Redesigned with a blue theme matching the shop's real billboard. Features a searchable, filterable product catalogue with WhatsApp enquiries.
 
 ## Overview
 
@@ -12,17 +12,14 @@ This is an informational business website (NOT an e-commerce platform). No shopp
 
 ```
 Balaji Textile/
-├── index.html          # Main HTML file
+├── index.html          # Home page
+├── products.html       # Searchable, filterable product catalogue
 ├── styles.css          # All styles (mobile-first, CSS custom properties)
-├── script.js           # Vanilla JS (nav, product filter, open/closed badge)
+├── script.js           # Vanilla JS (nav, catalogue search/filters, live hours badge)
 ├── images/
 │   ├── shop-front.jpg  # Shop front photo (from Google Maps)
 │   ├── shop-photo.jpg  # Shop photo (from Google Maps)
-│   └── products/       # Product placeholder images
-│       ├── mens-wear.svg
-│       ├── womens-wear.svg
-│       ├── kids-wear.svg
-│       └── fabrics.svg
+│   └── products/       # Optional product photos (SVG placeholders available)
 ├── README.md
 ├── QA-REPORT.md
 └── .github/workflows/
@@ -31,14 +28,16 @@ Balaji Textile/
 
 ## Sections
 
-- **Top Bar** — Phone, Open/Closed badge (IST), WhatsApp link
+- **Top Bar** — Phone, live IST Open/Closed badge, WhatsApp link
 - **Header** — Logo with Tamil name, sticky with shadow on scroll
 - **Navigation** — Home | About Us | Products | Reviews | Contact Us
 - **Hero** — Full-width with navy gradient overlay, h1, Tamil tagline, intro, two CTA buttons
 - **Why Choose Us** — 4 icon boxes (Family Collections, Best Prices, Perfect Lining & Fall, Open 8 AM–9 PM)
 - **About Us** — Two-column layout (image left, text right)
-- **Our Products** — Filterable catalogue with category tabs and WhatsApp enquiry pills
-- **Shade Matching** — Exact shade matching for sarees & blouses (3 steps)
+- **Our Products** — Four icon category cards linking to filtered catalogue tabs
+- **Products page** — Search, sticky category tabs with live counts, deep links
+  (`#men`, `#women`, `#kids`, `#tailoring`), WhatsApp enquiry pills, shade-matching
+  callout, compact reviews strip and a bottom WhatsApp card
 - **Customer Reviews** — Cards with sky-blue left border, quote mark, 5.0★ badge
 - **Contact Us** — Two-column (details left, map right), Call/WhatsApp/Directions buttons
 - **Footer** — 3 columns (About blurb / Quick links / Contact & hours) + copyright
@@ -51,7 +50,7 @@ Balaji Textile/
 - Category: Clothing store
 - Address: 2c, Pillaiyar Kovil Street, Thiruvannamail Nagar, Saravanampatti, Coimbatore, Tamil Nadu 641035
 - Phone: +91 98945 35066
-- Hours: 8:00 AM – 9:00 PM daily (CONFIG in script.js)
+- Hours: 8:00 AM – 9:00 PM daily (`SHOP_CONFIG` in script.js)
 - Rating: 5.0 stars (20 Google reviews)
 - Google Maps: https://maps.app.goo.gl/wDFzEVDRk7n2RnBJ7
 - Coordinates: 11.0756263, 77.0023874
@@ -75,7 +74,7 @@ Balaji Textile/
 
 - [ ] Owner verifies business details (address, phone, hours) against Google Maps listing
 - [ ] Verify spelling of "Thiruvannamail Nagar" against the Google Maps listing
-- [ ] Add product photos to `images/products/` (currently SVG placeholders)
+- [ ] Add optional product photos to `images/products/` if the owner wants imagery
 - [ ] Add more shop photos to `images/` and update gallery in index.html
 - [ ] Test on real mobile devices
 - [ ] Enable GitHub Pages: Settings → Pages → Source: GitHub Actions
@@ -93,16 +92,16 @@ The gallery section is hidden by default. To enable it:
 |---|---|---|---|
 | `shop-photo.jpg` | `images/` | Shop banner/hero photo | ✅ Have |
 | `shop-front.jpg` | `images/` | Shop front photo | ✅ Have |
-| `mens-wear.jpg` | `images/products/` | Men's wear collection | ⏳ Needed (SVG placeholder) |
-| `womens-wear.jpg` | `images/products/` | Women's wear collection | ⏳ Needed (SVG placeholder) |
-| `kids-wear.jpg` | `images/products/` | Kids' wear collection | ⏳ Needed (SVG placeholder) |
-| `fabrics.jpg` | `images/products/` | Fabrics & dress materials | ⏳ Needed (SVG placeholder) |
+| `mens-wear.jpg` | `images/products/` | Men's wear collection | Optional |
+| `womens-wear.jpg` | `images/products/` | Women's wear collection | Optional |
+| `kids-wear.jpg` | `images/products/` | Kids' wear collection | Optional |
+| `fabrics.jpg` | `images/products/` | Fabrics & dress materials | Optional |
 
 ## Tech Stack
 
 - HTML5 (semantic)
 - CSS3 (custom, mobile-first, CSS custom properties)
-- Vanilla JavaScript (IIFE, "use strict", CONFIG for hours)
+- Vanilla JavaScript (IIFE, "use strict", `SHOP_CONFIG` for hours, catalogue search/filters)
 
 ## Getting Started
 
