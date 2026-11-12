@@ -10,7 +10,7 @@
 ## 1. What Changed on products-ux
 
 ### Products page
-- Page heading is now `Our Products` with a Home / Products breadcrumb
+- Page heading is now `Our Products`
 - Removed the placeholder product gallery and duplicate section
 - Added a labelled search field that filters products by name
 - Tab counts are computed from the real 37 catalogue items:
@@ -40,6 +40,8 @@
 
 ### Accessibility and layout fixes
 - Removed the desktop navigation `max-width` that caused horizontal overflow
+- Removed `body { min-width: 320px }`, which overflowed a 320px window once the
+  classic scrollbar reduced the content area to 305px
 - Closed mobile drawer is removed from the tab order (`visibility: hidden`)
 - Opening the drawer moves focus to the first link and traps Tab inside it
 - Escape closes the drawer and returns focus to the toggle
