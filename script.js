@@ -6,6 +6,18 @@
 (function () {
   "use strict";
 
+  // ---------- Global error handler ----------
+  window.addEventListener("error", function (event) {
+    // Log errors for debugging (remove in production if needed)
+    if (event.error) {
+      console.error("Error:", event.error.message);
+    }
+  });
+
+  window.addEventListener("unhandledrejection", function (event) {
+    console.error("Unhandled promise rejection:", event.reason);
+  });
+
   // ---------- CONFIG ----------
   var CONFIG = {
     OPEN_HOUR: 8,
