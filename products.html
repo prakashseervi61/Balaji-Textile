@@ -34,6 +34,13 @@
 </head>
 <body>
 
+  <!-- Inline icon sprite -->
+  <svg class="icon-sprite" width="0" height="0" aria-hidden="true" focusable="false">
+    <symbol id="icon-whatsapp" viewBox="0 0 24 24">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+    </symbol>
+  </svg>
+
   <a class="skip-link" href="#main-content">Skip to main content</a>
 
   <!-- Top bar -->
@@ -83,80 +90,125 @@
       </div>
     </section>
 
-    <!-- Filter tabs -->
+    <!-- Products -->
     <section class="products">
       <div class="container">
-        <div class="product-tabs">
-          <button type="button" class="tab-btn active" data-filter="all">All <span class="count">(47)</span></button>
-          <button type="button" class="tab-btn" data-filter="men">Men <span class="count">(10)</span></button>
-          <button type="button" class="tab-btn" data-filter="women">Women <span class="count">(12)</span></button>
-          <button type="button" class="tab-btn" data-filter="kids">Kids <span class="count">(9)</span></button>
-          <button type="button" class="tab-btn" data-filter="tailoring">Tailoring &amp; Matching <span class="count">(6)</span></button>
+        <div class="products-tools">
+          <div class="product-search">
+            <label class="visually-hidden" for="product-search">Search products</label>
+            <svg class="search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true" focusable="false"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            <input type="search" id="product-search" placeholder="Search shirts, sarees, falls&hellip;" autocomplete="off" />
+          </div>
+          <p class="results-count" id="results-count" role="status" aria-live="polite">Showing 37 items</p>
+          <p class="products-hint">Tap any item to ask about it on WhatsApp.</p>
         </div>
+      </div>
+
+      <!-- Sticky category tabs -->
+      <div class="tabs-sticky">
+        <div class="container">
+          <div class="tabs-wrap">
+            <div class="product-tabs" id="product-tabs" role="group" aria-label="Filter products by category">
+              <button type="button" class="tab-btn active" data-filter="all" aria-pressed="true" aria-controls="product-list">All <span class="count"></span></button>
+              <button type="button" class="tab-btn" data-filter="men" aria-pressed="false" aria-controls="product-list">Men <span class="count"></span></button>
+              <button type="button" class="tab-btn" data-filter="women" aria-pressed="false" aria-controls="product-list">Women <span class="count"></span></button>
+              <button type="button" class="tab-btn" data-filter="kids" aria-pressed="false" aria-controls="product-list">Kids <span class="count"></span></button>
+              <button type="button" class="tab-btn" data-filter="tailoring" aria-pressed="false" aria-controls="product-list">Tailoring &amp; Matching <span class="count"></span></button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="container" id="product-list">
 
         <!-- Men's group -->
         <div class="product-group" data-category="men">
-          <h3 class="group-title">Men</h3>
+          <h3 class="group-title">
+            <svg class="group-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20.38 3.46 16 2a4 4 0 0 1-8 0L3.62 3.46a2 2 0 0 0-1.34 2.23l.58 3.57a1 1 0 0 0 .99.84H6v10a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V10h2.15a1 1 0 0 0 .99-.84l.58-3.57a2 2 0 0 0-1.34-2.23z"/></svg>
+            Men
+            <span class="group-count">10 items</span>
+          </h3>
           <div class="pill-grid">
-            <a href="https://wa.me/919894535066?text=Hi%20Balaji%20Textiles%2C%20I%27m%20interested%20in%20Men%3A%20Full%20sleeve%20shirts.%20Is%20it%20available%3F" target="_blank" rel="noopener" class="pill" data-category="men">Full sleeve shirts</a>
-            <a href="https://wa.me/919894535066?text=Hi%20Balaji%20Textiles%2C%20I%27m%20interested%20in%20Men%3A%20Half%20sleeve%20shirts.%20Is%20it%20available%3F" target="_blank" rel="noopener" class="pill" data-category="men">Half sleeve shirts</a>
-            <a href="https://wa.me/919894535066?text=Hi%20Balaji%20Textiles%2C%20I%27m%20interested%20in%20Men%3A%20Collar%20t-shirts.%20Is%20it%20available%3F" target="_blank" rel="noopener" class="pill" data-category="men">Collar t-shirts</a>
-            <a href="https://wa.me/919894535066?text=Hi%20Balaji%20Textiles%2C%20I%27m%20interested%20in%20Men%3A%20Round-neck%20t-shirts.%20Is%20it%20available%3F" target="_blank" rel="noopener" class="pill" data-category="men">Round-neck t-shirts</a>
-            <a href="https://wa.me/919894535066?text=Hi%20Balaji%20Textiles%2C%20I%27m%20interested%20in%20Men%3A%20Jean%20pants.%20Is%20it%20available%3F" target="_blank" rel="noopener" class="pill" data-category="men">Jean pants</a>
-            <a href="https://wa.me/919894535066?text=Hi%20Balaji%20Textiles%2C%20I%27m%20interested%20in%20Men%3A%20Cotton%20pants.%20Is%20it%20available%3F" target="_blank" rel="noopener" class="pill" data-category="men">Cotton pants</a>
-            <a href="https://wa.me/919894535066?text=Hi%20Balaji%20Textiles%2C%20I%27m%20interested%20in%20Men%3A%20Trousers.%20Is%20it%20available%3F" target="_blank" rel="noopener" class="pill" data-category="men">Trousers</a>
-            <a href="https://wa.me/919894535066?text=Hi%20Balaji%20Textiles%2C%20I%27m%20interested%20in%20Men%3A%20Night%20pants.%20Is%20it%20available%3F" target="_blank" rel="noopener" class="pill" data-category="men">Night pants</a>
-            <a href="https://wa.me/919894535066?text=Hi%20Balaji%20Textiles%2C%20I%27m%20interested%20in%20Men%3A%20Half%20pants.%20Is%20it%20available%3F" target="_blank" rel="noopener" class="pill" data-category="men">Half pants</a>
-            <a href="https://wa.me/919894535066?text=Hi%20Balaji%20Textiles%2C%20I%27m%20interested%20in%20Men%3A%20Innerwear.%20Is%20it%20available%3F" target="_blank" rel="noopener" class="pill" data-category="men">Innerwear</a>
+            <a href="https://wa.me/919894535066?text=Hi%20Balaji%20Textiles%2C%20I%27m%20interested%20in%20Men%3A%20Full%20sleeve%20shirts.%20Is%20it%20available%3F" target="_blank" rel="noopener" class="pill" data-category="men"><svg class="pill-icon" aria-hidden="true" focusable="false"><use href="#icon-whatsapp"></use></svg>Full sleeve shirts</a>
+            <a href="https://wa.me/919894535066?text=Hi%20Balaji%20Textiles%2C%20I%27m%20interested%20in%20Men%3A%20Half%20sleeve%20shirts.%20Is%20it%20available%3F" target="_blank" rel="noopener" class="pill" data-category="men"><svg class="pill-icon" aria-hidden="true" focusable="false"><use href="#icon-whatsapp"></use></svg>Half sleeve shirts</a>
+            <a href="https://wa.me/919894535066?text=Hi%20Balaji%20Textiles%2C%20I%27m%20interested%20in%20Men%3A%20Collar%20t-shirts.%20Is%20it%20available%3F" target="_blank" rel="noopener" class="pill" data-category="men"><svg class="pill-icon" aria-hidden="true" focusable="false"><use href="#icon-whatsapp"></use></svg>Collar t-shirts</a>
+            <a href="https://wa.me/919894535066?text=Hi%20Balaji%20Textiles%2C%20I%27m%20interested%20in%20Men%3A%20Round-neck%20t-shirts.%20Is%20it%20available%3F" target="_blank" rel="noopener" class="pill" data-category="men"><svg class="pill-icon" aria-hidden="true" focusable="false"><use href="#icon-whatsapp"></use></svg>Round-neck t-shirts</a>
+            <a href="https://wa.me/919894535066?text=Hi%20Balaji%20Textiles%2C%20I%27m%20interested%20in%20Men%3A%20Jean%20pants.%20Is%20it%20available%3F" target="_blank" rel="noopener" class="pill" data-category="men"><svg class="pill-icon" aria-hidden="true" focusable="false"><use href="#icon-whatsapp"></use></svg>Jean pants</a>
+            <a href="https://wa.me/919894535066?text=Hi%20Balaji%20Textiles%2C%20I%27m%20interested%20in%20Men%3A%20Cotton%20pants.%20Is%20it%20available%3F" target="_blank" rel="noopener" class="pill" data-category="men"><svg class="pill-icon" aria-hidden="true" focusable="false"><use href="#icon-whatsapp"></use></svg>Cotton pants</a>
+            <a href="https://wa.me/919894535066?text=Hi%20Balaji%20Textiles%2C%20I%27m%20interested%20in%20Men%3A%20Trousers.%20Is%20it%20available%3F" target="_blank" rel="noopener" class="pill" data-category="men"><svg class="pill-icon" aria-hidden="true" focusable="false"><use href="#icon-whatsapp"></use></svg>Trousers</a>
+            <a href="https://wa.me/919894535066?text=Hi%20Balaji%20Textiles%2C%20I%27m%20interested%20in%20Men%3A%20Night%20pants.%20Is%20it%20available%3F" target="_blank" rel="noopener" class="pill" data-category="men"><svg class="pill-icon" aria-hidden="true" focusable="false"><use href="#icon-whatsapp"></use></svg>Night pants</a>
+            <a href="https://wa.me/919894535066?text=Hi%20Balaji%20Textiles%2C%20I%27m%20interested%20in%20Men%3A%20Half%20pants.%20Is%20it%20available%3F" target="_blank" rel="noopener" class="pill" data-category="men"><svg class="pill-icon" aria-hidden="true" focusable="false"><use href="#icon-whatsapp"></use></svg>Half pants</a>
+            <a href="https://wa.me/919894535066?text=Hi%20Balaji%20Textiles%2C%20I%27m%20interested%20in%20Men%3A%20Innerwear.%20Is%20it%20available%3F" target="_blank" rel="noopener" class="pill" data-category="men"><svg class="pill-icon" aria-hidden="true" focusable="false"><use href="#icon-whatsapp"></use></svg>Innerwear</a>
           </div>
         </div>
 
         <!-- Women's group -->
         <div class="product-group" data-category="women">
-          <h3 class="group-title">Women</h3>
+          <h3 class="group-title">
+            <svg class="group-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 8a2 2 0 1 0-2-2"/><path d="M12 8v2l8.5 5.5a1.5 1.5 0 0 1-.8 2.5H4.3a1.5 1.5 0 0 1-.8-2.5L12 10"/></svg>
+            Women
+            <span class="group-count">12 items</span>
+          </h3>
           <div class="pill-grid">
-            <a href="https://wa.me/919894535066?text=Hi%20Balaji%20Textiles%2C%20I%27m%20interested%20in%20Women%3A%20Sarees.%20Is%20it%20available%3F" target="_blank" rel="noopener" class="pill" data-category="women">Sarees</a>
-            <a href="https://wa.me/919894535066?text=Hi%20Balaji%20Textiles%2C%20I%27m%20interested%20in%20Women%3A%20Chudidhars.%20Is%20it%20available%3F" target="_blank" rel="noopener" class="pill" data-category="women">Chudidhars</a>
-            <a href="https://wa.me/919894535066?text=Hi%20Balaji%20Textiles%2C%20I%27m%20interested%20in%20Women%3A%20Tops.%20Is%20it%20available%3F" target="_blank" rel="noopener" class="pill" data-category="women">Tops</a>
-            <a href="https://wa.me/919894535066?text=Hi%20Balaji%20Textiles%2C%20I%27m%20interested%20in%20Women%3A%20Shararas.%20Is%20it%20available%3F" target="_blank" rel="noopener" class="pill" data-category="women">Shararas</a>
-            <a href="https://wa.me/919894535066?text=Hi%20Balaji%20Textiles%2C%20I%27m%20interested%20in%20Women%3A%20Western%20wear.%20Is%20it%20available%3F" target="_blank" rel="noopener" class="pill" data-category="women">Western wear</a>
-            <a href="https://wa.me/919894535066?text=Hi%20Balaji%20Textiles%2C%20I%27m%20interested%20in%20Women%3A%20Frocks.%20Is%20it%20available%3F" target="_blank" rel="noopener" class="pill" data-category="women">Frocks</a>
-            <a href="https://wa.me/919894535066?text=Hi%20Balaji%20Textiles%2C%20I%27m%20interested%20in%20Women%3A%20Palazzo%20pants.%20Is%20it%20available%3F" target="_blank" rel="noopener" class="pill" data-category="women">Palazzo pants</a>
-            <a href="https://wa.me/919894535066?text=Hi%20Balaji%20Textiles%2C%20I%27m%20interested%20in%20Women%3A%20Straight%20pants.%20Is%20it%20available%3F" target="_blank" rel="noopener" class="pill" data-category="women">Straight pants</a>
-            <a href="https://wa.me/919894535066?text=Hi%20Balaji%20Textiles%2C%20I%27m%20interested%20in%20Women%3A%20Ankle%20leggings.%20Is%20it%20available%3F" target="_blank" rel="noopener" class="pill" data-category="women">Ankle leggings</a>
-            <a href="https://wa.me/919894535066?text=Hi%20Balaji%20Textiles%2C%20I%27m%20interested%20in%20Women%3A%20Regular%20leggings.%20Is%20it%20available%3F" target="_blank" rel="noopener" class="pill" data-category="women">Regular leggings</a>
-            <a href="https://wa.me/919894535066?text=Hi%20Balaji%20Textiles%2C%20I%27m%20interested%20in%20Women%3A%20Shawls.%20Is%20it%20available%3F" target="_blank" rel="noopener" class="pill" data-category="women">Shawls</a>
-            <a href="https://wa.me/919894535066?text=Hi%20Balaji%20Textiles%2C%20I%27m%20interested%20in%20Women%3A%20Innerwear.%20Is%20it%20available%3F" target="_blank" rel="noopener" class="pill" data-category="women">Innerwear</a>
+            <a href="https://wa.me/919894535066?text=Hi%20Balaji%20Textiles%2C%20I%27m%20interested%20in%20Women%3A%20Sarees.%20Is%20it%20available%3F" target="_blank" rel="noopener" class="pill" data-category="women"><svg class="pill-icon" aria-hidden="true" focusable="false"><use href="#icon-whatsapp"></use></svg>Sarees</a>
+            <a href="https://wa.me/919894535066?text=Hi%20Balaji%20Textiles%2C%20I%27m%20interested%20in%20Women%3A%20Chudidhars.%20Is%20it%20available%3F" target="_blank" rel="noopener" class="pill" data-category="women"><svg class="pill-icon" aria-hidden="true" focusable="false"><use href="#icon-whatsapp"></use></svg>Chudidhars</a>
+            <a href="https://wa.me/919894535066?text=Hi%20Balaji%20Textiles%2C%20I%27m%20interested%20in%20Women%3A%20Tops.%20Is%20it%20available%3F" target="_blank" rel="noopener" class="pill" data-category="women"><svg class="pill-icon" aria-hidden="true" focusable="false"><use href="#icon-whatsapp"></use></svg>Tops</a>
+            <a href="https://wa.me/919894535066?text=Hi%20Balaji%20Textiles%2C%20I%27m%20interested%20in%20Women%3A%20Shararas.%20Is%20it%20available%3F" target="_blank" rel="noopener" class="pill" data-category="women"><svg class="pill-icon" aria-hidden="true" focusable="false"><use href="#icon-whatsapp"></use></svg>Shararas</a>
+            <a href="https://wa.me/919894535066?text=Hi%20Balaji%20Textiles%2C%20I%27m%20interested%20in%20Women%3A%20Western%20wear.%20Is%20it%20available%3F" target="_blank" rel="noopener" class="pill" data-category="women"><svg class="pill-icon" aria-hidden="true" focusable="false"><use href="#icon-whatsapp"></use></svg>Western wear</a>
+            <a href="https://wa.me/919894535066?text=Hi%20Balaji%20Textiles%2C%20I%27m%20interested%20in%20Women%3A%20Frocks.%20Is%20it%20available%3F" target="_blank" rel="noopener" class="pill" data-category="women"><svg class="pill-icon" aria-hidden="true" focusable="false"><use href="#icon-whatsapp"></use></svg>Frocks</a>
+            <a href="https://wa.me/919894535066?text=Hi%20Balaji%20Textiles%2C%20I%27m%20interested%20in%20Women%3A%20Palazzo%20pants.%20Is%20it%20available%3F" target="_blank" rel="noopener" class="pill" data-category="women"><svg class="pill-icon" aria-hidden="true" focusable="false"><use href="#icon-whatsapp"></use></svg>Palazzo pants</a>
+            <a href="https://wa.me/919894535066?text=Hi%20Balaji%20Textiles%2C%20I%27m%20interested%20in%20Women%3A%20Straight%20pants.%20Is%20it%20available%3F" target="_blank" rel="noopener" class="pill" data-category="women"><svg class="pill-icon" aria-hidden="true" focusable="false"><use href="#icon-whatsapp"></use></svg>Straight pants</a>
+            <a href="https://wa.me/919894535066?text=Hi%20Balaji%20Textiles%2C%20I%27m%20interested%20in%20Women%3A%20Ankle%20leggings.%20Is%20it%20available%3F" target="_blank" rel="noopener" class="pill" data-category="women"><svg class="pill-icon" aria-hidden="true" focusable="false"><use href="#icon-whatsapp"></use></svg>Ankle leggings</a>
+            <a href="https://wa.me/919894535066?text=Hi%20Balaji%20Textiles%2C%20I%27m%20interested%20in%20Women%3A%20Regular%20leggings.%20Is%20it%20available%3F" target="_blank" rel="noopener" class="pill" data-category="women"><svg class="pill-icon" aria-hidden="true" focusable="false"><use href="#icon-whatsapp"></use></svg>Regular leggings</a>
+            <a href="https://wa.me/919894535066?text=Hi%20Balaji%20Textiles%2C%20I%27m%20interested%20in%20Women%3A%20Shawls.%20Is%20it%20available%3F" target="_blank" rel="noopener" class="pill" data-category="women"><svg class="pill-icon" aria-hidden="true" focusable="false"><use href="#icon-whatsapp"></use></svg>Shawls</a>
+            <a href="https://wa.me/919894535066?text=Hi%20Balaji%20Textiles%2C%20I%27m%20interested%20in%20Women%3A%20Innerwear.%20Is%20it%20available%3F" target="_blank" rel="noopener" class="pill" data-category="women"><svg class="pill-icon" aria-hidden="true" focusable="false"><use href="#icon-whatsapp"></use></svg>Innerwear</a>
           </div>
         </div>
 
         <!-- Kids' group -->
         <div class="product-group" data-category="kids">
-          <h3 class="group-title">Kids</h3>
+          <h3 class="group-title">
+            <svg class="group-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="7" r="3"/><path d="M5 21v-1a5 5 0 0 1 5-5h4a5 5 0 0 1 5 5v1"/></svg>
+            Kids
+            <span class="group-count">9 items</span>
+          </h3>
           <div class="pill-grid">
-            <a href="https://wa.me/919894535066?text=Hi%20Balaji%20Textiles%2C%20I%27m%20interested%20in%20Kids%3A%20Coat%20suits.%20Is%20it%20available%3F" target="_blank" rel="noopener" class="pill" data-category="kids">Coat suits</a>
-            <a href="https://wa.me/919894535066?text=Hi%20Balaji%20Textiles%2C%20I%27m%20interested%20in%20Kids%3A%20Party%20wear.%20Is%20it%20available%3F" target="_blank" rel="noopener" class="pill" data-category="kids">Party wear</a>
-            <a href="https://wa.me/919894535066?text=Hi%20Balaji%20Textiles%2C%20I%27m%20interested%20in%20Kids%3A%20Jean%20pants.%20Is%20it%20available%3F" target="_blank" rel="noopener" class="pill" data-category="kids">Jean pants</a>
-            <a href="https://wa.me/919894535066?text=Hi%20Balaji%20Textiles%2C%20I%27m%20interested%20in%20Kids%3A%20Cotton%20pants.%20Is%20it%20available%3F" target="_blank" rel="noopener" class="pill" data-category="kids">Cotton pants</a>
-            <a href="https://wa.me/919894535066?text=Hi%20Balaji%20Textiles%2C%20I%27m%20interested%20in%20Kids%3A%20Full%20sleeve%20t-shirts.%20Is%20it%20available%3F" target="_blank" rel="noopener" class="pill" data-category="kids">Full sleeve t-shirts</a>
-            <a href="https://wa.me/919894535066?text=Hi%20Balaji%20Textiles%2C%20I%27m%20interested%20in%20Kids%3A%20Half%20sleeve%20t-shirts.%20Is%20it%20available%3F" target="_blank" rel="noopener" class="pill" data-category="kids">Half sleeve t-shirts</a>
-            <a href="https://wa.me/919894535066?text=Hi%20Balaji%20Textiles%2C%20I%27m%20interested%20in%20Kids%3A%20Full%20night%20pants.%20Is%20it%20available%3F" target="_blank" rel="noopener" class="pill" data-category="kids">Full night pants</a>
-            <a href="https://wa.me/919894535066?text=Hi%20Balaji%20Textiles%2C%20I%27m%20interested%20in%20Kids%3A%20Half%20night%20pants.%20Is%20it%20available%3F" target="_blank" rel="noopener" class="pill" data-category="kids">Half night pants</a>
-            <a href="https://wa.me/919894535066?text=Hi%20Balaji%20Textiles%2C%20I%27m%20interested%20in%20Kids%3A%20Innerwear.%20Is%20it%20available%3F" target="_blank" rel="noopener" class="pill" data-category="kids">Innerwear</a>
+            <a href="https://wa.me/919894535066?text=Hi%20Balaji%20Textiles%2C%20I%27m%20interested%20in%20Kids%3A%20Coat%20suits.%20Is%20it%20available%3F" target="_blank" rel="noopener" class="pill" data-category="kids"><svg class="pill-icon" aria-hidden="true" focusable="false"><use href="#icon-whatsapp"></use></svg>Coat suits</a>
+            <a href="https://wa.me/919894535066?text=Hi%20Balaji%20Textiles%2C%20I%27m%20interested%20in%20Kids%3A%20Party%20wear.%20Is%20it%20available%3F" target="_blank" rel="noopener" class="pill" data-category="kids"><svg class="pill-icon" aria-hidden="true" focusable="false"><use href="#icon-whatsapp"></use></svg>Party wear</a>
+            <a href="https://wa.me/919894535066?text=Hi%20Balaji%20Textiles%2C%20I%27m%20interested%20in%20Kids%3A%20Jean%20pants.%20Is%20it%20available%3F" target="_blank" rel="noopener" class="pill" data-category="kids"><svg class="pill-icon" aria-hidden="true" focusable="false"><use href="#icon-whatsapp"></use></svg>Jean pants</a>
+            <a href="https://wa.me/919894535066?text=Hi%20Balaji%20Textiles%2C%20I%27m%20interested%20in%20Kids%3A%20Cotton%20pants.%20Is%20it%20available%3F" target="_blank" rel="noopener" class="pill" data-category="kids"><svg class="pill-icon" aria-hidden="true" focusable="false"><use href="#icon-whatsapp"></use></svg>Cotton pants</a>
+            <a href="https://wa.me/919894535066?text=Hi%20Balaji%20Textiles%2C%20I%27m%20interested%20in%20Kids%3A%20Full%20sleeve%20t-shirts.%20Is%20it%20available%3F" target="_blank" rel="noopener" class="pill" data-category="kids"><svg class="pill-icon" aria-hidden="true" focusable="false"><use href="#icon-whatsapp"></use></svg>Full sleeve t-shirts</a>
+            <a href="https://wa.me/919894535066?text=Hi%20Balaji%20Textiles%2C%20I%27m%20interested%20in%20Kids%3A%20Half%20sleeve%20t-shirts.%20Is%20it%20available%3F" target="_blank" rel="noopener" class="pill" data-category="kids"><svg class="pill-icon" aria-hidden="true" focusable="false"><use href="#icon-whatsapp"></use></svg>Half sleeve t-shirts</a>
+            <a href="https://wa.me/919894535066?text=Hi%20Balaji%20Textiles%2C%20I%27m%20interested%20in%20Kids%3A%20Full%20night%20pants.%20Is%20it%20available%3F" target="_blank" rel="noopener" class="pill" data-category="kids"><svg class="pill-icon" aria-hidden="true" focusable="false"><use href="#icon-whatsapp"></use></svg>Full night pants</a>
+            <a href="https://wa.me/919894535066?text=Hi%20Balaji%20Textiles%2C%20I%27m%20interested%20in%20Kids%3A%20Half%20night%20pants.%20Is%20it%20available%3F" target="_blank" rel="noopener" class="pill" data-category="kids"><svg class="pill-icon" aria-hidden="true" focusable="false"><use href="#icon-whatsapp"></use></svg>Half night pants</a>
+            <a href="https://wa.me/919894535066?text=Hi%20Balaji%20Textiles%2C%20I%27m%20interested%20in%20Kids%3A%20Innerwear.%20Is%20it%20available%3F" target="_blank" rel="noopener" class="pill" data-category="kids"><svg class="pill-icon" aria-hidden="true" focusable="false"><use href="#icon-whatsapp"></use></svg>Innerwear</a>
           </div>
         </div>
 
         <!-- Tailoring group -->
         <div class="product-group" data-category="tailoring">
-          <h3 class="group-title">Tailoring &amp; Matching</h3>
+          <h3 class="group-title">
+            <svg class="group-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><line x1="20" y1="4" x2="8.12" y2="15.88"/><line x1="14.47" y1="14.48" x2="20" y2="20"/><line x1="8.12" y1="8.12" x2="12" y2="12"/></svg>
+            Tailoring &amp; Matching
+            <span class="group-count">6 items</span>
+          </h3>
           <div class="pill-grid">
-            <a href="https://wa.me/919894535066?text=Hi%20Balaji%20Textiles%2C%20I%27m%20interested%20in%20Tailoring%20%26%20Matching%3A%20Blouse%20linings.%20Is%20it%20available%3F" target="_blank" rel="noopener" class="pill" data-category="tailoring">Blouse linings</a>
-            <a href="https://wa.me/919894535066?text=Hi%20Balaji%20Textiles%2C%20I%27m%20interested%20in%20Tailoring%20%26%20Matching%3A%20Silk%20falls.%20Is%20it%20available%3F" target="_blank" rel="noopener" class="pill" data-category="tailoring">Silk falls</a>
-            <a href="https://wa.me/919894535066?text=Hi%20Balaji%20Textiles%2C%20I%27m%20interested%20in%20Tailoring%20%26%20Matching%3A%20Cotton%20falls.%20Is%20it%20available%3F" target="_blank" rel="noopener" class="pill" data-category="tailoring">Cotton falls</a>
-            <a href="https://wa.me/919894535066?text=Hi%20Balaji%20Textiles%2C%20I%27m%20interested%20in%20Tailoring%20%26%20Matching%3A%20Designer%20laces.%20Is%20it%20available%3F" target="_blank" rel="noopener" class="pill" data-category="tailoring">Designer laces</a>
-            <a href="https://wa.me/919894535066?text=Hi%20Balaji%20Textiles%2C%20I%27m%20interested%20in%20Tailoring%20%26%20Matching%3A%20Saree%20hangings%20(latkans).%20Is%20it%20available%3F" target="_blank" rel="noopener" class="pill" data-category="tailoring">Saree hangings (latkans)</a>
-            <a href="https://wa.me/919894535066?text=Hi%20Balaji%20Textiles%2C%20I%27m%20interested%20in%20Tailoring%20%26%20Matching%3A%20Stitching%20accessories.%20Is%20it%20available%3F" target="_blank" rel="noopener" class="pill" data-category="tailoring">Stitching accessories</a>
+            <a href="https://wa.me/919894535066?text=Hi%20Balaji%20Textiles%2C%20I%27m%20interested%20in%20Tailoring%20%26%20Matching%3A%20Blouse%20linings.%20Is%20it%20available%3F" target="_blank" rel="noopener" class="pill" data-category="tailoring"><svg class="pill-icon" aria-hidden="true" focusable="false"><use href="#icon-whatsapp"></use></svg>Blouse linings</a>
+            <a href="https://wa.me/919894535066?text=Hi%20Balaji%20Textiles%2C%20I%27m%20interested%20in%20Tailoring%20%26%20Matching%3A%20Silk%20falls.%20Is%20it%20available%3F" target="_blank" rel="noopener" class="pill" data-category="tailoring"><svg class="pill-icon" aria-hidden="true" focusable="false"><use href="#icon-whatsapp"></use></svg>Silk falls</a>
+            <a href="https://wa.me/919894535066?text=Hi%20Balaji%20Textiles%2C%20I%27m%20interested%20in%20Tailoring%20%26%20Matching%3A%20Cotton%20falls.%20Is%20it%20available%3F" target="_blank" rel="noopener" class="pill" data-category="tailoring"><svg class="pill-icon" aria-hidden="true" focusable="false"><use href="#icon-whatsapp"></use></svg>Cotton falls</a>
+            <a href="https://wa.me/919894535066?text=Hi%20Balaji%20Textiles%2C%20I%27m%20interested%20in%20Tailoring%20%26%20Matching%3A%20Designer%20laces.%20Is%20it%20available%3F" target="_blank" rel="noopener" class="pill" data-category="tailoring"><svg class="pill-icon" aria-hidden="true" focusable="false"><use href="#icon-whatsapp"></use></svg>Designer laces</a>
+            <a href="https://wa.me/919894535066?text=Hi%20Balaji%20Textiles%2C%20I%27m%20interested%20in%20Tailoring%20%26%20Matching%3A%20Saree%20hangings%20(latkans).%20Is%20it%20available%3F" target="_blank" rel="noopener" class="pill" data-category="tailoring"><svg class="pill-icon" aria-hidden="true" focusable="false"><use href="#icon-whatsapp"></use></svg>Saree hangings (latkans)</a>
+            <a href="https://wa.me/919894535066?text=Hi%20Balaji%20Textiles%2C%20I%27m%20interested%20in%20Tailoring%20%26%20Matching%3A%20Stitching%20accessories.%20Is%20it%20available%3F" target="_blank" rel="noopener" class="pill" data-category="tailoring"><svg class="pill-icon" aria-hidden="true" focusable="false"><use href="#icon-whatsapp"></use></svg>Stitching accessories</a>
           </div>
+        </div>
+
+        <!-- Empty search state -->
+        <div class="products-empty" id="products-empty" hidden>
+          <p>No items found.</p>
+          <a class="btn btn-wa" id="products-empty-link" href="https://wa.me/919894535066?text=Hello%20Balaji%20Textiles%2C%20I%20would%20like%20to%20know%20more%20about%20your%20collections." target="_blank" rel="noopener">
+            <svg class="pill-icon" aria-hidden="true" focusable="false"><use href="#icon-whatsapp"></use></svg>
+            Ask us on WhatsApp
+          </a>
         </div>
       </div>
     </section>

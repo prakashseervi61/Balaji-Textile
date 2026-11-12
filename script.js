@@ -35,6 +35,17 @@
         header.classList.remove("scrolled");
       }
     }, { passive: true });
+
+    // Keep sticky offsets aligned with the real rendered header height.
+    function syncHeaderHeight() {
+      document.documentElement.style.setProperty("--header-height", header.offsetHeight + "px");
+    }
+    syncHeaderHeight();
+    window.addEventListener("resize", syncHeaderHeight);
+    window.addEventListener("load", syncHeaderHeight);
+    if (document.fonts && document.fonts.ready) {
+      document.fonts.ready.then(syncHeaderHeight);
+    }
   }
 
   // ---------- Mobile navigation toggle ----------
@@ -89,33 +100,160 @@
     });
   }
 
-  // ---------- Product filter tabs ----------
-  var tabBtns = document.querySelectorAll(".tab-btn");
-  var productGroups = document.querySelectorAll(".product-group");
+  // ---------- Product catalogue: tabs, search, deep links ----------
+  var tabBtns = Array.prototype.slice.call(document.querySelectorAll(".tab-btn"));
+  var productGroups = Array.prototype.slice.call(document.querySelectorAll(".product-group"));
+  var productSearch = document.getElementById("product-search");
+  var resultsCount = document.getElementById("results-count");
+  var emptyState = document.getElementById("products-empty");
+  var emptyLink = document.getElementById("products-empty-link");
+  var tabStrip = document.getElementById("product-tabs");
+  var tabsWrap = tabStrip ? tabStrip.parentElement : null;
+  var currentFilter = "all";
+  var VALID_FILTERS = ["all", "men", "women", "kids", "tailoring"];
 
-  tabBtns.forEach(function (btn) {
-    btn.addEventListener("click", function () {
+  function prefersReducedMotion() {
+    return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  }
+
+  function updateTabFades() {
+    if (!tabStrip || !tabsWrap) return;
+    var maxScroll = tabStrip.scrollWidth - tabStrip.clientWidth;
+    tabsWrap.classList.toggle("is-scrollable-left", tabStrip.scrollLeft > 2);
+    tabsWrap.classList.toggle("is-scrollable-right", tabStrip.scrollLeft < maxScroll - 2);
+  }
+
+  if (tabBtns.length > 0) {
+    // Counts are derived from the pills that actually exist, never hardcoded.
+    tabBtns.forEach(function (btn) {
       var filter = btn.getAttribute("data-filter");
+      var count;
 
-      // Update active tab
-      tabBtns.forEach(function (b) {
-        b.classList.remove("active");
-        b.setAttribute("aria-pressed", "false");
-      });
-      btn.classList.add("active");
-      btn.setAttribute("aria-pressed", "true");
+      if (filter === "all") {
+        count = document.querySelectorAll(".pill").length;
+      } else {
+        var group = document.querySelector('.product-group[data-category="' + filter + '"]');
+        count = group ? group.querySelectorAll(".pill").length : 0;
+      }
 
-      // Show/hide groups
+      var countEl = btn.querySelector(".count");
+      if (countEl) countEl.textContent = "(" + count + ")";
+    });
+
+    function setEmptyLink(query) {
+      if (!emptyLink) return;
+      var message = query
+        ? "Hi Balaji Textiles, I'm looking for: " + query
+        : "Hello Balaji Textiles, I would like to know more about your collections.";
+      emptyLink.href = "https://wa.me/919894535066?text=" + encodeURIComponent(message);
+    }
+
+    function applyFilters() {
+      var rawQuery = productSearch ? productSearch.value.trim() : "";
+      var query = rawQuery.toLowerCase();
+      var total = 0;
+
       productGroups.forEach(function (group) {
-        var cat = group.getAttribute("data-category");
-        if (filter === "all" || cat === filter) {
-          group.style.display = "";
-        } else {
-          group.style.display = "none";
+        var category = group.getAttribute("data-category");
+        var categoryMatches = currentFilter === "all" || category === currentFilter;
+        var visibleInGroup = 0;
+
+        group.querySelectorAll(".pill").forEach(function (pill) {
+          var matches = categoryMatches &&
+            (!query || pill.textContent.toLowerCase().indexOf(query) !== -1);
+          pill.hidden = !matches;
+          if (matches) visibleInGroup++;
+        });
+
+        var groupCount = group.querySelector(".group-count");
+        if (groupCount) {
+          groupCount.textContent = visibleInGroup + (visibleInGroup === 1 ? " item" : " items");
         }
+
+        group.hidden = visibleInGroup === 0;
+        total += visibleInGroup;
+      });
+
+      if (resultsCount) {
+        resultsCount.textContent = total === 1 ? "Showing 1 item" : "Showing " + total + " items";
+      }
+
+      if (emptyState) emptyState.hidden = total !== 0;
+      setEmptyLink(rawQuery);
+    }
+
+    function centerTab(btn) {
+      if (!tabStrip || !btn) return;
+
+      var stripRect = tabStrip.getBoundingClientRect();
+      var btnRect = btn.getBoundingClientRect();
+      var left = tabStrip.scrollLeft + (btnRect.left - stripRect.left) -
+        (tabStrip.clientWidth - btnRect.width) / 2;
+      var behavior = prefersReducedMotion() ? "auto" : "smooth";
+
+      if (typeof tabStrip.scrollTo === "function") {
+        tabStrip.scrollTo({ left: Math.max(0, left), behavior: behavior });
+      } else {
+        tabStrip.scrollLeft = Math.max(0, left);
+      }
+    }
+
+    function setFilter(filter, options) {
+      var settings = options || {};
+      if (VALID_FILTERS.indexOf(filter) === -1) filter = "all";
+
+      currentFilter = filter;
+      var activeBtn = null;
+
+      tabBtns.forEach(function (btn) {
+        var isActive = btn.getAttribute("data-filter") === filter;
+        btn.classList.toggle("active", isActive);
+        btn.setAttribute("aria-pressed", isActive ? "true" : "false");
+        if (isActive) activeBtn = btn;
+      });
+
+      if (settings.updateHash) {
+        var hash = "#" + filter;
+        if (window.history && window.history.replaceState) {
+          window.history.replaceState(null, "", hash);
+        } else {
+          window.location.hash = hash;
+        }
+      }
+
+      applyFilters();
+
+      if (activeBtn) centerTab(activeBtn);
+    }
+
+    tabBtns.forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        setFilter(btn.getAttribute("data-filter"), { updateHash: true });
       });
     });
-  });
+
+    if (productSearch) {
+      productSearch.addEventListener("input", applyFilters);
+    }
+
+    function filterFromHash() {
+      var hash = window.location.hash.replace("#", "");
+      return VALID_FILTERS.indexOf(hash) !== -1 ? hash : "all";
+    }
+
+    window.addEventListener("hashchange", function () {
+      setFilter(filterFromHash(), { updateHash: false });
+    });
+
+    if (tabStrip) {
+      tabStrip.addEventListener("scroll", updateTabFades, { passive: true });
+    }
+    window.addEventListener("resize", updateTabFades);
+    window.addEventListener("load", updateTabFades);
+
+    setFilter(filterFromHash(), { updateHash: false });
+    updateTabFades();
+  }
 
   // ---------- Lightbox ----------
   var lightbox = document.getElementById("lightbox");
