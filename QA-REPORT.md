@@ -167,6 +167,45 @@ These are unavoidable without removing the Google Maps embed (user-requested fea
 
 ---
 
-## 8. Final Verdict
+## 8. Best Practices Audit
 
-**PASS** — The blue-themed website maintains the classic 2018–2020 traditional business appearance while improving functionality, accessibility (100/100), SEO (100/100), and code quality. All 9 viewports pass with zero horizontal overflow. The branch `blue-redesign` is ready for review.
+Applied web best practices from Lighthouse best practices audits:
+
+### Security
+- ✅ Content-Security-Policy meta tag added
+- ✅ X-Content-Type-Options: nosniff
+- ✅ X-Frame-Options: SAMEORIGIN
+- ✅ Referrer-Policy: strict-origin-when-cross-origin
+- ✅ Permissions-Policy: geolocation, microphone, camera disabled
+- ✅ No vulnerable libraries (no production npm dependencies)
+- ✅ HTTPS enforced (GitHub Pages)
+
+### Browser Compatibility
+- ✅ HTML5 doctype present
+- ✅ Charset declared first in head
+- ✅ Viewport meta tag present
+- ✅ No deprecated APIs (no document.write, sync XHR, app cache)
+- ✅ Passive event listeners for scroll ({ passive: true })
+- ✅ Feature detection for IntersectionObserver
+
+### Code Quality
+- ✅ No console errors
+- ✅ Valid HTML (no duplicate IDs)
+- ✅ Semantic HTML (header, nav, main, section, footer)
+- ✅ Proper error handling (global error handler + unhandledrejection)
+- ✅ Image aspect ratios (width/height specified on all images)
+
+### Performance
+- ✅ Deferred script loading (script defer)
+- ✅ Local image assets (no fragile third-party URLs)
+- ✅ Lazy loading for below-fold images
+- ✅ Font display swap via Google Fonts URL
+- ✅ No blocking patterns
+
+### Tools Used
+- Lighthouse best practices audit
+- Manual code review against OWASP and MDN guidelines
+
+## 9. Final Verdict
+
+**PASS** — The blue-themed website maintains the classic 2018–2020 traditional business appearance while improving functionality, accessibility (100/100), SEO (100/100), best practices (security headers, CSP, deferred loading), and code quality. All 9 viewports pass with zero horizontal overflow. The branch `blue-redesign` is ready for review.
