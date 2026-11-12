@@ -11,10 +11,8 @@
   <meta name="theme-color" content="#0A1445" />
   <link rel="canonical" href="https://prakashseervi61.github.io/Balaji-Textile/" />
 
-  <!-- Security headers -->
-  <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+  <!-- Privacy & content security -->
   <meta name="referrer" content="strict-origin-when-cross-origin" />
-  <meta http-equiv="Permissions-Policy" content="geolocation=(), microphone=(), camera=()" />
 
   <!-- Content Security Policy -->
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: https:; font-src 'self' https://fonts.gstatic.com; connect-src 'self'; frame-src https://www.google.com; base-uri 'self'; form-action 'self';" />
@@ -39,6 +37,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Lato:wght@300;400;600;700&family=Noto+Sans+Tamil:wght@400;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
+  <noscript><style>.reveal { opacity: 1; transform: none; }</style></noscript>
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%230A1445' rx='10'/%3E%3Ctext x='50' y='60' font-family='serif' font-size='50' fill='%23FFFFFF' text-anchor='middle'%3EBT%3C/text%3E%3C/svg%3E" />
 
   <!-- Schema.org LocalBusiness structured data -->
@@ -91,7 +90,12 @@
     <div class="container">
       <div class="top-bar-inner">
         <span class="top-bar-item">📞 <a href="tel:+919894535066">+91 98945 35066</a></span>
-        <span class="top-bar-item">Open daily 8:00 AM – 9:00 PM</span>
+        <span class="top-bar-item">
+          <span class="shop-status" id="shop-status" role="status" aria-live="polite">
+            <span class="status-dot" aria-hidden="true"></span>
+            <span class="status-text">Open daily 8:00 AM – 9:00 PM</span>
+          </span>
+        </span>
         <span class="top-bar-item"><a href="https://wa.me/919894535066?text=Hello%20Balaji%20Textiles%2C%20I%20would%20like%20to%20know%20more%20about%20your%20collections." target="_blank" rel="noopener">WhatsApp Us</a></span>
       </div>
     </div>
@@ -112,7 +116,7 @@
         <ul>
           <li><a href="#home">Home</a></li>
           <li><a href="#about">About Us</a></li>
-          <li><a href="#products">Products</a></li>
+          <li><a href="products.html">Products</a></li>
           <li><a href="#reviews">Reviews</a></li>
           <li><a href="#contact">Contact Us</a></li>
         </ul>
@@ -196,33 +200,32 @@
       <div class="container">
         <h2 class="section-title">Our Products</h2>
 
-        <!-- Product preview grid -->
-        <div class="product-preview-grid">
-          <div class="product-preview-item">
-            <div class="product-preview-placeholder">
-              <span>Full sleeve shirts</span>
-            </div>
-          </div>
-          <div class="product-preview-item">
-            <div class="product-preview-placeholder">
-              <span>Half sleeve shirts</span>
-            </div>
-          </div>
-          <div class="product-preview-item">
-            <div class="product-preview-placeholder">
-              <span>Sarees</span>
-            </div>
-          </div>
-          <div class="product-preview-item">
-            <div class="product-preview-placeholder">
-              <span>Chudidhars</span>
-            </div>
-          </div>
-          <div class="product-preview-item">
-            <div class="product-preview-placeholder">
-              <span>Kids Party wear</span>
-            </div>
-          </div>
+        <!-- Category cards -->
+        <div class="category-grid">
+          <a class="category-card" href="products.html#men">
+            <span class="category-icon" aria-hidden="true">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20.38 3.46 16 2a4 4 0 0 1-8 0L3.62 3.46a2 2 0 0 0-1.34 2.23l.58 3.57a1 1 0 0 0 .99.84H6v10a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V10h2.15a1 1 0 0 0 .99-.84l.58-3.57a2 2 0 0 0-1.34-2.23z"/></svg>
+            </span>
+            <span class="category-name">Men</span>
+          </a>
+          <a class="category-card" href="products.html#women">
+            <span class="category-icon" aria-hidden="true">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 8a2 2 0 1 0-2-2"/><path d="M12 8v2l8.5 5.5a1.5 1.5 0 0 1-.8 2.5H4.3a1.5 1.5 0 0 1-.8-2.5L12 10"/></svg>
+            </span>
+            <span class="category-name">Women</span>
+          </a>
+          <a class="category-card" href="products.html#kids">
+            <span class="category-icon" aria-hidden="true">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="7" r="3"/><path d="M5 21v-1a5 5 0 0 1 5-5h4a5 5 0 0 1 5 5v1"/></svg>
+            </span>
+            <span class="category-name">Kids</span>
+          </a>
+          <a class="category-card" href="products.html#tailoring">
+            <span class="category-icon" aria-hidden="true">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><line x1="20" y1="4" x2="8.12" y2="15.88"/><line x1="14.47" y1="14.48" x2="20" y2="20"/><line x1="8.12" y1="8.12" x2="12" y2="12"/></svg>
+            </span>
+            <span class="category-name">Tailoring &amp; Matching</span>
+          </a>
         </div>
         <div class="product-more">
           <a href="products.html" class="btn btn-primary">View More Products &rarr;</a>
@@ -235,7 +238,7 @@
       <div class="container">
         <h2 class="section-title">Customer Reviews</h2>
         <div class="reviews-badge">
-          <span class="reviews-rating">5.0 &#9733;</span>
+          <span class="reviews-rating">5.0 <span class="reviews-star" aria-hidden="true">&#9733;</span></span>
           <span class="reviews-count">on Google &middot; 20 reviews</span>
         </div>
         <div class="review-grid">
