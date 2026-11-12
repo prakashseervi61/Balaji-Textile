@@ -18,13 +18,6 @@
     console.error("Unhandled promise rejection:", event.reason);
   });
 
-  // ---------- CONFIG ----------
-  var CONFIG = {
-    OPEN_HOUR: 8,
-    CLOSE_HOUR: 21,
-    TZ: 'Asia/Kolkata'
-  };
-
   // ---------- Open/Closed Badge ----------
   // Static display - no dynamic badge
   var contactHours = document.getElementById('contact-hours');
