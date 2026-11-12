@@ -137,42 +137,34 @@ button:focus-visible,
   gap: 4px;
 }
 
-.top-bar a {
-  color: var(--sky);
-  text-decoration: underline;
-}
-.top-bar a:hover { color: var(--white); }
-
-/* Open/Closed badge */
-.status-badge {
+.shop-status {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  padding: 2px 10px;
-  border-radius: 999px;
-  font-size: 12px;
-  font-weight: 700;
-  font-family: var(--font-body);
-}
-
-.status-badge.open {
-  background: rgba(15,122,63,0.2);
-  color: #2ECC71;
-  border: 1px solid rgba(0,219,64,0.4);
-}
-
-.status-badge.closed {
-  background: rgba(255,255,255,0.1);
-  color: var(--tint);
-  border: 1px solid rgba(255,255,255,0.2);
+  font-weight: 600;
 }
 
 .status-dot {
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: currentColor;
+  background: var(--accent);
+  flex-shrink: 0;
 }
+
+.shop-status.is-open .status-dot {
+  background: #4ADE80;
+}
+
+.shop-status.is-closed .status-dot {
+  background: #FCA5A5;
+}
+
+.top-bar a {
+  color: var(--sky);
+  text-decoration: underline;
+}
+.top-bar a:hover { color: var(--white); }
 
 /* ---------- Header ---------- */
 .site-header {
@@ -370,8 +362,9 @@ button:focus-visible,
   transform: translateX(-50%);
 }
 
-section {
-  scroll-margin-top: 70px;
+section,
+main {
+  scroll-margin-top: calc(var(--header-height) + 8px);
 }
 
 .section-title::after {
@@ -665,17 +658,12 @@ section {
   padding: 2px 0 4px;
   overflow-x: auto;
   scroll-snap-type: x proximity;
-  scrollbar-width: thin;
+  scrollbar-width: none;
   -webkit-overflow-scrolling: touch;
 }
 
 .product-tabs::-webkit-scrollbar {
-  height: 4px;
-}
-
-.product-tabs::-webkit-scrollbar-thumb {
-  background: var(--color-border);
-  border-radius: 999px;
+  display: none;
 }
 
 .tab-btn {
@@ -1006,28 +994,45 @@ section {
   height: 18px;
 }
 
-/* ---------- Shade Matching ---------- */
-.shade-match {
-  padding: var(--spacing-xl) 0;
+/* ---------- Shade matching callout ---------- */
+.shade-callout {
   background: var(--tint);
+  border: 1px solid var(--color-border);
+  border-left: 4px solid var(--blue);
+  border-radius: var(--radius);
+  padding: var(--spacing-md);
+  margin-bottom: var(--spacing-md);
+  max-width: 760px;
+}
+
+.shade-callout h4 {
+  font-family: var(--font-heading);
+  font-size: 18px;
+  color: var(--navy);
+  margin-bottom: var(--spacing-sm);
 }
 
 .shade-steps {
+  list-style: none;
   display: grid;
   grid-template-columns: 1fr;
-  gap: var(--spacing-md);
-  margin: var(--spacing-md) 0;
+  gap: 10px;
+  margin: 0 0 var(--spacing-md);
+  padding: 0;
 }
 
 .shade-step {
   display: flex;
-  gap: var(--spacing-sm);
+  gap: 10px;
   align-items: flex-start;
+  font-size: 14px;
+  color: var(--text);
+  line-height: 1.5;
 }
 
 .step-num {
-  width: 36px;
-  height: 36px;
+  width: 26px;
+  height: 26px;
   background: var(--blue);
   color: var(--white);
   border-radius: 50%;
@@ -1035,18 +1040,19 @@ section {
   align-items: center;
   justify-content: center;
   font-weight: 700;
-  font-size: 16px;
+  font-size: 13px;
   flex-shrink: 0;
 }
 
-.step-text {
-  font-size: 15px;
-  color: var(--text);
-  line-height: 1.6;
+.shade-callout .btn-wa {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
 }
 
-.shade-match .btn-wa {
-  margin-top: var(--spacing-md);
+.shade-callout .pill-icon {
+  width: 18px;
+  height: 18px;
 }
 
 /* ---------- Gallery ---------- */
@@ -1126,8 +1132,12 @@ section {
 .reviews-rating {
   font-family: var(--font-heading);
   font-size: 24px;
-  color: var(--accent);
+  color: var(--navy);
   font-weight: 700;
+}
+
+.reviews-star {
+  color: var(--accent);
 }
 
 .reviews-count {
@@ -1187,6 +1197,72 @@ section {
 .reviews-link {
   text-align: center;
   margin-top: var(--spacing-lg);
+}
+
+/* ---------- Reviews strip (products page) ---------- */
+.reviews-strip {
+  padding: var(--spacing-md) 0;
+  background: var(--tint);
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+  text-align: center;
+}
+
+.reviews-strip p {
+  margin: 0;
+}
+
+.reviews-strip a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 6px;
+  font-size: 15px;
+  color: var(--text);
+  text-decoration: underline;
+}
+
+.reviews-strip a:hover {
+  text-decoration: none;
+}
+
+.reviews-strip .reviews-rating {
+  font-size: 18px;
+}
+
+/* ---------- Bottom WhatsApp card ---------- */
+.products-cta {
+  padding: 0 0 var(--spacing-xl);
+  background: var(--white);
+}
+
+.products-cta-card {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: var(--spacing-lg) var(--spacing-md);
+  background: var(--tint);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  text-align: center;
+}
+
+.products-cta-card h2 {
+  font-family: var(--font-heading);
+  font-size: 22px;
+  color: var(--navy);
+  margin-bottom: var(--spacing-md);
+}
+
+.products-cta-card .btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.products-cta-card .pill-icon {
+  width: 18px;
+  height: 18px;
 }
 
 /* ---------- Contact ---------- */
@@ -1414,6 +1490,7 @@ footer a:hover {
   .main-nav {
     position: static;
     width: auto;
+    max-width: none;
     height: auto;
     background: transparent;
     transform: none;
@@ -1422,6 +1499,7 @@ footer a:hover {
     overflow-y: visible;
     z-index: auto;
     transition: none;
+    padding-top: 0;
   }
 
   .main-nav.is-open {
@@ -1647,6 +1725,11 @@ footer a:hover {
     transition: none;
     transform: none;
     opacity: 1;
+  }
+  .main-nav,
+  .main-nav.is-open,
+  .nav-overlay {
+    transition: none;
   }
   .hero-content {
     animation: none;

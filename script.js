@@ -18,11 +18,77 @@
     console.error("Unhandled promise rejection:", event.reason);
   });
 
-  // ---------- Open/Closed Badge ----------
-  // Static display - no dynamic badge
+  // ---------- Open/Closed badge (Asia/Kolkata) ----------
+  var SHOP_CONFIG = {
+    OPEN_HOUR: 8,
+    CLOSE_HOUR: 21,
+    OPEN_LABEL: "8:00 AM",
+    CLOSE_LABEL: "9:00 PM",
+    TIME_ZONE: "Asia/Kolkata"
+  };
+
   var contactHours = document.getElementById('contact-hours');
   if (contactHours) {
     contactHours.textContent = '8:00 AM \u2013 9:00 PM daily';
+  }
+
+  var shopStatus = document.getElementById("shop-status");
+  if (shopStatus) {
+    var shopStatusText = shopStatus.querySelector(".status-text");
+    var shopTimeFormat = null;
+
+    try {
+      shopTimeFormat = new Intl.DateTimeFormat("en-GB", {
+        timeZone: SHOP_CONFIG.TIME_ZONE,
+        hour: "2-digit",
+        minute: "2-digit",
+        hourCycle: "h23"
+      });
+    } catch (error) {
+      shopTimeFormat = null;
+    }
+
+    function istMinutesNow() {
+      var now = new Date();
+
+      if (shopTimeFormat && typeof shopTimeFormat.formatToParts === "function") {
+        var hour = 0;
+        var minute = 0;
+        shopTimeFormat.formatToParts(now).forEach(function (part) {
+          if (part.type === "hour") hour = parseInt(part.value, 10);
+          if (part.type === "minute") minute = parseInt(part.value, 10);
+        });
+        if (!isNaN(hour) && !isNaN(minute)) {
+          return hour * 60 + minute;
+        }
+      }
+
+      // Fallback: IST is UTC+05:30 all year, with no daylight saving.
+      var utcMinutes = now.getUTCHours() * 60 + now.getUTCMinutes();
+      return (utcMinutes + 330) % 1440;
+    }
+
+    function updateShopStatus() {
+      var minutes = istMinutesNow();
+      var opens = SHOP_CONFIG.OPEN_HOUR * 60;
+      var closes = SHOP_CONFIG.CLOSE_HOUR * 60;
+      var isOpen = minutes >= opens && minutes < closes;
+
+      shopStatus.classList.toggle("is-open", isOpen);
+      shopStatus.classList.toggle("is-closed", !isOpen);
+
+      if (shopStatusText) {
+        shopStatusText.textContent = isOpen
+          ? "Open now \u00b7 until " + SHOP_CONFIG.CLOSE_LABEL
+          : "Closed \u00b7 opens " + SHOP_CONFIG.OPEN_LABEL;
+      }
+    }
+
+    updateShopStatus();
+    window.setInterval(updateShopStatus, 60000);
+    document.addEventListener("visibilitychange", function () {
+      if (!document.hidden) updateShopStatus();
+    });
   }
 
   // ---------- Header shadow on scroll ----------
@@ -54,21 +120,29 @@
 
   if (nav && toggle) {
     var overlay = document.querySelector(".nav-overlay");
+    var navLinks = Array.prototype.slice.call(nav.querySelectorAll("a[href]"));
+    var lastFocused = null;
 
     function openMenu() {
+      lastFocused = document.activeElement;
       nav.classList.add("is-open");
       toggle.classList.add("is-open");
       toggle.setAttribute("aria-expanded", "true");
       if (overlay) overlay.classList.add("is-open");
       document.body.style.overflow = "hidden";
+      if (navLinks.length) navLinks[0].focus();
     }
 
-    function closeMenu() {
+    function closeMenu(restoreFocus) {
       nav.classList.remove("is-open");
       toggle.classList.remove("is-open");
       toggle.setAttribute("aria-expanded", "false");
       if (overlay) overlay.classList.remove("is-open");
       document.body.style.overflow = "";
+      if (restoreFocus !== false && lastFocused && document.contains(lastFocused)) {
+        lastFocused.focus();
+      }
+      lastFocused = null;
     }
 
     toggle.addEventListener("click", function () {
@@ -80,22 +154,39 @@
     });
 
     // Close menu on link click
-    nav.querySelectorAll("a").forEach(function (link) {
+    navLinks.forEach(function (link) {
       link.addEventListener("click", function () {
-        closeMenu();
+        closeMenu(false);
       });
     });
 
     // Click overlay to close
     if (overlay) {
-      overlay.addEventListener("click", closeMenu);
+      overlay.addEventListener("click", function () {
+        closeMenu();
+      });
     }
 
-    // Escape key closes menu
+    // Escape closes and Tab is trapped inside the open drawer
     document.addEventListener("keydown", function (e) {
-      if (e.key === "Escape" && nav.classList.contains("is-open")) {
+      if (!nav.classList.contains("is-open")) return;
+
+      if (e.key === "Escape") {
         closeMenu();
-        toggle.focus();
+        return;
+      }
+
+      if (e.key !== "Tab" || navLinks.length === 0) return;
+
+      var first = navLinks[0];
+      var last = navLinks[navLinks.length - 1];
+
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault();
+        first.focus();
       }
     });
   }

@@ -29,7 +29,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Lato:wght@300;400;600;700&family=Noto+Sans+Tamil:wght@400;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
-  <noscript><style>.reveal { opacity: 1; transform: none; }</style></noscript>
+  <noscript><style>.reveal { opacity: 1; transform: none; } .products-tools, .tabs-sticky { display: none; }</style></noscript>
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%230A1445' rx='10'/%3E%3Ctext x='50' y='60' font-family='serif' font-size='50' fill='%23FFFFFF' text-anchor='middle'%3EBT%3C/text%3E%3C/svg%3E" />
 </head>
 <body>
@@ -48,7 +48,12 @@
     <div class="container">
       <div class="top-bar-inner">
         <span class="top-bar-item">📞 <a href="tel:+919894535066">+91 98945 35066</a></span>
-        <span class="top-bar-item">Open daily 8:00 AM – 9:00 PM</span>
+        <span class="top-bar-item">
+          <span class="shop-status" id="shop-status" role="status" aria-live="polite">
+            <span class="status-dot" aria-hidden="true"></span>
+            <span class="status-text">Open daily 8:00 AM – 9:00 PM</span>
+          </span>
+        </span>
         <span class="top-bar-item"><a href="https://wa.me/919894535066?text=Hello%20Balaji%20Textiles%2C%20I%20would%20like%20to%20know%20more%20about%20your%20collections." target="_blank" rel="noopener">WhatsApp Us</a></span>
       </div>
     </div>
@@ -91,8 +96,9 @@
     </section>
 
     <!-- Products -->
-    <section class="products">
+    <section class="products" aria-labelledby="catalogue-heading">
       <div class="container">
+        <h2 class="visually-hidden" id="catalogue-heading">Product catalogue</h2>
         <div class="products-tools">
           <div class="product-search">
             <label class="visually-hidden" for="product-search">Search products</label>
@@ -192,6 +198,29 @@
             Tailoring &amp; Matching
             <span class="group-count">6 items</span>
           </h3>
+
+          <!-- Shade matching callout -->
+          <aside class="shade-callout" aria-labelledby="shade-callout-title">
+            <h4 id="shade-callout-title">Exact shade matching for sarees &amp; blouses</h4>
+            <ol class="shade-steps">
+              <li class="shade-step">
+                <span class="step-num" aria-hidden="true">1</span>
+                <span>Take a photo of your saree in daylight, include border and pallu.</span>
+              </li>
+              <li class="shade-step">
+                <span class="step-num" aria-hidden="true">2</span>
+                <span>Send it on WhatsApp.</span>
+              </li>
+              <li class="shade-step">
+                <span class="step-num" aria-hidden="true">3</span>
+                <span>We check matching shades in store.</span>
+              </li>
+            </ol>
+            <a class="btn btn-wa" href="https://wa.me/919894535066?text=Hi%20Balaji%20Textiles%2C%20I%27d%20like%20shade%20matching.%20I%27ll%20send%20a%20photo%20of%20my%20saree." target="_blank" rel="noopener">
+              <svg class="pill-icon" aria-hidden="true" focusable="false"><use href="#icon-whatsapp"></use></svg>
+              Shade match on WhatsApp
+            </a>
+          </aside>
           <div class="pill-grid">
             <a href="https://wa.me/919894535066?text=Hi%20Balaji%20Textiles%2C%20I%27m%20interested%20in%20Tailoring%20%26%20Matching%3A%20Blouse%20linings.%20Is%20it%20available%3F" target="_blank" rel="noopener" class="pill" data-category="tailoring"><svg class="pill-icon" aria-hidden="true" focusable="false"><use href="#icon-whatsapp"></use></svg>Blouse linings</a>
             <a href="https://wa.me/919894535066?text=Hi%20Balaji%20Textiles%2C%20I%27m%20interested%20in%20Tailoring%20%26%20Matching%3A%20Silk%20falls.%20Is%20it%20available%3F" target="_blank" rel="noopener" class="pill" data-category="tailoring"><svg class="pill-icon" aria-hidden="true" focusable="false"><use href="#icon-whatsapp"></use></svg>Silk falls</a>
@@ -213,42 +242,15 @@
       </div>
     </section>
 
-    <!-- Reviews -->
-    <section id="reviews" class="reviews reveal">
+    <!-- Reviews strip -->
+    <section id="reviews" class="reviews-strip">
       <div class="container">
-        <h2 class="section-title">Customer Reviews</h2>
-        <div class="reviews-badge">
-          <span class="reviews-rating">5.0 &#9733;</span>
-          <span class="reviews-count">on Google &middot; 20 reviews</span>
-        </div>
-        <div class="review-grid">
-          <div class="review-card">
-            <span class="review-quote" aria-hidden="true">&ldquo;</span>
-            <p class="review-text">Best family shopping and best price new collection</p>
-            <p class="review-author">&mdash; Google Review</p>
-          </div>
-          <div class="review-card">
-            <span class="review-quote" aria-hidden="true">&ldquo;</span>
-            <p class="review-text">Super good quality good response thank you</p>
-            <p class="review-author">&mdash; Google Review</p>
-          </div>
-          <div class="review-card">
-            <span class="review-quote" aria-hidden="true">&ldquo;</span>
-            <p class="review-text">Very good services. Very good person. Family textiles.</p>
-            <p class="review-author">&mdash; Google Review</p>
-          </div>
-          <div class="review-card">
-            <span class="review-quote" aria-hidden="true">&ldquo;</span>
-            <p class="review-text">Best matching lining and falls</p>
-            <p class="review-author">&mdash; Devi, Google Review</p>
-          </div>
-          <div class="review-card">
-            <span class="review-quote" aria-hidden="true">&ldquo;</span>
-            <p class="review-text">Best lining and blouse correct matching</p>
-            <p class="review-author">&mdash; Mdramjan Ansari, Google Review</p>
-          </div>
-        </div>
-        <p class="reviews-link"><a href="https://www.google.com/maps/place/Balaji+Textiles/@11.0756263,77.0023874" target="_blank" rel="noopener" class="btn btn-outline">See All Reviews on Google</a></p>
+        <p>
+          <a href="https://www.google.com/maps/place/Balaji+Textiles/@11.0756263,77.0023874" target="_blank" rel="noopener">
+            <span class="reviews-rating">5.0 <span class="reviews-star" aria-hidden="true">&#9733;</span></span>
+            on Google &middot; 20 reviews
+          </a>
+        </p>
       </div>
     </section>
 
@@ -287,6 +289,19 @@
               referrerpolicy="no-referrer-when-downgrade"
             ></iframe>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Bottom WhatsApp card -->
+    <section class="products-cta">
+      <div class="container">
+        <div class="products-cta-card">
+          <h2>Can&rsquo;t find what you need?</h2>
+          <a class="btn btn-wa" href="https://wa.me/919894535066?text=Hello%20Balaji%20Textiles%2C%20I%20would%20like%20to%20know%20more%20about%20your%20collections." target="_blank" rel="noopener">
+            <svg class="pill-icon" aria-hidden="true" focusable="false"><use href="#icon-whatsapp"></use></svg>
+            Message us on WhatsApp
+          </a>
         </div>
       </div>
     </section>
