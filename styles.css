@@ -677,12 +677,13 @@ section {
 /* ---------- Product preview grid ---------- */
 .product-preview-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
   gap: var(--spacing-md);
   margin-bottom: var(--spacing-md);
   max-width: 900px;
   margin-left: auto;
   margin-right: auto;
+  justify-items: center;
 }
 
 .product-preview-item {
@@ -1289,7 +1290,7 @@ footer a:hover,
   }
 
   .product-preview-grid {
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
   }
 
   .shade-steps {
@@ -1358,7 +1359,7 @@ footer a:hover,
   }
 
   .product-preview-grid {
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   }
 
   .gallery-grid {
