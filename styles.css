@@ -653,15 +653,6 @@ main {
   text-align: center;
 }
 
-.catalogue-eyebrow {
-  margin: 0 0 10px;
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: var(--steel);
-}
-
 .catalogue-title {
   margin: 0 0 12px;
   font-family: var(--font-heading);
@@ -1074,79 +1065,6 @@ main {
 }
 
 .products-empty .pill-icon {
-  width: 18px;
-  height: 18px;
-}
-
-/* ---------- Shade matching callout ---------- */
-.shade-callout {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: var(--spacing-md);
-  margin-top: var(--spacing-lg);
-  padding: var(--spacing-md);
-  background: var(--white);
-  border: 1px solid var(--color-border);
-  border-left: 4px solid var(--blue);
-  border-radius: 12px;
-  box-shadow: var(--shadow-sm);
-}
-
-.shade-callout-copy h3 {
-  font-family: var(--font-heading);
-  font-size: 20px;
-  color: var(--navy);
-  margin: 0 0 6px;
-}
-
-.shade-callout-copy p {
-  font-size: 14px;
-  line-height: 1.6;
-  color: var(--text-muted);
-  margin: 0;
-}
-
-.shade-steps {
-  list-style: none;
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 10px;
-  margin: 0;
-  padding: 0;
-}
-
-.shade-step {
-  display: flex;
-  gap: 10px;
-  align-items: flex-start;
-  font-size: 14px;
-  color: var(--text);
-  line-height: 1.5;
-}
-
-.step-num {
-  width: 26px;
-  height: 26px;
-  background: var(--blue);
-  color: var(--white);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: 700;
-  font-size: 13px;
-  flex-shrink: 0;
-}
-
-.shade-callout-link {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  justify-self: start;
-}
-
-.shade-callout .pill-icon {
   width: 18px;
   height: 18px;
 }
@@ -1692,29 +1610,6 @@ footer a:hover {
     gap: 18px;
   }
 
-  .shade-callout {
-    grid-template-columns: minmax(0, 1fr) auto;
-    align-items: center;
-    padding: 24px 28px;
-  }
-
-  .shade-callout-copy {
-    grid-column: 1;
-    grid-row: 1;
-  }
-
-  .shade-steps {
-    grid-column: 1;
-    grid-row: 2;
-    grid-template-columns: repeat(3, 1fr);
-  }
-
-  .shade-callout-link {
-    grid-column: 2;
-    grid-row: 1 / span 2;
-    align-self: center;
-  }
-
   .review-grid {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -1833,14 +1728,6 @@ footer a:hover {
     min-height: 40px;
     padding: 8px 13px;
     font-size: 12.5px;
-  }
-
-  .shade-callout {
-    padding: 18px;
-  }
-
-  .shade-callout-copy h3 {
-    font-size: 18px;
   }
 
   .mobile-bar {

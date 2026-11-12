@@ -26,8 +26,8 @@ The products page was redesigned as a card catalogue matching the supplied brief
 - Empty state with a prefilled WhatsApp link when nothing matches
 - Deep links `#men`, `#women`, `#kids`, `#tailoring` activate the matching tab
   without scrolling the page; the active tab is centered in the scroll strip
-- Shade-matching callout, compact reviews strip, contact section and bottom
-  WhatsApp card retained and restyled to fit the catalogue
+- Compact reviews strip, contact section and bottom WhatsApp card retained and
+  restyled to fit the catalogue
 - With JavaScript disabled, search/tabs/meta are hidden and all 37 products,
   their WhatsApp links and the static hours remain visible
 
@@ -174,7 +174,7 @@ Measured with Chrome device emulation. "H-scroll" compares
   Enter/Space; `aria-controls="product-grid"` is correct
 - **Result count:** `role="status"` and `aria-live="polite"` announce updates
 - **Heading order:** h1 → visually hidden h2 (Product catalogue) → h3 cards →
-  h3 shade callout → h2 Contact → h2 bottom CTA
+  h2 Contact → h2 bottom CTA
 - **Drawer:** closed state uses `visibility: hidden` and is out of the tab order;
   opening moves focus to "Home", Tab/Shift+Tab wrap inside the drawer, Escape
   closes it, restores focus to the toggle (verified with a real mouse click) and

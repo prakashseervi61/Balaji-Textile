@@ -38,8 +38,8 @@ Balaji Textile/
 - **Products page** — 37-product catalogue of white cards with 4:3 pastel
   illustration panels, uppercase category labels and navy WhatsApp Enquire
   buttons; centered sticky filter tabs with live counts, search, deep links
-  (`#men`, `#women`, `#kids`, `#tailoring`), an empty state, shade-matching
-  callout, compact reviews strip and a bottom WhatsApp card
+  (`#men`, `#women`, `#kids`, `#tailoring`), an empty state, compact reviews
+  strip and a bottom WhatsApp card
 - **Customer Reviews** — Cards with sky-blue left border, quote mark, 5.0★ badge
 - **Contact Us** — Two-column (details left, map right), Call/WhatsApp/Directions buttons
 - **Footer** — 3 columns (About blurb / Quick links / Contact & hours) + copyright
