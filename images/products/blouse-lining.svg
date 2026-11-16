@@ -1,0 +1,15 @@
+<svg width="800" height="600" viewBox="0 0 800 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <title>Blouse lining</title>
+  <rect width="800" height="600" fill="#FBEFE2"/>
+  <circle cx="400" cy="300" r="198" fill="#FFFFFF" opacity="0.6"/>
+  <circle cx="638" cy="126" r="44" fill="#FFFFFF" opacity="0.35"/>
+  <circle cx="162" cy="482" r="56" fill="#FFFFFF" opacity="0.3"/>
+  <path d="M352 188 Q400 170 448 188 L458 300 L448 418 H352 L342 300 Z" fill="#FFFFFF" stroke="#173A6B" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M352 188 L318 216 L330 276 L352 260" fill="#FFFFFF" stroke="#173A6B" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M448 188 L482 216 L470 276 L448 260" fill="#FFFFFF" stroke="#173A6B" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M378 186 Q400 212 422 186" fill="none" stroke="#173A6B" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M376 244 Q364 320 372 400" fill="none" stroke="#C98A4B" stroke-width="4" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="8 7"/>
+  <path d="M424 244 Q436 320 428 400" fill="none" stroke="#C98A4B" stroke-width="4" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="8 7"/>
+  <path d="M342 300 Q360 312 378 306" fill="none" stroke="#173A6B" stroke-width="4" stroke-linejoin="round" stroke-linecap="round" opacity="0.6"/>
+  <path d="M458 300 Q440 312 422 306" fill="none" stroke="#173A6B" stroke-width="4" stroke-linejoin="round" stroke-linecap="round" opacity="0.6"/>
+</svg>

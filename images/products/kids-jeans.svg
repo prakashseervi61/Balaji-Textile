@@ -1,0 +1,15 @@
+<svg width="800" height="600" viewBox="0 0 800 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <title>Kids jeans</title>
+  <rect width="800" height="600" fill="#E7EFFA"/>
+  <circle cx="400" cy="300" r="198" fill="#FFFFFF" opacity="0.6"/>
+  <circle cx="638" cy="126" r="44" fill="#FFFFFF" opacity="0.35"/>
+  <circle cx="162" cy="482" r="56" fill="#FFFFFF" opacity="0.3"/>
+  <path d="M326 200 H474 V246 H326 Z" fill="#CFE0F5" stroke="#173A6B" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M326 246 L350 442 H392 L400 322 L408 442 H450 L474 246 Z" fill="#CFE0F5" stroke="#173A6B" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M400 246 V322" fill="none" stroke="#173A6B" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M334 222 H466" fill="none" stroke="#173A6B" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M344 246 Q364 272 384 276" fill="none" stroke="#D99A27" stroke-width="4" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="8 6"/>
+  <path d="M456 246 Q436 272 416 276" fill="none" stroke="#D99A27" stroke-width="4" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="8 6"/>
+  <path d="M350 442 H392 V464 H350 Z" fill="#B9D0EC" stroke="#173A6B" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M408 442 H450 V464 H408 Z" fill="#B9D0EC" stroke="#173A6B" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/>
+</svg>

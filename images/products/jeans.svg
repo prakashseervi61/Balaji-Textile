@@ -1,0 +1,18 @@
+<svg width="800" height="600" viewBox="0 0 800 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <title>Denim jeans</title>
+  <rect width="800" height="600" fill="#E7EFFA"/>
+  <circle cx="400" cy="300" r="198" fill="#FFFFFF" opacity="0.6"/>
+  <circle cx="638" cy="126" r="44" fill="#FFFFFF" opacity="0.35"/>
+  <circle cx="162" cy="482" r="56" fill="#FFFFFF" opacity="0.3"/>
+  <path d="M308 152 H492 V206 H308 Z" fill="#CFE0F5" stroke="#173A6B" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M308 206 L340 468 H390 L400 300 L410 468 H460 L492 206 Z" fill="#CFE0F5" stroke="#173A6B" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M400 206 V300" fill="none" stroke="#173A6B" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M318 176 H482" fill="none" stroke="#173A6B" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M326 206 Q350 238 374 242" fill="none" stroke="#D99A27" stroke-width="4" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="9 7"/>
+  <path d="M474 206 Q450 238 426 242" fill="none" stroke="#D99A27" stroke-width="4" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="9 7"/>
+  <path d="M358 248 L368 452" fill="none" stroke="#D99A27" stroke-width="4" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="9 7"/>
+  <path d="M442 248 L432 452" fill="none" stroke="#D99A27" stroke-width="4" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="9 7"/>
+  <path d="M342 452 H388" fill="none" stroke="#173A6B" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M412 452 H458" fill="none" stroke="#173A6B" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="400" cy="234" r="4" fill="#173A6B"/>
+</svg>

@@ -1,0 +1,12 @@
+<svg width="800" height="600" viewBox="0 0 800 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <title>Kids t-shirt</title>
+  <rect width="800" height="600" fill="#E2F3F0"/>
+  <circle cx="400" cy="300" r="198" fill="#FFFFFF" opacity="0.6"/>
+  <circle cx="638" cy="126" r="44" fill="#FFFFFF" opacity="0.35"/>
+  <circle cx="162" cy="482" r="56" fill="#FFFFFF" opacity="0.3"/>
+  <path d="M356 214 L386 196 L400 216 L414 196 L444 214 L478 242 L466 306 L444 298 L448 424 H352 V298 L330 306 L318 242 Z" fill="#FFFFFF" stroke="#173A6B" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M386 196 Q400 220 414 196" fill="none" stroke="#173A6B" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M330 298 L352 306" fill="none" stroke="#173A6B" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M466 298 L448 306" fill="none" stroke="#173A6B" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M400 236 L406 254 L424 256 L410 268 L414 286 L400 276 L386 286 L390 268 L376 256 L394 254 Z" fill="#3FA796" stroke="#173A6B" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/>
+</svg>

@@ -1,0 +1,15 @@
+<svg width="800" height="600" viewBox="0 0 800 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <title>Kids cotton pants</title>
+  <rect width="800" height="600" fill="#F7F1E6"/>
+  <circle cx="400" cy="300" r="198" fill="#FFFFFF" opacity="0.6"/>
+  <circle cx="638" cy="126" r="44" fill="#FFFFFF" opacity="0.35"/>
+  <circle cx="162" cy="482" r="56" fill="#FFFFFF" opacity="0.3"/>
+  <path d="M328 196 H472 V238 H328 Z" fill="#F3E7CF" stroke="#173A6B" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M328 238 L354 438 H392 L400 330 L408 438 H446 L472 238 Z" fill="#F3E7CF" stroke="#173A6B" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M328 220 H472" fill="none" stroke="#173A6B" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M390 196 V238" fill="none" stroke="#173A6B" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M368 220 Q356 232 364 242" fill="none" stroke="#173A6B" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M412 220 Q424 232 416 242" fill="none" stroke="#173A6B" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M354 416 H392 V440 H354 Z" fill="#E8D8B8" stroke="#173A6B" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M408 416 H446 V440 H408 Z" fill="#E8D8B8" stroke="#173A6B" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/>
+</svg>

@@ -1,0 +1,16 @@
+<svg width="800" height="600" viewBox="0 0 800 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <title>Straight pants</title>
+  <rect width="800" height="600" fill="#E1F2FF"/>
+  <circle cx="400" cy="300" r="198" fill="#FFFFFF" opacity="0.6"/>
+  <circle cx="638" cy="126" r="44" fill="#FFFFFF" opacity="0.35"/>
+  <circle cx="162" cy="482" r="56" fill="#FFFFFF" opacity="0.3"/>
+  <path d="M320 158 H480 V204 H320 Z" fill="#F2F4F8" stroke="#173A6B" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M320 204 L350 470 H392 L400 300 L408 470 H450 L480 204 Z" fill="#F2F4F8" stroke="#173A6B" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M376 206 V458" fill="none" stroke="#8FA9C9" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M424 206 V458" fill="none" stroke="#8FA9C9" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M320 204 Q342 222 362 226" fill="none" stroke="#173A6B" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M480 204 Q458 222 438 226" fill="none" stroke="#173A6B" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M320 168 V186" fill="none" stroke="#173A6B" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M400 158 V176" fill="none" stroke="#173A6B" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M480 168 V186" fill="none" stroke="#173A6B" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/>
+</svg>

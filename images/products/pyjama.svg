@@ -1,0 +1,19 @@
+<svg width="800" height="600" viewBox="0 0 800 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <title>Pyjama pants</title>
+  <rect width="800" height="600" fill="#F0EDF7"/>
+  <circle cx="400" cy="300" r="198" fill="#FFFFFF" opacity="0.6"/>
+  <circle cx="638" cy="126" r="44" fill="#FFFFFF" opacity="0.35"/>
+  <circle cx="162" cy="482" r="56" fill="#FFFFFF" opacity="0.3"/>
+<clipPath id="pyj"><rect x="312" y="168" width="176" height="46"/><path d="M312 214 L342 468 H392 L400 330 L408 468 H458 L488 214 Z"/></clipPath>
+  <path d="M312 168 H488 V214 H312 Z" fill="#EDE7F6" stroke="#173A6B" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M312 214 L342 468 H392 L400 330 L408 468 H458 L488 214 Z" fill="#EDE7F6" stroke="#173A6B" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/>
+<g clip-path="url(#pyj)" stroke="#B9A9D8" stroke-width="3" opacity="0.8">
+  <path d="M300 200 H500"/><path d="M300 240 H500"/><path d="M300 280 H500"/><path d="M300 320 H500"/><path d="M300 360 H500"/><path d="M300 400 H500"/><path d="M300 440 H500"/>
+  <path d="M340 160 V480"/><path d="M380 160 V480"/><path d="M420 160 V480"/><path d="M460 160 V480"/>
+</g>
+  <path d="M400 214 V260" fill="none" stroke="#173A6B" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M378 220 Q362 236 374 250" fill="none" stroke="#173A6B" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M422 220 Q438 236 426 250" fill="none" stroke="#173A6B" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M342 468 H392" fill="none" stroke="#173A6B" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M408 468 H458" fill="none" stroke="#173A6B" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/>
+</svg>

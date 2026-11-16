@@ -1,0 +1,15 @@
+<svg width="800" height="600" viewBox="0 0 800 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <title>Cotton fall</title>
+  <rect width="800" height="600" fill="#EDF3EA"/>
+  <circle cx="400" cy="300" r="198" fill="#FFFFFF" opacity="0.6"/>
+  <circle cx="638" cy="126" r="44" fill="#FFFFFF" opacity="0.35"/>
+  <circle cx="162" cy="482" r="56" fill="#FFFFFF" opacity="0.3"/>
+  <path d="M268 380 Q400 350 532 380 L532 446 Q400 476 268 446 Z" fill="#FFFFFF" stroke="#173A6B" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M286 330 Q400 300 514 330 L514 388 Q400 418 286 388 Z" fill="#FFFFFF" stroke="#173A6B" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M304 282 Q400 254 496 282 L496 340 Q400 368 304 340 Z" fill="#FFFFFF" stroke="#173A6B" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M276 412 Q400 442 524 412" fill="none" stroke="#6E9B5E" stroke-width="4" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="9 8"/>
+  <path d="M292 360 Q400 390 508 360" fill="none" stroke="#6E9B5E" stroke-width="4" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="9 8"/>
+  <path d="M310 312 Q400 340 490 312" fill="none" stroke="#6E9B5E" stroke-width="4" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="9 8"/>
+  <path d="M532 380 V446" fill="none" stroke="#8FBF7E" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M514 330 V388" fill="none" stroke="#8FBF7E" stroke-width="7" stroke-linejoin="round" stroke-linecap="round" opacity="0.65"/>
+</svg>

@@ -1,0 +1,12 @@
+<svg width="800" height="600" viewBox="0 0 800 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <title>Kids innerwear set</title>
+  <rect width="800" height="600" fill="#E1F2FF"/>
+  <circle cx="400" cy="300" r="198" fill="#FFFFFF" opacity="0.6"/>
+  <circle cx="638" cy="126" r="44" fill="#FFFFFF" opacity="0.35"/>
+  <circle cx="162" cy="482" r="56" fill="#FFFFFF" opacity="0.3"/>
+  <path d="M356 158 L372 132 H428 L444 158 L452 246 Q400 270 348 246 Z" fill="#FFFFFF" stroke="#173A6B" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M372 132 Q400 162 428 132" fill="none" stroke="#173A6B" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M400 166 V252" fill="none" stroke="#8FB4DE" stroke-width="4" stroke-linejoin="round" stroke-linecap="round" opacity="0.5"/>
+  <path d="M336 352 Q400 330 464 352 L458 412 Q444 444 420 428 L400 398 L380 428 Q356 444 342 412 Z" fill="#FFFFFF" stroke="#173A6B" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M340 362 Q400 384 460 362" fill="none" stroke="#173A6B" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/>
+</svg>
