@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Page not found | Balaji Textiles</title>
+  <meta name="robots" content="noindex, follow" />
+  <meta name="theme-color" content="#0A1445" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'unsafe-inline'; base-uri 'self'; form-action 'self';" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%230A1445' rx='10'/%3E%3Ctext x='50' y='60' font-family='serif' font-size='50' fill='%23FFFFFF' text-anchor='middle'%3EBT%3C/text%3E%3C/svg%3E" />
+
+  <!--
+    Self-contained on purpose: GitHub Pages serves this file for any missing
+    path, so a relative stylesheet would break for deeper URLs. Colours mirror
+    the :root tokens in styles.css; links point at the canonical live site.
+  -->
+  <style>
+    :root {
+      --navy: #0A1445;
+      --blue: #1A3CC8;
+      --sky: #4DB8FF;
+      --tint: #EAF3FF;
+      --wa: #0F7A3F;
+      --white: #FFFFFF;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 32px 24px;
+      background: var(--navy);
+      background-image:
+        radial-gradient(circle at 16% 18%, rgba(77,184,255,0.20), transparent 44%),
+        radial-gradient(circle at 84% 82%, rgba(26,60,200,0.55), transparent 58%);
+      color: var(--white);
+      font-family: "Lato", Arial, sans-serif;
+      text-align: center;
+      line-height: 1.6;
+    }
+    .card { max-width: 560px; }
+    .brand {
+      font-family: "Playfair Display", Georgia, serif;
+      font-size: 26px;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+    .brand span { color: var(--sky); }
+    .tamil {
+      font-size: 13px;
+      color: var(--tint);
+      margin-bottom: 32px;
+    }
+    .code {
+      font-family: "Playfair Display", Georgia, serif;
+      font-size: 88px;
+      line-height: 1;
+      color: var(--sky);
+    }
+    h1 {
+      font-family: "Playfair Display", Georgia, serif;
+      font-size: 28px;
+      margin: 16px 0 10px;
+    }
+    p { color: var(--tint); margin-bottom: 28px; }
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content: center;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 46px;
+      padding: 12px 24px;
+      border-radius: 4px;
+      font-size: 14px;
+      font-weight: 700;
+      text-decoration: none;
+      color: var(--white);
+      background: var(--blue);
+      border: 1px solid #1E5AA0;
+    }
+    .btn.wa { background: var(--wa); border-color: #0B5E30; }
+    .btn.ghost { background: transparent; border: 2px solid var(--white); }
+    a:focus-visible { outline: 3px solid var(--sky); outline-offset: 3px; }
+    .btn:hover { filter: brightness(1.12); }
+  </style>
+</head>
+<body>
+  <main class="card">
+    <p class="brand">Balaji <span>Textiles</span></p>
+    <p class="tamil" lang="ta">பாலாஜி ஜவுளி</p>
+
+    <p class="code">404</p>
+    <h1>This page isn&rsquo;t in our catalogue</h1>
+    <p>The link may be old or mistyped. Everything we stock is listed on the products page.</p>
+
+    <div class="actions">
+      <a class="btn" href="https://prakashseervi61.github.io/Balaji-Textile/products.html">Browse products</a>
+      <a class="btn ghost" href="https://prakashseervi61.github.io/Balaji-Textile/">Go to home page</a>
+      <a class="btn wa" href="https://wa.me/919894535066?text=Hello%20Balaji%20Textiles%2C%20I%20could%20not%20find%20a%20page%20on%20your%20website." target="_blank" rel="noopener">WhatsApp us</a>
+    </div>
+  </main>
+</body>
+</html>

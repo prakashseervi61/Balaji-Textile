@@ -1,0 +1,16 @@
+<svg width="800" height="600" viewBox="0 0 800 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <title>Silk fall</title>
+  <rect width="800" height="600" fill="#F7F1E6"/>
+  <circle cx="400" cy="300" r="198" fill="#FFFFFF" opacity="0.6"/>
+  <circle cx="638" cy="126" r="44" fill="#FFFFFF" opacity="0.35"/>
+  <circle cx="162" cy="482" r="56" fill="#FFFFFF" opacity="0.3"/>
+  <path d="M276 372 Q400 344 524 372 L524 442 Q400 470 276 442 Z" fill="#FFF6E2" stroke="#173A6B" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M292 324 Q400 296 508 324 L508 384 Q400 412 292 384 Z" fill="#FFF6E2" stroke="#173A6B" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M308 276 Q400 250 492 276 L492 336 Q400 364 308 336 Z" fill="#FFF6E2" stroke="#173A6B" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M312 296 L480 340" fill="none" stroke="#D4AF37" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" opacity="0.85"/>
+  <path d="M296 344 L496 390" fill="none" stroke="#D4AF37" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" opacity="0.6"/>
+  <path d="M280 392 L516 440" fill="none" stroke="#D4AF37" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" opacity="0.4"/>
+  <path d="M524 372 V442" fill="none" stroke="#F0C24B" stroke-width="8" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M508 324 V384" fill="none" stroke="#F0C24B" stroke-width="8" stroke-linejoin="round" stroke-linecap="round" opacity="0.7"/>
+  <path d="M492 276 V336" fill="none" stroke="#F0C24B" stroke-width="8" stroke-linejoin="round" stroke-linecap="round" opacity="0.45"/>
+</svg>

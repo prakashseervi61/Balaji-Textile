@@ -1,0 +1,13 @@
+<svg width="800" height="600" viewBox="0 0 800 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <title>Sheath dress</title>
+  <rect width="800" height="600" fill="#EFEBFA"/>
+  <circle cx="400" cy="300" r="198" fill="#FFFFFF" opacity="0.6"/>
+  <circle cx="638" cy="126" r="44" fill="#FFFFFF" opacity="0.35"/>
+  <circle cx="162" cy="482" r="56" fill="#FFFFFF" opacity="0.3"/>
+  <path d="M356 180 L400 158 L444 180 L450 258 L470 436 H330 L350 258 Z" fill="#FFFFFF" stroke="#173A6B" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M372 178 L400 214 L428 178" fill="none" stroke="#173A6B" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M350 276 H450 V300 H350 Z" fill="#B9A6E8" stroke="#173A6B" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M400 436 V386" fill="none" stroke="#173A6B" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M366 300 L360 430" fill="none" stroke="#A992DE" stroke-width="4" stroke-linejoin="round" stroke-linecap="round" opacity="0.7"/>
+  <path d="M434 300 L440 430" fill="none" stroke="#A992DE" stroke-width="4" stroke-linejoin="round" stroke-linecap="round" opacity="0.7"/>
+</svg>

@@ -1,0 +1,16 @@
+<svg width="800" height="600" viewBox="0 0 800 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <title>Kids party pinafore</title>
+  <rect width="800" height="600" fill="#FBEAF3"/>
+  <circle cx="400" cy="300" r="198" fill="#FFFFFF" opacity="0.6"/>
+  <circle cx="638" cy="126" r="44" fill="#FFFFFF" opacity="0.35"/>
+  <circle cx="162" cy="482" r="56" fill="#FFFFFF" opacity="0.3"/>
+  <path d="M372 190 V232" fill="none" stroke="#173A6B" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M428 190 V232" fill="none" stroke="#173A6B" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M366 232 H434 V276 H366 Z" fill="#FFFFFF" stroke="#173A6B" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M366 276 L322 436 Q400 464 478 436 L434 276 Z" fill="#FFFFFF" stroke="#173A6B" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M366 232 Q400 254 434 232" fill="none" stroke="#173A6B" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M386 276 Q372 288 366 282" fill="none" stroke="#E58AB4" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M414 276 Q428 288 434 282" fill="none" stroke="#E58AB4" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M400 280 V292" fill="none" stroke="#E58AB4" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M350 400 Q400 424 450 400" fill="none" stroke="#E58AB4" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="8 7"/>
+</svg>

@@ -1,0 +1,14 @@
+<svg width="800" height="600" viewBox="0 0 800 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <title>Ankle leggings</title>
+  <rect width="800" height="600" fill="#F0EDF7"/>
+  <circle cx="400" cy="300" r="198" fill="#FFFFFF" opacity="0.6"/>
+  <circle cx="638" cy="126" r="44" fill="#FFFFFF" opacity="0.35"/>
+  <circle cx="162" cy="482" r="56" fill="#FFFFFF" opacity="0.3"/>
+  <path d="M330 178 H470 V216 H330 Z" fill="#E6E4F0" stroke="#173A6B" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M334 216 L346 430 H390 V216 Z" fill="#E6E4F0" stroke="#173A6B" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M410 216 V430 H454 L466 216 Z" fill="#E6E4F0" stroke="#173A6B" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M346 404 H390 V432 H346 Z" fill="#D9D6E8" stroke="#173A6B" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M410 404 H454 V432 H410 Z" fill="#D9D6E8" stroke="#173A6B" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M348 216 L356 396" fill="none" stroke="#9E97C2" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M452 216 L444 396" fill="none" stroke="#9E97C2" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/>
+</svg>

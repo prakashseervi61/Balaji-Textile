@@ -1,22 +1,10 @@
 /* ==========================================================================
    Balaji Textiles — JavaScript
-   Classic 2018–2020 style
+   Nav drawer, shop status, catalogue filters/search/deep links, scroll reveal
    ========================================================================== */
 
 (function () {
   "use strict";
-
-  // ---------- Global error handler ----------
-  window.addEventListener("error", function (event) {
-    // Log errors for debugging (remove in production if needed)
-    if (event.error) {
-      console.error("Error:", event.error.message);
-    }
-  });
-
-  window.addEventListener("unhandledrejection", function (event) {
-    console.error("Unhandled promise rejection:", event.reason);
-  });
 
   // ---------- Open/Closed badge (Asia/Kolkata) ----------
   var SHOP_CONFIG = {
@@ -27,15 +15,11 @@
     TIME_ZONE: "Asia/Kolkata"
   };
 
-  var contactHours = document.getElementById('contact-hours');
-  if (contactHours) {
-    contactHours.textContent = '8:00 AM \u2013 9:00 PM daily';
-  }
-
   var shopStatus = document.getElementById("shop-status");
   if (shopStatus) {
     var shopStatusText = shopStatus.querySelector(".status-text");
     var shopTimeFormat = null;
+    var lastOpenState = null;
 
     try {
       shopTimeFormat = new Intl.DateTimeFormat("en-GB", {
@@ -74,6 +58,10 @@
       var closes = SHOP_CONFIG.CLOSE_HOUR * 60;
       var isOpen = minutes >= opens && minutes < closes;
 
+      // Only touch the DOM when the state actually flips.
+      if (isOpen === lastOpenState) return;
+      lastOpenState = isOpen;
+
       shopStatus.classList.toggle("is-open", isOpen);
       shopStatus.classList.toggle("is-closed", !isOpen);
 
@@ -95,11 +83,7 @@
   var header = document.getElementById("site-header");
   if (header) {
     window.addEventListener("scroll", function () {
-      if (window.scrollY > 10) {
-        header.classList.add("scrolled");
-      } else {
-        header.classList.remove("scrolled");
-      }
+      header.classList.toggle("scrolled", window.scrollY > 10);
     }, { passive: true });
 
     // Keep sticky offsets aligned with the real rendered header height.
@@ -194,10 +178,17 @@
   // ---------- Product catalogue: tabs, search, deep links ----------
   var tabBtns = Array.prototype.slice.call(document.querySelectorAll(".tab-btn"));
   var productCards = Array.prototype.slice.call(document.querySelectorAll(".product-card"));
+  var catalogueCards = productCards.filter(function (card) {
+    return !card.hasAttribute("data-cta");
+  });
   var productSearch = document.getElementById("product-search");
+  var searchClear = document.getElementById("search-clear");
   var resultsCount = document.getElementById("results-count");
   var emptyState = document.getElementById("products-empty");
+  var emptyTitle = emptyState ? emptyState.querySelector(".products-empty-title") : null;
   var emptyLink = document.getElementById("products-empty-link");
+  var copyLinkBtn = document.getElementById("copy-link");
+  var copyToast = document.getElementById("copy-toast");
   var tabStrip = document.getElementById("product-tabs");
   var tabsWrap = tabStrip ? tabStrip.parentElement : null;
   var currentFilter = "all";
@@ -214,22 +205,33 @@
     tabsWrap.classList.toggle("is-scrollable-right", tabStrip.scrollLeft < maxScroll - 2);
   }
 
-  if (tabBtns.length > 0 && productCards.length > 0) {
+  // Deep links to a single card (#p-men-...) keep the current filter.
+  function filterFromHash() {
+    if (!window.location.hash) return "all";
+    var hash = window.location.hash.replace("#", "");
+    return VALID_FILTERS.indexOf(hash) !== -1 ? hash : null;
+  }
+
+  if (tabBtns.length > 0 && catalogueCards.length > 0) {
     // Counts are derived from the cards that actually exist, never hardcoded.
     tabBtns.forEach(function (btn) {
       var filter = btn.getAttribute("data-filter");
       var count = filter === "all"
-        ? productCards.length
-        : productCards.filter(function (card) {
+        ? catalogueCards.length
+        : catalogueCards.filter(function (card) {
             return card.getAttribute("data-category") === filter;
           }).length;
       var countEl = btn.querySelector(".count");
       if (countEl) countEl.textContent = "(" + count + ")";
     });
 
-    function productName(card) {
+    function searchableText(card) {
       var nameEl = card.querySelector(".product-name");
-      return nameEl ? nameEl.textContent.trim() : card.textContent.trim();
+      var categoryEl = card.querySelector(".product-category");
+      return [
+        nameEl ? nameEl.textContent : "",
+        categoryEl ? categoryEl.textContent : ""
+      ].join(" ").toLowerCase();
     }
 
     function setEmptyLink(query) {
@@ -245,23 +247,39 @@
       var query = rawQuery.toLowerCase();
       var total = 0;
 
-      productCards.forEach(function (card) {
+      catalogueCards.forEach(function (card) {
         var categoryMatches = currentFilter === "all" ||
           card.getAttribute("data-category") === currentFilter;
-        var nameMatches = !query ||
-          productName(card).toLowerCase().indexOf(query) !== -1;
-        var matches = categoryMatches && nameMatches;
+        var matches = categoryMatches && (!query || searchableText(card).indexOf(query) !== -1);
 
         card.hidden = !matches;
         if (matches) total++;
       });
 
+      // The enquiry tile is not a product: hide it while searching or empty.
+      productCards.forEach(function (card) {
+        if (card.hasAttribute("data-cta")) card.hidden = total === 0 || query !== "";
+      });
+
       if (resultsCount) {
-        resultsCount.textContent = total === 1 ? "Showing 1 item" : "Showing " + total + " items";
+        if (total === 0) {
+          resultsCount.textContent = "No items found";
+        } else if (total === catalogueCards.length) {
+          resultsCount.textContent = "Showing all " + total + " items";
+        } else {
+          resultsCount.textContent = "Showing " + total + " of " + catalogueCards.length + " items";
+        }
       }
 
       if (emptyState) emptyState.hidden = total !== 0;
+      if (emptyTitle) {
+        emptyTitle.textContent = rawQuery
+          ? "No products match \u201c" + rawQuery + "\u201d."
+          : "No products found.";
+      }
       setEmptyLink(rawQuery);
+
+      if (searchClear) searchClear.hidden = rawQuery === "";
     }
 
     function centerTab(btn) {
@@ -316,15 +334,81 @@
 
     if (productSearch) {
       productSearch.addEventListener("input", applyFilters);
+
+      // Escape clears the query, matching native search behaviour.
+      productSearch.addEventListener("keydown", function (event) {
+        if (event.key === "Escape" && productSearch.value !== "") {
+          event.preventDefault();
+          productSearch.value = "";
+          applyFilters();
+        }
+      });
     }
 
-    function filterFromHash() {
-      var hash = window.location.hash.replace("#", "");
-      return VALID_FILTERS.indexOf(hash) !== -1 ? hash : "all";
+    if (searchClear && productSearch) {
+      searchClear.addEventListener("click", function () {
+        productSearch.value = "";
+        applyFilters();
+        productSearch.focus();
+      });
+    }
+
+    // ---------- Copy a link to the current view ----------
+    var toastTimer = null;
+
+    function showToast(message) {
+      if (!copyToast) return;
+      copyToast.textContent = message;
+      copyToast.hidden = false;
+      if (toastTimer) window.clearTimeout(toastTimer);
+      toastTimer = window.setTimeout(function () {
+        copyToast.hidden = true;
+      }, 2500);
+    }
+
+    function legacyCopy(text) {
+      var field = document.createElement("textarea");
+      field.value = text;
+      field.setAttribute("readonly", "");
+      field.style.position = "fixed";
+      field.style.top = "-1000px";
+      document.body.appendChild(field);
+      field.select();
+      var copied = false;
+      try {
+        copied = document.execCommand("copy");
+      } catch (error) {
+        copied = false;
+      }
+      document.body.removeChild(field);
+      return copied;
+    }
+
+    function shareUrl() {
+      var base = window.location.href.split("#")[0];
+      return currentFilter === "all" ? base : base + "#" + currentFilter;
+    }
+
+    if (copyLinkBtn) {
+      copyLinkBtn.addEventListener("click", function () {
+        var url = shareUrl();
+        var fallback = function () {
+          showToast(legacyCopy(url) ? "Link copied" : "Could not copy the link");
+        };
+
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(url).then(function () {
+            showToast("Link copied");
+          }, fallback);
+        } else {
+          fallback();
+        }
+      });
     }
 
     window.addEventListener("hashchange", function () {
-      setFilter(filterFromHash(), { updateHash: false });
+      var hashFilter = filterFromHash();
+      if (hashFilter) setFilter(hashFilter, { updateHash: false });
     });
 
     if (tabStrip) {
@@ -333,90 +417,9 @@
     window.addEventListener("resize", updateTabFades);
     window.addEventListener("load", updateTabFades);
 
-    setFilter(filterFromHash(), { updateHash: false });
+    var initialFilter = filterFromHash();
+    setFilter(initialFilter || "all", { updateHash: false });
     updateTabFades();
-  }
-
-  // ---------- Lightbox ----------
-  var lightbox = document.getElementById("lightbox");
-  var lightboxImg = document.getElementById("lightbox-img");
-  var lightboxClose = document.getElementById("lightbox-close");
-  var lightboxPrev = document.getElementById("lightbox-prev");
-  var lightboxNext = document.getElementById("lightbox-next");
-  var galleryItems = document.querySelectorAll(".gallery-item img");
-  var galleryImages = [];
-  var currentImageIndex = 0;
-  var previousFocus = null;
-
-  galleryItems.forEach(function (img, index) {
-    galleryImages.push({ src: img.src, alt: img.alt });
-    img.parentElement.addEventListener("click", function () {
-      openLightbox(index);
-    });
-    img.parentElement.setAttribute("tabindex", "0");
-    img.parentElement.setAttribute("role", "button");
-    img.parentElement.setAttribute("aria-label", "View image: " + img.alt);
-    img.parentElement.addEventListener("keydown", function (e) {
-      if (e.key === "Enter" || e.key === " ") {
-        e.preventDefault();
-        openLightbox(index);
-      }
-    });
-  });
-
-  function openLightbox(index) {
-    if (!lightbox || !lightboxImg) return;
-    previousFocus = document.activeElement;
-    currentImageIndex = index;
-    lightboxImg.src = galleryImages[index].src;
-    lightboxImg.alt = galleryImages[index].alt;
-    lightbox.removeAttribute("hidden");
-    document.body.style.overflow = "hidden";
-    if (lightboxClose) lightboxClose.focus();
-  }
-
-  function closeLightbox() {
-    if (!lightbox) return;
-    lightbox.setAttribute("hidden", "");
-    document.body.style.overflow = "";
-    if (previousFocus) previousFocus.focus();
-  }
-
-  function showPrevImage() {
-    if (galleryImages.length === 0) return;
-    currentImageIndex = (currentImageIndex - 1 + galleryImages.length) % galleryImages.length;
-    lightboxImg.src = galleryImages[currentImageIndex].src;
-    lightboxImg.alt = galleryImages[currentImageIndex].alt;
-  }
-
-  function showNextImage() {
-    if (galleryImages.length === 0) return;
-    currentImageIndex = (currentImageIndex + 1) % galleryImages.length;
-    lightboxImg.src = galleryImages[currentImageIndex].src;
-    lightboxImg.alt = galleryImages[currentImageIndex].alt;
-  }
-
-  if (lightboxClose) {
-    lightboxClose.addEventListener("click", closeLightbox);
-  }
-  if (lightboxPrev) {
-    lightboxPrev.addEventListener("click", showPrevImage);
-  }
-  if (lightboxNext) {
-    lightboxNext.addEventListener("click", showNextImage);
-  }
-
-  if (lightbox) {
-    document.addEventListener("keydown", function (e) {
-      if (lightbox.hasAttribute("hidden")) return;
-      if (e.key === "Escape") {
-        closeLightbox();
-      } else if (e.key === "ArrowLeft") {
-        showPrevImage();
-      } else if (e.key === "ArrowRight") {
-        showNextImage();
-      }
-    });
   }
 
   // ---------- Scroll reveal ----------

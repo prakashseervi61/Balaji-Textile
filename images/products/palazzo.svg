@@ -1,0 +1,13 @@
+<svg width="800" height="600" viewBox="0 0 800 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <title>Palazzo pants</title>
+  <rect width="800" height="600" fill="#F6ECF4"/>
+  <circle cx="400" cy="300" r="198" fill="#FFFFFF" opacity="0.6"/>
+  <circle cx="638" cy="126" r="44" fill="#FFFFFF" opacity="0.35"/>
+  <circle cx="162" cy="482" r="56" fill="#FFFFFF" opacity="0.3"/>
+  <path d="M316 166 H484 V210 H316 Z" fill="#F7EAF6" stroke="#173A6B" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M316 210 L286 468 Q342 488 394 468 L400 300 L406 468 Q458 488 514 468 L484 210 Z" fill="#F7EAF6" stroke="#173A6B" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M352 214 Q338 340 320 462" fill="none" stroke="#C08BB8" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M400 214 V462" fill="none" stroke="#C08BB8" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M448 214 Q462 340 480 462" fill="none" stroke="#C08BB8" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M316 188 H484" fill="none" stroke="#173A6B" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/>
+</svg>

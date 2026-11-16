@@ -14,12 +14,16 @@ This is an informational business website (NOT an e-commerce platform). No shopp
 Balaji Textile/
 ├── index.html          # Home page
 ├── products.html       # Searchable, filterable product catalogue
+├── 404.html            # Self-contained "page not found" page (GitHub Pages)
 ├── styles.css          # All styles (mobile-first, CSS custom properties)
 ├── script.js           # Vanilla JS (nav, catalogue search/filters, live hours badge)
+├── robots.txt          # Crawler rules + sitemap location
+├── sitemap.xml         # Home and products URLs
 ├── images/
 │   ├── shop-front.jpg  # Shop front photo (from Google Maps)
 │   ├── shop-photo.jpg  # Shop photo (from Google Maps)
-│   └── products/       # 18 local SVG placeholder illustrations (4:3, 800×600)
+│   ├── og-cover.png    # 1200×630 social sharing card
+│   └── products/       # 37 local SVG placeholder illustrations (4:3, 800×600)
 ├── README.md
 ├── QA-REPORT.md
 └── .github/workflows/
@@ -31,15 +35,17 @@ Balaji Textile/
 - **Top Bar** — Phone, live IST Open/Closed badge, WhatsApp link
 - **Header** — Logo with Tamil name, sticky with shadow on scroll
 - **Navigation** — Home | About Us | Products | Reviews | Contact Us
-- **Hero** — Full-width with navy gradient overlay, h1, Tamil tagline, intro, two CTA buttons
+- **Hero** — Navy pattern panel with the Tamil tagline, h1, intro, two CTA buttons and a framed shop photo that keeps its native 400×291 size (two columns from 768px)
 - **Why Choose Us** — 4 icon boxes (Family Collections, Best Prices, Perfect Lining & Fall, Open 8 AM–9 PM)
 - **About Us** — Two-column layout (image left, text right)
 - **Our Products** — Four icon category cards linking to filtered catalogue tabs
-- **Products page** — 37-product catalogue of white cards with 4:3 pastel
-  illustration panels, uppercase category labels and navy WhatsApp Enquire
-  buttons; centered sticky filter tabs with live counts, search, deep links
-  (`#men`, `#women`, `#kids`, `#tailoring`), an empty state, compact reviews
-  strip and a bottom WhatsApp card
+- **Products page** — 37-product catalogue of white cards with a unique 4:3 pastel
+  illustration panel each, uppercase category labels and navy WhatsApp Enquire
+  buttons; sticky filter tabs with live counts, search that also matches the
+  category label, a clear button, one 38th enquiry tile, copy-link button with
+  toast, deep links (`#men`, `#women`, `#kids`, `#tailoring` and per-product
+  `#p-…` ids), an empty state that repeats the query, compact reviews strip and
+  a bottom WhatsApp card
 - **Customer Reviews** — Cards with sky-blue left border, quote mark, 5.0★ badge
 - **Contact Us** — Two-column (details left, map right), Call/WhatsApp/Directions buttons
 - **Footer** — 3 columns (About blurb / Quick links / Contact & hours) + copyright
@@ -62,10 +68,10 @@ Balaji Textile/
 
 | Color | Hex | Usage |
 |---|---|---|
-| Navy | #0A1445 | Header, footer, hero overlay |
+| Navy | #0A1445 | Header/footer ground, hero panel, CTA tile |
 | Blue | #1A3CC8 | Primary buttons, links, headings |
-| Steel | #1E5AA0 | Hover, borders |
-| Sky | #4DB8FF | Active tab underline, highlights |
+| Steel | #1E5AA0 | Hover, borders, focus ring on light surfaces |
+| Sky | #4DB8FF | Active tab underline, highlights, focus ring on navy |
 | Tint | #EAF3FF | Alternate section background |
 | Text | #1B2433 | Body text |
 | White | #FFFFFF | Backgrounds |
@@ -77,28 +83,34 @@ Balaji Textile/
 - [ ] Owner verifies business details (address, phone, hours) against Google Maps listing
 - [ ] Verify spelling of "Thiruvannamail Nagar" against the Google Maps listing
 - [ ] Replace the SVG placeholders in `images/products/` with real 4:3 product photos when available
-- [ ] Add more shop photos to `images/` and update gallery in index.html
+- [ ] Add real shop photos when the owner supplies more (the old hidden gallery was removed)
 - [ ] Test on real mobile devices
 - [ ] Enable GitHub Pages: Settings → Pages → Source: GitHub Actions
-
-### To Enable Gallery
-The gallery section is hidden by default. To enable it:
-1. Add at least 4 distinct real photos to `images/gallery/`
-2. Remove `style="display: none;"` from the gallery section in `index.html`
-3. Add the gallery link back to nav and footer
-4. Update the gallery grid with the new photos
 
 ## Images
 
 | Filename | Location | Description | Status |
 |---|---|---|---|
-| `shop-photo.jpg` | `images/` | Shop banner/hero photo | ✅ Have |
-| `shop-front.jpg` | `images/` | Shop front photo | ✅ Have |
-| 18 SVG files | `images/products/` | 4:3 placeholder illustrations shared by the 37 cards | ✅ Have (placeholders) |
+| `shop-photo.jpg` | `images/` | Shop interior photo used in the hero figure | ✅ Have |
+| `shop-front.jpg` | `images/` | Shop front photo used in About Us | ✅ Have |
+| `og-cover.png` | `images/` | 1200×630 Open Graph / Twitter card | ✅ Have |
+| 37 SVG files | `images/products/` | One 4:3 placeholder illustration per product | ✅ Have (placeholders) |
 
-The placeholder illustrations are decorative (`alt=""`) and easy to replace
-one-for-one. Keep the 4:3 ratio, update the card's `src`, and add meaningful alt
-text when real product photos are available. No stock photography is used.
+Each product card now points at its own SVG, so illustrations can be replaced
+one-for-one without touching other cards. Keep the 4:3 ratio, update the card's
+`src`, and add meaningful alt text when real product photos are available. The
+placeholders are decorative (`alt=""`) because the product name is adjacent. No
+stock photography is used.
+
+## SEO and Sharing
+
+- `robots.txt` allows all crawlers and points at `sitemap.xml`
+- `sitemap.xml` lists the home page and the catalogue with a `lastmod` date
+- Open Graph and Twitter card tags use the 1200×630 `images/og-cover.png`
+- JSON-LD: `ClothingStore` on the home page; `CollectionPage` + `BreadcrumbList`
+  on the catalogue
+- `404.html` is self-contained (GitHub Pages can serve it from any missing path,
+  so it does not depend on a relative stylesheet) and links to the live URLs
 
 ## Tech Stack
 

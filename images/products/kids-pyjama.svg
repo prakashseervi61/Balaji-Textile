@@ -1,0 +1,17 @@
+<svg width="800" height="600" viewBox="0 0 800 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <title>Kids pyjama pants</title>
+  <rect width="800" height="600" fill="#F0EDF7"/>
+  <circle cx="400" cy="300" r="198" fill="#FFFFFF" opacity="0.6"/>
+  <circle cx="638" cy="126" r="44" fill="#FFFFFF" opacity="0.35"/>
+  <circle cx="162" cy="482" r="56" fill="#FFFFFF" opacity="0.3"/>
+<clipPath id="kpyj"><rect x="330" y="198" width="140" height="40"/><path d="M330 238 L352 446 H392 L400 330 L408 446 H448 L470 238 Z"/></clipPath>
+  <path d="M330 198 H470 V238 H330 Z" fill="#EDE7F6" stroke="#173A6B" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M330 238 L352 446 H392 L400 330 L408 446 H448 L470 238 Z" fill="#EDE7F6" stroke="#173A6B" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/>
+<g clip-path="url(#kpyj)" stroke="#B9A9D8" stroke-width="3" opacity="0.8">
+  <path d="M320 220 H480"/><path d="M320 260 H480"/><path d="M320 300 H480"/><path d="M320 340 H480"/><path d="M320 380 H480"/><path d="M320 420 H480"/>
+  <path d="M360 190 V460"/><path d="M400 190 V460"/><path d="M440 190 V460"/>
+</g>
+  <path d="M400 238 V272" fill="none" stroke="#173A6B" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M384 242 Q372 254 382 264" fill="none" stroke="#173A6B" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M416 242 Q428 254 418 264" fill="none" stroke="#173A6B" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/>
+</svg>

@@ -1,7 +1,8 @@
 # Balaji Textiles — QA & Test Report
 
-**Branch:** blue-redesign
-**Date:** 2026-11-12
+**Date:** 2026-11-16
+**Scope:** Review follow-up batch — catalogue imagery, homepage hero, focus
+states, mobile chrome, search/copy helpers, SEO files, 404 page
 **Live URL:** https://prakashseervi61.github.io/Balaji-Textile/
 **Tested locally:** http://127.0.0.1:8765 (Python static server)
 **GitHub:** https://github.com/prakashseervi61/Balaji-Textile
@@ -10,39 +11,57 @@
 
 ## 1. What Changed
 
-The products page was redesigned as a card catalogue matching the supplied brief.
+### Catalogue imagery
+- All 37 cards now use a **unique** 4:3 SVG illustration (37 files in
+  `images/products/`, previously 18 shared files). No two products share art.
+- The first four images load `eager` with `fetchpriority="high"`; the rest stay
+  `loading="lazy" decoding="async"`.
+- Six unused SVGs and the duplicate `images/gallery/` folder were deleted.
 
-### Catalogue page
-- Light blue (`#EAF3FF`) catalogue area inside a centered 1150px container
-- White page header retained; Products nav item uses `aria-current="page"`
-- Centered, sticky category tabs: All, Men, Women, Kids, Tailoring & Matching
-- Tab counts computed from the 37 cards in the DOM at runtime; no hardcoded counts
-- Single grid of 37 `<article class="product-card" data-category="...">` cards
-- Each card has a 4:3 pastel illustration panel, uppercase category label, bold
-  product name and a navy pill-shaped Enquire button
-- Every Enquire button opens WhatsApp at +91 98945 35066 with a message generated
-  from the product's category and name
-- Search by product name, combined with the active category tab
-- Empty state with a prefilled WhatsApp link when nothing matches
-- Deep links `#men`, `#women`, `#kids`, `#tailoring` activate the matching tab
-  without scrolling the page; the active tab is centered in the scroll strip
-- Compact reviews strip, contact section and bottom WhatsApp card retained and
-  restyled to fit the catalogue
-- With JavaScript disabled, search/tabs/meta are hidden and all 37 products,
-  their WhatsApp links and the static hours remain visible
+### Catalogue behaviour
+- Every card has a stable id (`#p-men-full-sleeve-shirts`, …) for deep links.
+- Search now matches the product **name and the category label**, so
+  "tailoring" finds all six tailoring items.
+- A clear (×) button appears while the query is non-empty; Escape clears too.
+- The empty state repeats the query ("No products match “zzzz”.") and the
+  WhatsApp link carries that query.
+- Product deep links (`#p-…`) no longer reset the active category filter.
+- "Copy link" button copies the current view URL and confirms with an
+  `aria-live` toast; falls back to `execCommand` when the Clipboard API is
+  unavailable.
+- A 38th tile ("Can't find it?") closes the desktop grid. It is not a product:
+  counts ignore it and it hides during search or when nothing matches.
 
-### Placeholder illustrations
-- 18 new local SVGs in `images/products/`, all 800×600 (4:3), pastel backgrounds
-- No stock photography, no generated product photos, no external image requests
-- Images use `alt=""` because they are decorative placeholders; the product name
-  is adjacent. Replace with real 4:3 photos and meaningful alt text later.
-- The four old maroon SVGs (`mens-wear`, `womens-wear`, `kids-wear`, `fabrics`)
-  are no longer referenced
+### Homepage
+- Hero rebuilt as a two-column panel: navy weave/bloom ground on the left, the
+  native 400×291 shop photo in a white frame on the right. No upscaled,
+  blurred full-bleed photo.
+- Removed the empty, hidden gallery section, its lightbox markup, the lightbox
+  CSS and all its JavaScript.
+- About image dimensions corrected to the real 338×600.
 
-### Shared header fix
-- `.logo` changed from a column flex container to `display: block`, keeping
-  "Balaji Textiles" on one line with the Tamil name beneath it. The homepage
-  header was checked and is unaffected.
+### Chrome, focus and touch
+- Focus rings are now **steel `#1E5AA0` on light surfaces** and **sky on navy
+  surfaces** (top bar, footer, drawer, hero) with a white ring on the mobile
+  action bar. Sky on white was only 2.18:1; steel is 6.93:1.
+- Hover lift/scale effects are disabled on touch devices (`@media (hover: none)`).
+- Under 600px the top bar is one row: shop status plus WhatsApp. The phone
+  number moves to the mobile action bar, contact section and footer.
+- Footer links and top-bar links have padded hit areas; mobile filter tabs are
+  more compact so the strip needs less scrolling, keeping the edge fades.
+- `:target` highlights a card after a product deep link.
+
+### SEO / meta
+- Home CSP now uses `script-src 'self'` (no `'unsafe-inline'`); `meta keywords`
+  removed.
+- New 1200×630 `images/og-cover.png` used by OG and Twitter tags, with
+  `og:image:alt`.
+- JSON-LD: `ClothingStore` extended with `@id`, `image[]`, `hasMap`,
+  `areaServed`, `currenciesAccepted`; catalogue gained `CollectionPage` and
+  `BreadcrumbList`.
+- Added `robots.txt`, `sitemap.xml` and a self-contained `404.html`.
+- Tamil text is marked `lang="ta"` (logo and hero tagline); the emoji phone
+  glyph was replaced with an inline SVG icon.
 
 No products, prices, stock, delivery promises, reviews or business details were
 invented. No ecommerce functionality was added.
@@ -50,8 +69,6 @@ invented. No ecommerce functionality was added.
 ---
 
 ## 2. Catalogue Data Integrity
-
-Static audit of `products.html`:
 
 | Category | Products | Expected | Result |
 |---|---|---|---|
@@ -61,206 +78,141 @@ Static audit of `products.html`:
 | Tailoring & Matching | 6 | 6 | PASS |
 | **Total** | **37** | **37** | **PASS** |
 
-- 37 cards, 37 unique `(category, name)` pairs, 0 duplicates
-- 0 unexpected products and 0 products missing from the brief
-- Every card label matched its category (`Men's Wear`, `Women's Wear`,
-  `Kids' Wear`, `Tailoring & Matching`)
-- Tab `data-filter` values match `VALID_FILTERS` in `script.js` exactly
-- No Fabrics category was added
+- 37 distinct `images/products/*.svg` references, 37 files on disk, 0 unused
+- 37 unique card ids, no duplicate ids on either page
+- Tab counts computed from the DOM: `(37) (10) (12) (9) (6)`
 - `node --check script.js` passes
 
 ---
 
-## 3. Functional Test Results
+## 3. Functional Tests
 
-Tested in headless Chrome via the DevTools Protocol at 1440px unless noted.
+### Filters, search and clear
 
-### Category filters
-
-| Action | Visible cards | Result count | Hash | Result |
-|---|---|---|---|---|
-| All | 37 | Showing 37 items | `#all` | PASS |
-| Men | 10 | Showing 10 items | `#men` | PASS |
-| Women | 12 | Showing 12 items | `#women` | PASS |
-| Kids | 9 | Showing 9 items | `#kids` | PASS |
-| Tailoring & Matching | 6 | Showing 6 items | `#tailoring` | PASS |
-
-Exactly one tab has `aria-pressed="true"` after each change.
-
-### Search
-
-| Query | Visible results | Result |
+| Action | Result | Result |
 |---|---|---|
-| `shirt` | 6 (4 Men, 2 Kids) | PASS |
-| `saree` | 2 (Sarees, Saree Hangings) | PASS |
-| `innerwear` | 3 (Men, Women, Kids) | PASS |
-| `zzzz` | 0, empty state shown | PASS |
+| `saree` | 2 items: Sarees, Saree Hangings (Latkans) | PASS |
+| `tailoring` (category match) | 6 items | PASS |
+| `zzzz` | 0 items, empty state shown | PASS |
+| Empty-state title | `No products match “zzzz”.` | PASS |
+| Empty-state WhatsApp link | carries `zzzz` | PASS |
+| Clear button | empties field, shows 37 items, returns focus to search | PASS |
+| Clear button hidden when empty | yes | PASS |
+| Women tab + `leggings` | 2 items, hash `#women` | PASS |
+| Copy link | toast shows "Link copied" | PASS |
+| Enquiry tile during search | hidden | PASS |
 
-Empty-state WhatsApp link: `https://wa.me/919894535066?text=Hi%20Balaji%20Textiles%2C%20I%27m%20looking%20for%3A%20zzzz`
+### Deep links and sticky tabs
 
-### Combined search + filter
-- Query `shirt` with Men selected → 4 items (the four men's shirt styles)
-- Result count and URL hash update together
-- Switching category keeps the search query; clearing search restores the category view
-
-### Deep links
-Each link was loaded as a fresh page:
-
-| URL | Active tab | Visible | Search | Result |
-|---|---|---|---|---|
-| `products.html#men` | Men | 10 | empty | PASS |
-| `products.html#women` | Women | 12 | empty | PASS |
-| `products.html#kids` | Kids | 9 | empty | PASS |
-| `products.html#tailoring` | Tailoring & Matching | 6 | empty | PASS |
-
-At 320px, loading `#tailoring` centered the tab in the scroll strip
-(`scrollLeft 293 / max 293`), exposed the left edge fade and left `scrollY` at 0.
-
-### Sticky tabs
-- After scrolling 1495px: header occupies `0–72px`, sticky tabs start at `72px`
-- Overlap: `0px`; `--header-height` resolved to `72px` from the measured header
-
-### WhatsApp enquiries
-All 37 links were audited individually:
-
-- Base: `https://wa.me/919894535066?text=...` (37/37)
-- Message: `Hello Balaji Textiles, I am interested in <Category> <Product>. Could you please share the available options and prices?` (37/37)
-- `target="_blank"` and `rel="noopener"` present (37/37)
-- `aria-label="Enquire about <Product> on WhatsApp"` present (37/37)
-- No prices or stock claims in any message
-
-Example:
-> Hello Balaji Textiles, I am interested in Men's Full Sleeve Shirts. Could you please share the available options and prices?
-
-### Other interactions
-- Empty state appears only when the combined filter returns 0 cards
-- All 37 `<img>` elements loaded (`naturalWidth > 0`), 0 broken
-- 0 browser console errors or uncaught exceptions during the full run
-- Contact section scroll-reveal activates (`opacity: 1`, `.visible`)
+| Check | Measured | Result |
+|---|---|---|
+| `#p-women-sarees` on load | All tab, 37 items, card is `:target` | PASS |
+| Card position at 390px | card top 156px, tabs bottom 135px | PASS |
+| `#men` → `#p-men-trousers` | filter stays Men, 10 items | PASS |
+| Sticky tabs at 320/390/768 | tabs top 72px = header bottom, gap 0 | PASS |
+| Tab strip at 390 | 484px content in 327px, right fade on | PASS |
 
 ---
 
 ## 4. Responsive Test Results
 
-Measured with Chrome device emulation. "H-scroll" compares
-`documentElement.scrollWidth` with `clientWidth`.
+`documentElement.scrollWidth − clientWidth` on `products.html` after load:
 
-| Width | Grid columns | Card width | H-scroll | Result |
-|---|---|---|---|---|
-| 320px | 1 | 272px | None | PASS |
-| 375px | 2 | 157px | None | PASS |
-| 390px | 2 | 164px | None | PASS |
-| 430px | 2 | 184px | None | PASS |
-| 600px | 2 | 269px | None | PASS |
-| 768px | 3 | 228px | None | PASS |
-| 1024px | 4 | 229px | None | PASS |
-| 1280px | 4 | 261px | None | PASS |
-| 1440px | 4 | 261px | None | PASS |
-| 1920px | 4 | 261px | None | PASS |
+| Width | H-scroll | Top bar | Result |
+|---|---|---|---|
+| 320px | 0 | One row, phone hidden | PASS |
+| 375px | 0 | One row | PASS |
+| 390px | 0 | One row | PASS |
+| 430px | 0 | One row, compact tabs | PASS |
+| 600px | 0 | One row, phone shown | PASS |
+| 768px | 0 | One row, tabs fit | PASS |
+| 1024px | 0 | One row | PASS |
+| 1280px | 0 | One row | PASS |
+| 1440px | 0 | One row | PASS |
+| 1920px | 0 | One row | PASS |
 
-- Grid: 1 column at 320px, 2 columns from 375px, 3 at 768px, 4 from 1024px
-- Category tabs fit on one centered row at 768px and above
-- Below 768px the tab strip scrolls horizontally with edge fades; every tab is
-  reachable by touch, keyboard focus or deep link
-- No horizontal page overflow at any tested width
+The homepage was also checked at 390/768/1440 with no overflow.
 
 ---
 
 ## 5. Accessibility
 
-- **Focus rings:** real keyboard Tab produced `outline: 2px solid #4DB8FF`
-  with `2px` offset on filter buttons and Enquire links
-- **Tabs:** `aria-pressed` reflects the active filter; buttons activate with
-  Enter/Space; `aria-controls="product-grid"` is correct
-- **Result count:** `role="status"` and `aria-live="polite"` announce updates
-- **Heading order:** h1 → visually hidden h2 (Product catalogue) → h3 cards →
-  h2 Contact → h2 bottom CTA
-- **Drawer:** closed state uses `visibility: hidden` and is out of the tab order;
-  opening moves focus to "Home", Tab/Shift+Tab wrap inside the drawer, Escape
-  closes it, restores focus to the toggle (verified with a real mouse click) and
-  unlocks body scroll
-- **Skip link** and all local anchors resolve; no duplicate IDs on either page
-- **Reduced motion:** with `prefers-reduced-motion: reduce`, card/image
-  transitions compute to `0s`, transforms to `none`, and reveal content is visible
-- **Decorative images:** placeholder SVGs have empty alt text; product names are
-  real headings, so card content is still announced correctly
+- **Focus rings:** 3px ring with 2px offset; steel on white/tint surfaces
+  (6.93:1 / 6.19:1), sky on navy surfaces (8.02:1), white on the mobile bar.
+- **Tap targets (CSS px):** footer links 34 high, tabs 50, Enquire 50,
+  Copy link 45, search clear 45 — all above the 24px WCAG 2.5.8 minimum.
+- **Drawer:** closed state is `visibility: hidden` and out of the tab order;
+  opening focuses "Home"; Tab from the last link wraps to the first; Escape
+  closes and restores focus to the toggle; body scroll is locked/unlocked.
+- **Tabs:** one `aria-pressed="true"` at a time, `aria-controls="product-grid"`.
+- **Live regions:** results count, empty state, shop status and copy toast are
+  announced (`role="status"` / `aria-live="polite"`).
+- **Reduced motion:** transitions, transforms and the hero fade are disabled.
+- **Headings:** h1 → visually hidden h2 → h3 cards on the catalogue.
 
-### Text contrast (WCAG AA requires 4.5:1)
+### Text contrast (WCAG AA 4.5:1; indicator 3:1)
 
 | Pair | Ratio |
 |---|---|
-| Navy `#0A1445` on white | 17.52:1 |
-| Navy on tint `#EAF3FF` | 15.65:1 |
-| Blue `#1A3CC8` on white | 8.32:1 |
-| Blue on tint | 7.43:1 |
-| Category label `#1E5AA0` on white | 6.94:1 |
-| Muted `#4A5568` on tint | 6.72:1 |
-| White on navy Enquire button | 17.52:1 |
-| White on WhatsApp green `#0F7A3F` | 5.42:1 |
-
-All pass AA.
+| Navy on white | 17.5:1 |
+| Blue `#1A3CC8` on white | 8.3:1 |
+| Steel `#1E5AA0` on white (focus ring) | 6.9:1 |
+| Steel on tint `#EAF3FF` | 6.2:1 |
+| Sky `#4DB8FF` on navy (focus ring) | 8.0:1 |
+| CTA note (tint) on navy | 15.7:1 |
+| White on WhatsApp green `#0F7A3F` | 5.4:1 |
 
 ---
 
-## 6. No-JavaScript Test
-
-With script execution disabled:
+## 6. Assets, Console and No-JS
 
 | Check | Result |
 |---|---|
-| Product cards visible | 37 / 37 |
-| Tab bar | Hidden |
-| Search field | Hidden |
-| Catalogue meta/count line | Hidden |
-| Static top-bar hours | Visible (`Open daily 8:00 AM – 9:00 PM`) |
-| Contact hours | Visible in static HTML |
-| WhatsApp links | Present and usable |
+| Catalogue images loaded after a full scroll | 37 / 37, 0 broken |
+| Homepage images | 2 / 2 |
+| Console errors / page errors | 0 / 0 |
+| JS disabled: products visible | 37 / 37 |
+| JS disabled: tabs / search / meta | Hidden (noscript rules) |
+| JS disabled: static hours | Visible in top bar, contact and footer |
+| JS disabled: enquiry tile | Visible (a normal link) |
+| `404.html` | Renders, `noindex`, links work, no overflow |
 
 ---
 
 ## 7. Code Quality and Security
 
-- ✅ No libraries, frameworks, CDNs or build step added
-- ✅ CSP and referrer policy unchanged; only Google Fonts and the Maps frame are external
-- ✅ Every `target="_blank"` link has `rel="noopener"` (both pages)
-- ✅ No duplicate IDs; no missing local anchor targets
-- ✅ Catalogue JS remains ES5-compatible and inside the existing IIFE
-- ✅ Cards are static HTML; the catalogue is never generated in JS
-- ✅ `node --check script.js` passes
-- ✅ No new dependencies
-
-### Test tools used
-- Headless Chrome + DevTools Protocol (custom Node script) for widths, filters,
-  search, deep links, sticky offsets, drawer keyboard behavior, focus rings,
-  reduced motion and image loading
-- Static Node audit of card data, labels, counts, WhatsApp messages and assets
-- Manual visual review of screenshots at 320, 375, 768, 1440 and 1920px
-
-No Lighthouse audit was re-run for this iteration.
+- No libraries, frameworks, CDNs, build step or new tooling
+- CSP tightened to `script-src 'self'` on both pages; no inline scripts
+- Only external requests: Google Fonts and the Google Maps frame
+- Every `target="_blank"` link keeps `rel="noopener"`
+- Catalogue remains static HTML — products are never generated in JS
+- `--header-height` is still measured at runtime; no hardcoded 72px in behaviour
+- Shared top bar, header, footer, float and mobile bar stay in sync across
+  `index.html` and `products.html`
 
 ---
 
 ## 8. Remaining Items
 
-1. **Real product photos** — replace the 18 SVG placeholders with real 4:3
-   photos when available and add meaningful alt text per card.
-2. **Unused legacy SVGs** — `mens-wear.svg`, `womens-wear.svg`, `kids-wear.svg`
-   and `fabrics.svg` are unreferenced and can be removed when convenient.
-3. **Owner verification** — confirm address spelling, phone and hours against the
-   Google Maps listing.
-4. **Gallery** — at least 4 distinct real photos are needed before enabling the
-   hidden gallery section on the homepage.
-5. **Tamil tagline** — owner to confirm final hero wording.
-6. **Reviews** — the five Google review texts on the homepage are verbatim and
+1. **Real product photos** — replace the 37 SVGs with real 4:3 photos and add
+   meaningful alt text per card.
+2. **Owner content** — Tamil tagline/translation review, FAQ/services wording
+   and any extra shop photos still need owner input.
+3. **Owner verification** — confirm address spelling, phone and hours against
+   the Google Maps listing.
+4. **Reviews** — the five Google review texts on the homepage are verbatim and
    must stay unchanged.
+5. **Custom domain / analytics** — not added; both need an owner decision.
 
 ---
 
 ## 9. Final Verdict
 
-**PASS** — all 37 products are present with correct categories and dynamic
-counts; all five filters, search combinations, empty state and deep links work;
-every Enquire button carries the correct product-specific WhatsApp message;
-37/37 images load; there is no horizontal overflow at any of the ten tested
-widths; keyboard, reduced-motion and no-JS behavior pass; and the console is
-clean. The catalogue is ready for review.
+**PASS** — the review items that can be completed without owner-supplied content
+are done: 37 unique illustrations, rebuilt hero, gallery/lightbox removed,
+contrast-safe focus rings, one-row mobile top bar, larger tap targets, tighter
+tabs with edge fades, search clear + category matching + query echo, product
+deep links that preserve the filter, copy-link toast, an enquiry tile, a real
+1200×630 share image, tightened CSP, robots/sitemap and a 404 page. All 37
+products still render with correct counts and WhatsApp links, there is no
+horizontal overflow at any tested width, and the console is clean.

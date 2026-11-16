@@ -1,0 +1,16 @@
+<svg width="800" height="600" viewBox="0 0 800 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <title>Flared frock</title>
+  <rect width="800" height="600" fill="#FBEAF3"/>
+  <circle cx="400" cy="300" r="198" fill="#FFFFFF" opacity="0.6"/>
+  <circle cx="638" cy="126" r="44" fill="#FFFFFF" opacity="0.35"/>
+  <circle cx="162" cy="482" r="56" fill="#FFFFFF" opacity="0.3"/>
+  <path d="M366 192 Q400 174 434 192 L442 266 L358 266 Z" fill="#FFFFFF" stroke="#173A6B" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M358 266 L300 446 Q400 486 500 446 L442 266 Z" fill="#FFFFFF" stroke="#173A6B" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M372 190 L348 206 L356 236 L374 226" fill="#FFFFFF" stroke="#173A6B" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M428 190 L452 206 L444 236 L426 226" fill="#FFFFFF" stroke="#173A6B" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M366 192 Q400 214 434 192" fill="none" stroke="#173A6B" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M382 258 Q366 268 358 262" fill="none" stroke="#E0659A" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M418 258 Q434 268 442 262" fill="none" stroke="#E0659A" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M400 262 V276" fill="none" stroke="#E0659A" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M334 404 Q366 422 400 424 Q434 422 466 404" fill="none" stroke="#E0659A" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" opacity="0.8"/>
+</svg>
